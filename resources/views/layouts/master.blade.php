@@ -3,10 +3,10 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Plato - Clean responsive bootstrap website template</title>
+    <title>PT. DIRGARAYA HARSA</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Clean responsive bootstrap website template">
-    <meta name="author" content="">
+    <meta name="description" content="">
+    <meta name="author" content="Thomas">
     <!-- styles -->
     <link href="{{asset('css/bootstrap.css')}}" rel="stylesheet">
     <link href="{{asset('css/bootstrap-responsive.css')}}" rel="stylesheet">
@@ -42,7 +42,7 @@
                     <div class="span4">
                         <!-- logo -->
                         <div class="logo">
-                            <h1><a href="index.html">Testing</a></h1>
+                            <h1><a href="index.html">PT. DIRGARAYA HARSA</a></h1>
                             <!-- <img src="assets/img/logo.png" alt="" /> -->
                         </div>
                         <!-- end logo -->
@@ -54,45 +54,57 @@
                             <div class="navbar-inner">
                                 <nav>
                                     <ul class="nav topnav">
+
+                                        <li class="dropdown">
+                                            <form>
+                                                <div class="input-append" style ="margin-top: 15px;">
+                                                    <input class="span2" id="appendedInputButton" type="text">
+                                                    <button class="btn btn-color" type="submit"><i class="icon-search"></i></button>
+                                                </div>
+                                            </form>
+                                        </li>
+
+                                        <li class="dropdown">
+                                            <a href="/cart"><i class="icon-shopping-cart icon-1x"></i></a>
+                                        </li>
+
                                         <li class="dropdown active">
-                                            <a href="index.html">Home</a>
+                                            <a href="/">Catalogues</a>
                                         </li>
                                         <li class="dropdown">
-                                            <a href="#">Features</a>
+                                            <a href="#">Order</a>
                                             <ul class="dropdown-menu">
-                                                <li><a href="scaffolding.html">Scaffolding</a></li>
-                                                <li class="dropdown"><a href="#">3rd level</a>
-                                                    <ul class="dropdown-menu sub-menu">
-                                                        <li><a href="#">Example menu</a></li>
-                                                        <li><a href="#">Example menu</a></li>
-                                                        <li><a href="#">Example menu</a></li>
-                                                    </ul>
-                                                </li>
+                                                <li><a href="/order">Order (Sales)</a></li>
+                                                <li><a href="/order">Order (Finance)</a></li>
                                             </ul>
                                         </li>
+
                                         <li class="dropdown">
-                                            <a href="#">Pages</a>
+                                            <a href="#">Procurement</a>
                                             <ul class="dropdown-menu">
-                                                <li><a href="about.html">About us</a></li>
-                                                <li><a href="pricingtable.html">Pricing table</a></li>
-                                                <li><a href="fullwidth.html">Fullwidth</a></li>
-                                                <li><a href="404.html">404</a></li>
+                                                <li><a href="/reorder">Reorder Activity</a></li>
+                                                <li><a href="/order/procure">Procure Order</a></li>
                                             </ul>
                                         </li>
+
                                         <li class="dropdown">
-                                            <a href="#">Portfolio</a>
+                                            <a href="#">Notification</a>
                                             <ul class="dropdown-menu">
-                                                <li><a href="portfolio-2cols.html">Portfolio 2 columns</a></li>
+                                                <li><a href="/product/outgoing">Outgoing Product</a></li>
+                                                <li><a href="/product/incoming">Incoming Product</a></li>
                                             </ul>
                                         </li>
-                                        <li class="dropdown">
-                                            <a href="#">Blog</a>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="blog_left_sidebar.html">Blog left sidebar</a></li>
-                                            </ul>
-                                        </li>
+<!-- 
                                         <li>
-                                            <a href="contact.html">Contact</a>
+                                            <a href="/inventory">Inventory</a>
+                                        </li> -->
+
+                                        <li class="dropdown">
+                                            <a href="#">Username</a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="/profile">Profile</a></li>
+                                                <li><a href="/logout">Logout</a></li>
+                                            </ul>
                                         </li>
                                     </ul>
                                 </nav>
@@ -107,10 +119,6 @@
     </div>
 </header>
 
-<section id="subintro">
-    @yield('sub_intro')
-</section>
-
 <section id="maincontent">
     @yield('main_content')
 </section>
@@ -119,7 +127,7 @@
 <footer class="footer">
     <div class="container">
         <div class="row">
-            <div class="span3">
+            <div class="span6">
                 <div class="widget">
                     <!-- logo -->
                     <div class="footerlogo">
@@ -134,27 +142,8 @@
                         <abbr title="Phone">P:</abbr> (123) 456-7890 </address>
                 </div>
             </div>
-            <div class="span3">
-                <div class="widget">
-                    <h5>Browse pages</h5>
-                    <ul class="list list-ok">
-                        <li><a href="#">Lorem ipsum dolor sit amet</a></li>
-                        <li><a href="#">Tamquam ponderum at eum, nibh dicta offendit mei</a></li>
-                        <li><a href="#">Vix no vidisse dolores intellegam</a></li>
-                        <li><a href="#">Est virtute feugiat accommodare eu</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="span3">
-                <div class="widget">
-                    <h5>Flickr photostream</h5>
-                    <div class="flickr_badge">
-                        <script type="text/javascript" src="http://www.flickr.com/badge_code_v2.gne?count=8&amp;display=random&amp;size=s&amp;layout=x&amp;source=user&amp;user=34178660@N03"></script>
-                    </div>
-                    <div class="clear"></div>
-                </div>
-            </div>
-            <div class="span3">
+           
+            <div class="span6">
                 <div class="widget">
                     <h5>Keep updated</h5>
                     <p>
