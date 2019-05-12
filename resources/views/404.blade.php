@@ -1,7 +1,7 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Astspv
- * Date: 5/9/2019
- * Time: 1:57 PM
- */
+
+<form method = "post" action ={{url('/test')}}>
+    {{csrf_field()}}
+
+    <input type = "text" name = "testing">
+    <button type="submit" class="btn">Generate Password</button>
+</form>

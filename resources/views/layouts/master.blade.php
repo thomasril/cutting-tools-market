@@ -42,65 +42,63 @@
                     <div class="span4">
                         <!-- logo -->
                         <div class="logo">
-                            <h1><a href="index.html">PT. DIRGARAYA HARSA</a></h1>
+                            <h1><a href="/">PT. DIRGARAYA HARSA</a></h1>
                             <!-- <img src="assets/img/logo.png" alt="" /> -->
                         </div>
                         <!-- end logo -->
                     </div>
-
                     <div class="span8">
                         <!-- top menu -->
                         <div class="navbar">
                             <div class="navbar-inner">
                                 <nav>
                                     <ul class="nav topnav">
+                                            <li class="dropdown navbar-customer">
+                                                <form>
+                                                    <div class="input-append" style ="margin-top: 15px;">
+                                                        <input class="span2" id="appendedInputButton" type="text">
+                                                        <button class="btn btn-color" type="submit"><i class="icon-search"></i></button>
+                                                    </div>
+                                                </form>
+                                            </li>
+
+                                            <li class="dropdown navbar-customer">
+                                                <a href="/cart"><i class="icon-shopping-cart icon-1x"></i></a>
+                                            </li>
 
                                         <li class="dropdown">
-                                            <form>
-                                                <div class="input-append" style ="margin-top: 15px;">
-                                                    <input class="span2" id="appendedInputButton" type="text">
-                                                    <button class="btn btn-color" type="submit"><i class="icon-search"></i></button>
-                                                </div>
-                                            </form>
-                                        </li>
-
-                                        <li class="dropdown">
-                                            <a href="/cart"><i class="icon-shopping-cart icon-1x"></i></a>
-                                        </li>
-
-                                        <li class="dropdown active">
                                             <a href="/">Catalogues</a>
                                         </li>
-                                        <li class="dropdown">
-                                            <a href="#">Order</a>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="/order">Order (Sales)</a></li>
-                                                <li><a href="/order">Order (Finance)</a></li>
-                                            </ul>
-                                        </li>
+
+                                            <li class="dropdown navbar-admin">
+                                                <a href="#">Order</a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="/order">Order (Sales)</a></li>
+                                                    <li><a href="/order">Order (Finance)</a></li>
+                                                </ul>
+                                            </li>
+
+                                            <li class="dropdown navbar-admin">
+                                                <a href="#">Procurement</a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="/reorder">Reorder Activity</a></li>
+                                                    <li><a href="/order/procure">Procure Order</a></li>
+                                                </ul>
+                                            </li>
+
+                                            <li class="dropdown navbar-admin">
+                                                <a href="#">Notification</a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="/product/outgoing">Outgoing Product</a></li>
+                                                    <li><a href="/product/incoming">Incoming Product</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class = "navbar-admin">
+                                                <a href="/inventory">Inventory</a>
+                                            </li>
 
                                         <li class="dropdown">
-                                            <a href="#">Procurement</a>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="/reorder">Reorder Activity</a></li>
-                                                <li><a href="/order/procure">Procure Order</a></li>
-                                            </ul>
-                                        </li>
-
-                                        <li class="dropdown">
-                                            <a href="#">Notification</a>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="/product/outgoing">Outgoing Product</a></li>
-                                                <li><a href="/product/incoming">Incoming Product</a></li>
-                                            </ul>
-                                        </li>
-<!-- 
-                                        <li>
-                                            <a href="/inventory">Inventory</a>
-                                        </li> -->
-
-                                        <li class="dropdown">
-                                            <a href="#">Username</a>
+                                            <a href="#">{{isset(Auth::user()->username) ? Auth::user()->name : 'username'}}</a>
                                             <ul class="dropdown-menu">
                                                 <li><a href="/profile">Profile</a></li>
                                                 <li><a href="/logout">Logout</a></li>
@@ -131,7 +129,7 @@
                 <div class="widget">
                     <!-- logo -->
                     <div class="footerlogo">
-                        <h6><a href="index.html">Plato</a></h6>
+                        <h6><a href="/">Plato</a></h6>
                         <!-- <img src="assets/img/logo.png" alt="" /> -->
                     </div>
                     <!-- end logo -->

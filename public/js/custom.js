@@ -132,5 +132,21 @@ jQuery(document).ready(function ($) {
 
   });
 
+    $(document).ready(function() {
+        var request = $.get('/checkUser');
+        request.done(function(response) {
+            if(response.check){
+                if(response.user.role == "Customer")
+                    $('.navbar-customer').show();
+                else
+                    $('.navbar-admin').show();
+            }
+            else{
+                $('.navbar-customer').hide();
+                $('.navbar-admin').hide();
+            }
+        });
+    });
+
 
 });

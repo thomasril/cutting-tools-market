@@ -1,5 +1,22 @@
 <?php
 
+Route::get('/register', 'Auth\RegisterController@index');
+
+Route::get('/login', 'Auth\LoginController@index');
+
+Route::get('/logout', 'Auth\LoginController@logout');
+
+Route::post('/register', 'Auth\RegisterController@register');
+
+Route::get('/test' , function () {
+    return view ('404');
+});
+
+Route::post('/test' , 'Auth\RegisterController@generatePass');
+
+
+Route::post('/login', 'Auth\LoginController@validateLogin');
+
 Route::get('/', function () {
     return view('home');
 });

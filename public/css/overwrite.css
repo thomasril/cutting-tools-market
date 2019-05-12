@@ -72,7 +72,6 @@ h6 {
     line-height: 1.5em;
     letter-spacing: -1px;
     margin-top: 0;
-    margin-bottom: 20px;
 }
 
 h1 {
@@ -208,6 +207,9 @@ input[type="color"],
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
     border-radius: 2px;
+    border: none;
+    border-bottom: 1px solid #c8ccd4;
+    min-width: 250px;
 }
 
 textarea,
