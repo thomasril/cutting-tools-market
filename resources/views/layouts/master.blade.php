@@ -53,6 +53,9 @@
                             <div class="navbar-inner">
                                 <nav>
                                     <ul class="nav topnav">
+                                        {{$role = isset(Auth::user()->role) ? Auth::user()->role : 'Guest'}}
+
+                                            @if($role == 'Customer')
                                             <li class="dropdown navbar-customer">
                                                 <form>
                                                     <div class="input-append" style ="margin-top: 15px;">
@@ -65,11 +68,13 @@
                                             <li class="dropdown navbar-customer">
                                                 <a href="/cart"><i class="icon-shopping-cart icon-1x"></i></a>
                                             </li>
+                                            @endif
 
                                         <li class="dropdown">
                                             <a href="/">Catalogues</a>
                                         </li>
 
+                                            @if (strpos($role, 'manager') || $role == 'Director')
                                             <li class="dropdown navbar-admin">
                                                 <a href="#">Order</a>
                                                 <ul class="dropdown-menu">
@@ -96,7 +101,9 @@
                                             <li class = "navbar-admin">
                                                 <a href="/inventory">Inventory</a>
                                             </li>
+                                            @endif
 
+                                        @if ($role != 'Guest')
                                         <li class="dropdown">
                                             <a href="#">{{isset(Auth::user()->username) ? Auth::user()->name : 'username'}}</a>
                                             <ul class="dropdown-menu">
@@ -104,6 +111,7 @@
                                                 <li><a href="/logout">Logout</a></li>
                                             </ul>
                                         </li>
+                                        @endif
                                     </ul>
                                 </nav>
                             </div>

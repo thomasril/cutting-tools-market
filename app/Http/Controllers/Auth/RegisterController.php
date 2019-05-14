@@ -14,34 +14,13 @@ use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
 class RegisterController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Register Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles the registration of new users as well as their
-    | validation and creation. By default this controller uses a trait to
-    | provide this functionality without requiring any additional code.
-    |
-    */
-
     use RegistersUsers;
 
-    /**
-     * Where to redirect users after registration.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/';
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('guest');
+    public function index(){
+          if(Auth::check()){
+            return redirect('/');
+        }
+        return view('register');
     }
 
     /**
@@ -62,9 +41,6 @@ class RegisterController extends Controller
         ]);
     }
 
-    public function index(){
-        return view ('register');
-    }
 
     public function register(Request $request)
     {
@@ -92,14 +68,9 @@ class RegisterController extends Controller
         $user->role="Customer";
         $user->save();
 
-        if (Auth::attempt(['username' => $request->username, 'password' => $request->password, 'role' => $request->role]))
-        {
-            Cookie::queue('username',$request->username,60);
-            return redirect('/');
-        }
+        Auth::login($user);
 
-        $err = 'There was an error!';
-        return redirect()->back()->withErrors(['err' => $err]);
+        return redirect('/');
     }
 
     /**
@@ -116,11 +87,7 @@ class RegisterController extends Controller
             'phone' => $data['phone'],
             'address' => $data['address'],
             'username' => $data['username'],
-            'password' => Hash::make($data['password']),
+            'password' => $data['password'],
         ]);
-    }
-
-    public function generatePass (Request $request) {
-        dd(Hash::make($request->testing));
     }
 }

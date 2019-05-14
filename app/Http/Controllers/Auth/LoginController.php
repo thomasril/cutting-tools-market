@@ -10,45 +10,18 @@ use App\User;
 use Illuminate\Support\Facades\Cookie;
 use Validator;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Auth\UserInterface;
 
 class LoginController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles authenticating users for the application and
-    | redirecting them to your home screen. The controller uses a trait
-    | to conveniently provide its functionality to your applications.
-    |
-    */
 
     use AuthenticatesUsers;
 
-    /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/';
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('guest')->except('logout');
-    }
-
     public function index(){
         if(Auth::check()){
-            return view('home');
+            return redirect ('/');
         }
-        $username = Cookie::get('username');
-        return view('login')->with(['username'=>$username]);
+        return view('login');
     }
 
     public function logout(){
@@ -63,17 +36,9 @@ class LoginController extends Controller
         ]);
     }
 
-    public function checkUser(){
-        if(Auth::check()){
-            $user = Auth::user();
-            return response()->json(['check'=>true,'user'=>$user]);
-        }
-        return response()->json(['check'=>false,]);
-    }
-
     protected function validateLogin(Request $request)
     {
-        $user = User::where('username', $request->username)->first();
+        $user = User::where('username', $request->username)->where('password', $request->password)->first();
 
         $validator = $this->validator($request->all());
 
@@ -91,13 +56,8 @@ class LoginController extends Controller
             return redirect()->back()->withErrors(['err' => $err]);
         }
 
-        if (Auth::attempt(['username' => $user->username, 'password' => $user->password, 'role' => $user->role]))
-        {
-            Cookie::queue('username',$user->username,60);
-            return redirect('/');
-        }
-        $err = 'Wrong username/password combination';
-        return redirect()->back()->withErrors(['err' => $err]);
+        Auth::login($user);
 
+        return redirect('/');
     }
 }

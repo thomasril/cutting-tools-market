@@ -18,7 +18,7 @@ class ProductController extends Controller
         if(Auth::check()){
             return view('home');
         }
-        return view('register');
+        return redirect('/login');
     }
 
     /**

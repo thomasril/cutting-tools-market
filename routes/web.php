@@ -8,18 +8,9 @@ Route::get('/logout', 'Auth\LoginController@logout');
 
 Route::post('/register', 'Auth\RegisterController@register');
 
-Route::get('/test' , function () {
-    return view ('404');
-});
-
-Route::post('/test' , 'Auth\RegisterController@generatePass');
-
-
 Route::post('/login', 'Auth\LoginController@validateLogin');
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', 'ProductController@index');
 
 Route::get('/profile', function(){
     return view('profile');
