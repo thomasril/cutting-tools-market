@@ -7,8 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     protected $table = 'products';
+    protected $primaryKey = 'product_id';
 
     protected $fillable = [
-        'type' , 'category', 'name', 'price', 'stock', 'flutes', 'coating', 'hardness', 'picture'
+        'category_id', 'name', 'price', 'stock'
     ];
+
+    public function productCategory(){
+        return $this->belongsTo("App\ProductCategory", 'category_id', 'category_id');
+    }
 }

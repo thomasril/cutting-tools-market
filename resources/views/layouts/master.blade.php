@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>PT. DIRGARAYA HARSA</title>
+    <title>PT. XYZ</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="Thomas">
@@ -42,7 +42,7 @@
                     <div class="span4">
                         <!-- logo -->
                         <div class="logo">
-                            <h1><a href="/">PT. DIRGARAYA HARSA</a></h1>
+                            <h1><a href="/">PT. XYZ</a></h1>
                             <!-- <img src="assets/img/logo.png" alt="" /> -->
                         </div>
                         <!-- end logo -->
