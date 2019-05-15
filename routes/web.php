@@ -12,7 +12,9 @@ Route::post('/register', 'Auth\RegisterController@register');
 
 Route::post('/login', 'Auth\LoginController@validateLogin');
 
-Route::get('/', 'ProductController@index');
+Route::get('/', 'ProductCategoryController@index');
+
+Route::get('/category/{id}/catalogue', 'ProductController@index');
 
 Route::get('/profile', function(){
     return view('profile');

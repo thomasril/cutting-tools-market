@@ -6,6 +6,7 @@
 	background: #333;
 	height: 40px;
 	padding:10px 0 20px 0;
+    z-index: 1;
 	-webkit-transition: height 0.3s;
 	-moz-transition: height 0.3s;
 	transition: height 0.3s;

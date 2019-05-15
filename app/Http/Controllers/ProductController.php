@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Product;
+use App\ProductCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -13,9 +15,13 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        return view('home');
+        $products = Product::where('category_id', $id)->with('productCategory')->with('productType')->get();
+//      $products = DB::table('products')->where('category_id', $id)->join('product_types', 'product_types.type_id', '=', 'products.type_id')->get();
+
+
+        return view('product-detail')->with('products', $products);
     }
 
     public function create()

@@ -18,7 +18,7 @@ class UserTableSeeder extends Seeder
             'phone'=> '0818-0607-0814',
             'address'=> 'Jl. Sawah Lio No. 17 Jakarta Barat 11250',
             'username'=> 'boen16',
-            'password'=> '$2y$10$Io/W5/Jr73bdyknHhSHfFeY9I2FxgPV4NTePpzTE0Uu.yxb7vcE9q',
+            'password'=> 'bh0111',
             'role'=> 'Finance manager',
             'created_at'=> '2019-05-12 07:50:00',
             'updated_at'=> NULL
@@ -31,7 +31,7 @@ class UserTableSeeder extends Seeder
             'phone'=> '0896-7759-8696',
             'address'=> 'Jl. Tanah Sereal 18 No. 30 Jakarta Barat 11210',
             'username'=> 'rian23',
-            'password'=> '$2y$10$jQD5lYH/YAJHDIwLBOl7Ne396P6e0czfNwjKitSTmzoLMl0oNwdde',
+            'password'=> 'ri0206',
             'role'=> 'Procurement manager',
             'created_at'=> '2019-05-12 07:50:00',
             'updated_at'=> NULL
@@ -44,7 +44,7 @@ class UserTableSeeder extends Seeder
             'phone'=> '0816-1607-006',
             'address'=> 'Jl. Jelambar Madya III Blok C3 No. 800 Jakarta Barat 11460',
             'username'=> 'lili06',
-            'password'=> '$2y$10$300ly8HOD/UI81VkihHsHOLK.0AIWkgrgIeRohKuhZD.MDoU5M6l.',
+            'password'=> 'lh0301',
             'role'=> 'Logistic manager',
             'created_at'=> '2019-05-12 07:50:00',
             'updated_at'=> NULL
@@ -57,7 +57,7 @@ class UserTableSeeder extends Seeder
             'phone'     => '0857-9380-0486',
             'address'   => 'Jl. Duri Selatan 6 No. 21A Jakarta Barat 11270',
             'username'  => 'moch09',
-            'password'  => '$2y$10$pRGBWfIytzgphuxiY00XY.cd...sU2IispIfIeoq1Y.vk7yBrCALK',
+            'password'  => 'mk0410',
             'role'      => 'Sales manager',
             'created_at'=> '2019-05-12 07:50:00',
             'updated_at'=> NULL
@@ -70,7 +70,7 @@ class UserTableSeeder extends Seeder
             'phone'     => '0818-0607-0814',
             'address'   => 'Jl. Sawah Lio No. 17 Jakarta Barat 11250',
             'username'  => 'boen65',
-            'password'  => '$2y$10$/3wKgdYux9/ccrWrKtu6SOQdckZB4kuzbmSdsPCnU177UG3kadJG2',
+            'password'  => 'bh0112',
             'role'      => 'Director',
             'created_at'=> '2019-05-12 07:50:00',
             'updated_at'=> NULL
@@ -202,6 +202,32 @@ class UserTableSeeder extends Seeder
             'username'  => 'bengkel010',
             'password'  => 'bdj3458',
             'role' => 'Customer',
+            'created_at'=> '2019-05-12 07:50:00',
+            'updated_at'=> NULL
+        ]);
+
+        DB::table('users')->insert([
+            'id' => '17',
+            'name' => 'Lasting Victory',
+            'email'     => 'yuanjiun@ms49.hinet.net',
+            'phone'     => '886-4-2350-9999',
+            'address'   => 'No.40, Gonyequ 34th Rd. Xitun District, Taichung, 40768, Taiwan',
+            'username'  => '',
+            'password'  => '',
+            'role' => 'Supplier',
+            'created_at'=> '2019-05-12 07:50:00',
+            'updated_at'=> NULL
+        ]);
+
+        DB::table('users')->insert([
+            'id' => '18',
+            'name' => 'M&V',
+            'email'     => 'sales@mav.cz',
+            'phone'     => '00420-571-484-853',
+            'address'   => '4. května 288755 01 VSETÍN',
+            'username'  => '',
+            'password'  => '',
+            'role' => 'Supplier',
             'created_at'=> '2019-05-12 07:50:00',
             'updated_at'=> NULL
         ]);

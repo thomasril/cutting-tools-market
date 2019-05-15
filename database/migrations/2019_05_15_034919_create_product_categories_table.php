@@ -15,11 +15,10 @@ class CreateProductCategoriesTable extends Migration
     {
         Schema::create('product_categories', function (Blueprint $table) {
             $table->bigIncrements('category_id');
-            $table->string('type');
             $table->string('category');
             $table->string('material')->nullable();
             $table->string('flutes')->nullable();
-            $table->integer('coating')->nullable();
+            $table->string('coating')->nullable();
             $table->string('hardness')->nullable();
             $table->string('picture');
             $table->timestamps();

@@ -9,7 +9,7 @@ class ProductCategory extends Model
     protected $primaryKey = 'category_id';
 
     protected $fillable = [
-        'type' , 'category', 'flutes', 'coating', 'hardness', 'picture'
+        'category', 'flutes', 'coating', 'hardness', 'picture'
     ];
 
     public function product(){
