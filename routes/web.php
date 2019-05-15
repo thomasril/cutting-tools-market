@@ -6,6 +6,8 @@ Route::get('/login', 'Auth\LoginController@index');
 
 Route::get('/logout', 'Auth\LoginController@logout');
 
+Route::post('/confirmation', 'Auth\RegisterController@checkRegisterData');
+
 Route::post('/register', 'Auth\RegisterController@register');
 
 Route::post('/login', 'Auth\LoginController@validateLogin');

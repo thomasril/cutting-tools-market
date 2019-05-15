@@ -250,8 +250,8 @@ select.selectmenu {
 /* main content */
 
 #maincontent {
-    z-index: 1000;
-    margin-top: 7%;
+    z-index: -1;
+    margin-top: 50px;
     padding: 20px 0 0 0;
 }
 

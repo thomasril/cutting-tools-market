@@ -3,6 +3,15 @@
 @section('main_content')
 
 <form class="form-horizontal" style = "margin: auto; width:500px; margin-top: 20px;" method = "post" action="{{url('/login')}}">
+
+    @if($errors->any())
+
+        <div class="alert alert-danger alert-dismissible fade in">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            {{$errors->first()}}
+        </div>
+    @endif
+
     <div class="control-group">
         <div class="controls"><h2>Login</h2></div>
     </div>

@@ -17,18 +17,12 @@ class RegisterController extends Controller
     use RegistersUsers;
 
     public function index(){
-          if(Auth::check()){
+      if(Auth::check()){
             return redirect('/');
         }
         return view('register');
     }
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
     protected function validator(array $data)
     {
         return Validator::make($data, [
@@ -37,12 +31,12 @@ class RegisterController extends Controller
             'phone' => ['required', 'string', 'max:255'],
             'address' => ['required', 'string'],
             'username' => ['required', 'string', 'max:255'],
-            'password' => ['required', 'string', 'min:8'],
+            'password' => ['required', 'string', 'min:5 '],
         ]);
     }
 
 
-    public function register(Request $request)
+    public function checkRegisterData(Request $request)
     {
         $validator = $this->validator($request->all());
 
@@ -50,17 +44,31 @@ class RegisterController extends Controller
             return redirect()->back()->withErrors($validator);
         }
 
-        $user = User::where('username', $request->username)->first();
+        $user = User::where('username', $request->username)->where('password', $request->password)->first();
         if(!$user) {
-            $err = 'Username not found!';
+            $err = "User not found! 
+            Maaf, username / password yang Anda masukkan tidak sesuai.
+             Pastikan Anda telah terdaftar sebagai konsumen PT. Dirgaraya Harsa.";
             return redirect()->back()->withErrors(['err' => $err]);
         }
 
         if ($user->name != null){
-            $err = 'You have already registered!';
+            $err = "You have already registered! 
+            Anda telah terdaftar sebelumnya dengan username ".$user->username.". 
+             Silakan lakukan Login.";
             return redirect()->back()->withErrors(['err' => $err]);
         }
 
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->phone = $request->phone;
+        $user->address = $request->address;
+
+        return view('confirmation')->with('user', $user);
+    }
+
+    public function register (Request $request) {
+        $user = User::where('username', $request->username)->where('password', $request->password)->first();
         $user->name = $request->name;
         $user->email = $request->email;
         $user->phone = $request->phone;
@@ -69,16 +77,9 @@ class RegisterController extends Controller
         $user->save();
 
         Auth::login($user);
-
-        return redirect('/');
+        return view('profile-saved')->with('user', $user);
     }
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\User
-     */
     protected function create(array $data)
     {
         return User::create([

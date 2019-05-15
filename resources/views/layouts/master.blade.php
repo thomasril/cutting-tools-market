@@ -105,7 +105,7 @@
 
                                         @if ($role != 'Guest')
                                         <li class="dropdown">
-                                            <a href="#">{{isset(Auth::user()->username) ? Auth::user()->name : 'username'}}</a>
+                                            <a href="#">{{isset(Auth::user()->username) ? Auth::user()->username : 'username'}}</a>
                                             <ul class="dropdown-menu">
                                                 <li><a href="/profile">Profile</a></li>
                                                 <li><a href="/logout">Logout</a></li>

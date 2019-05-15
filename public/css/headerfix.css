@@ -4,9 +4,8 @@
 	left: 0;
 	width: 100%;
 	background: #333;
-	z-index: 10000;
-	height: 60px;
-	padding:20px 0 20px 0;
+	height: 40px;
+	padding:10px 0 20px 0;
 	-webkit-transition: height 0.3s;
 	-moz-transition: height 0.3s;
 	transition: height 0.3s;
