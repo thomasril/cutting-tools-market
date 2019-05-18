@@ -16,9 +16,7 @@ Route::get('/', 'ProductCategoryController@index');
 
 Route::get('/category/{id}/catalogue', 'ProductController@index');
 
-Route::get('/profile', function(){
-    return view('profile');
-});
+Route::get('/profile', 'UserController@index');
 
 Route::get('/profile/update', function(){
     return view('profile-update');

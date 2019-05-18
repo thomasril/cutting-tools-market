@@ -31,6 +31,11 @@
     height: 100%;
 }
 
+#maincontent .container {
+    margin-top: 20px;
+    min-height: 800px;
+}
+
 iframe {
     border: none;
 }
@@ -1277,6 +1282,11 @@ i.icon-bg-dark {
     padding: 0;
 }
 
+.form-horizontal {
+    margin:auto;
+    width:500px;
+}
+
 /* accordion */
 
 .accordion {
@@ -1945,10 +1955,11 @@ footer .footerlogo h6 a:hover {
 
 footer {
     padding-top: 30px;
-    color: #7e7e7e;
+    color: white;
 }
 
 footer.footer {
+
     background: #3a3a3a;
 }
 
