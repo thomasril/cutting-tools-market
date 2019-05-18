@@ -1,7 +1,7 @@
 @extends('layouts/master')
 
 @section('main_content')
-    <div class="container" style="margin-top: 40px">
+    <div class="container">
         <div class="row">
             <div class="span12">
                 <!-- portfolio filter -->
