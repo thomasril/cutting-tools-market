@@ -209,7 +209,6 @@ input[type="color"],
     border-radius: 2px;
     border: none;
     border-bottom: 1px solid #c8ccd4;
-    min-width: 250px;
 }
 
 textarea,

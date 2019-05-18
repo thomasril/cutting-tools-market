@@ -14,12 +14,12 @@
                     <!-- start flexslider -->
                     <div class="flexslider">
                         <ul class="slides">
-                            {{$dir = '../../assets/img/products/Carbide Ball Nose_Long Type/'}}
-                            @foreach(glob($dir) as $file)
-                                <li>
-                                    {{$file}}
-                                </li>
-                            @endforeach
+                            {{--{{$dir = '../../assets/img/products/Carbide Ball Nose_Long Type/'}}--}}
+                            {{--@foreach(glob($dir) as $file)--}}
+                                {{--<li>--}}
+                                    {{--{{$file}}--}}
+                                {{--</li>--}}
+                            {{--@endforeach--}}
                             {{--<li>--}}
                                 {{--<img src="{{asset('assets/img/products/Drill.jpeg')}}" alt="" />--}}
                             {{--</li>--}}

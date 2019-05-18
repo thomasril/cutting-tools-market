@@ -17,11 +17,14 @@ class ProductController extends Controller
      */
     public function index($id)
     {
-        $products = Product::where('category_id', $id)->with('productCategory')->with('productType')->get();
+        if (Auth::check()) {
+            $products = Product::where('category_id', $id)->with('productCategory')->with('productType')->get();
+            return view('product-detail')->with('products', $products);
+        }
+
 //      $products = DB::table('products')->where('category_id', $id)->join('product_types', 'product_types.type_id', '=', 'products.type_id')->get();
 
-
-        return view('product-detail')->with('products', $products);
+        return redirect('/');
     }
 
     public function create()

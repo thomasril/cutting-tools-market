@@ -28,6 +28,8 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{asset('assets/ico/apple-touch-icon-114-precomposed.png')}}">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{asset('assets/ico/apple-touch-icon-72-precomposed.png')}}">
     <link rel="apple-touch-icon-precomposed" href="{asset('assets/ico/apple-touch-icon-57-precomposed.png')}}">
+
+    {{$role = isset(Auth::user()->role) ? Auth::user()->role : 'Guest'}}
 </head>
 
 <body>
@@ -53,10 +55,9 @@
                             <div class="navbar-inner">
                                 <nav>
                                     <ul class="nav topnav">
-                                        {{$role = isset(Auth::user()->role) ? Auth::user()->role : 'Guest'}}
 
                                             @if($role == 'Customer')
-                                            <li class="dropdown navbar-customer">
+                                            <li class="dropdown">
                                                 <form>
                                                     <div class="input-append" style ="margin-top: 15px;">
                                                         <input class="span2" id="appendedInputButton" type="text">
@@ -65,14 +66,27 @@
                                                 </form>
                                             </li>
 
-                                            <li class="dropdown navbar-customer">
+                                            <li class="dropdown">
                                                 <a href="/cart"><i class="icon-shopping-cart icon-1x"></i></a>
                                             </li>
                                             @endif
 
-                                        <li class="dropdown">
-                                            <a href="/">Catalogues</a>
-                                        </li>
+                                            <li class="dropdown">
+                                                <a href="/">Catalogues</a>
+                                            </li>
+                                            @if($role == 'Guest')
+                                            <li class="dropdown">
+                                                <a href="#">
+                                                    <form method = "post" action="{{url('/login')}}">
+                                                        {{csrf_field()}}
+                                                        <input type = "text" class = "input-medium" placeholder="Username" name = "username">
+                                                        <input type = "password" class = "input-medium" placeholder="Password" name = "password">
+                                                        <button class = "btn btn-color" type = "submit" style = "margin-top: -10px">Login</button>
+
+                                                    </form>
+                                                </a>
+                                            </li>
+                                            @endif
 
                                             @if (strpos($role, 'manager') || $role == 'Director')
                                             <li class="dropdown navbar-admin">

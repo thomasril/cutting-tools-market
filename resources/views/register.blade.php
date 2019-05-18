@@ -16,26 +16,26 @@
         </div>
         {{csrf_field()}}
         <div class="control-group">
-            <div class="controls"> <input type="text" placeholder="Company Name" name = "name" required></div>
+            <div class="controls"> <input type="text" class = "input-xlarge" placeholder="Company Name" name = "name" required></div>
         </div>
 
         <div class="control-group">
-            <div class="controls"> <input type="text" placeholder="Company Phone Number" name = "phone" required></div>
+            <div class="controls"> <input type="text" class = "input-xlarge" placeholder="Company Phone Number" name = "phone" required></div>
         </div>
 
         <div class="control-group">
-            <div class="controls"> <textarea rows="4" cols="50" placeholder="Company Address" name="address"></textarea></div>
+            <div class="controls"> <textarea rows="4"  class = "input-xlarge" cols="50" placeholder="Company Address" name="address"></textarea></div>
         </div>
         <div class="control-group">
-            <div class="controls"> <input type="email" placeholder="Company Email" name = "email" required></div>
-        </div>
-
-        <div class="control-group">
-            <div class="controls"> <input type="text" placeholder="Username" name = "username" required></div>
+            <div class="controls"> <input type="email" class = "input-xlarge" placeholder="Company Email" name = "email" required></div>
         </div>
 
         <div class="control-group">
-            <div class="controls"> <input type="password" placeholder="Password" name = "password" required></div>
+            <div class="controls"> <input type="text"  class = "input-xlarge" placeholder="Username" name = "username" required></div>
+        </div>
+
+        <div class="control-group">
+            <div class="controls"> <input type="password" class = "input-xlarge" placeholder="Password" name = "password" required></div>
         </div>
 
         <div class="control-group">
