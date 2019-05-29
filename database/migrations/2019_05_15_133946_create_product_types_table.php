@@ -6,26 +6,14 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateProductTypesTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('product_types', function (Blueprint $table) {
-            $table->bigIncrements('type_id');
-            $table->string('name');
-            $table->string('pictures');
+            $table->integerIncrements('type_id');
+            $table->string('name', 100);
             $table->timestamps();
         });
     }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('product_types');

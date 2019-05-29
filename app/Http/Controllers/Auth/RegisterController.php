@@ -7,12 +7,11 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
 class RegisterController extends Controller
 {
-    use RegistersUsers;
+//    use RegistersUsers;
 
     public function index(){
       if(Auth::check()){

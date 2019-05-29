@@ -6,30 +6,20 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateProductCategoriesTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('product_categories', function (Blueprint $table) {
-            $table->bigIncrements('category_id');
-            $table->string('category');
-            $table->string('material')->nullable();
-            $table->string('flutes')->nullable();
-            $table->string('coating')->nullable();
-            $table->string('hardness')->nullable();
+            $table->integerIncrements('category_id');
+            $table->string('name', 100);
+            $table->string('material', 100)->nullable();
+            $table->string('flutes', 100)->nullable();
+            $table->string('coating', 100)->nullable();
+            $table->string('hardness', 100)->nullable();
             $table->string('picture');
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('product_categories');

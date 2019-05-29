@@ -9,7 +9,7 @@
         </div>
     @endif
 
-    <form class="form-horizontal" style = "margin: auto; width:500px; margin-top: 20px;" method = "post" action="{{url('/register')}}">
+    <form class="form-horizontal" style = "margin: auto; width:500px; margin-top: 20px;" method = "post" action="/register">
         <div class="control-group">
             <div class="controls"><h2>Confirm your company profile</h2></div>
             <div class="controls"><label>Periksa kembali data perusahaan Anda. Pastikan Anda telah mengisinya dengan benar.</label></div>

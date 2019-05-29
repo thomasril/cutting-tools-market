@@ -4,16 +4,11 @@ use Illuminate\Database\Seeder;
 
 class ProductCategoryTableSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
         DB::table('product_categories')->insert([
             'category_id'=> 1,
-            'category'  => 'Carbide End Mill',
+            'name'      => 'Carbide End Mill',
             'material'  => 'Carbide',
             'flutes'    => '4-Flute',
             'coating'   => 'Extreme coated',
@@ -25,7 +20,7 @@ class ProductCategoryTableSeeder extends Seeder
 
         DB::table('product_categories')->insert([
             'category_id'=> 2,
-            'category'  => 'Carbide Ball Nose',
+            'name'      => 'Carbide Ball Nose',
             'material'  => 'Carbide',
             'flutes'    => '2-Flute',
             'coating'   => 'Extreme coated',
@@ -37,7 +32,7 @@ class ProductCategoryTableSeeder extends Seeder
 
         DB::table('product_categories')->insert([
             'category_id' => 3,
-            'category'  => 'Drill',
+            'name'      => 'Drill',
             'material'  => 'High-Speed Steel (HSS)',
             'flutes'    => NULL,
             'coating'   => NULL,
@@ -49,7 +44,7 @@ class ProductCategoryTableSeeder extends Seeder
 
         DB::table('product_categories')->insert([
             'category_id' => 4,
-            'category'  => 'Reamer',
+            'name'      => 'Reamer',
             'material'  => 'High-Speed Steel (HSS)',
             'flutes'    => 'Straight Flute',
             'coating'   => NULL,
@@ -61,7 +56,7 @@ class ProductCategoryTableSeeder extends Seeder
 
         DB::table('product_categories')->insert([
             'category_id' => 5,
-            'category'  => 'Tap',
+            'name'      => 'Tap',
             'material'  => 'High-Speed Steel (HSS)',
             'flutes'    => NULL,
             'coating'   => NULL,
@@ -73,7 +68,7 @@ class ProductCategoryTableSeeder extends Seeder
 
         DB::table('product_categories')->insert([
             'category_id' => 6,
-            'category'  => 'HSS End Mill',
+            'name'      => 'HSS End Mill',
             'material'  => 'Cobalt High-Speed Steel (HSS)',
             'flutes'    => '2-Flutes and 4 Flutes',
             'coating'   => NULL,

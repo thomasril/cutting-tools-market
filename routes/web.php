@@ -14,7 +14,17 @@ Route::post('/login', 'Auth\LoginController@validateLogin');
 
 Route::get('/', 'ProductCategoryController@index');
 
+Route::get('/search', 'ProductCategoryController@search');
+
 Route::get('/category/{id}/catalogue', 'ProductController@index');
+
+Route::get('/cart', 'CartController@index');
+
+Route::post('/cart/add', 'CartController@store');
+
+Route::post('/cart/delete/{id}', 'CartController@destroy');
+
+Route::get('/checkout', 'CartController@checkout');
 
 Route::get('/profile', 'UserController@index');
 
@@ -22,18 +32,11 @@ Route::get('/profile/update', function(){
     return view('profile-update');
 });
 
-Route::get('/cart', function(){
-    return view('cart');
-});
-
-Route::get('/checkout', function(){
-    return view('checkout');
-});
 
 Route::get('/inventory', function(){
-    return view('layouts/master');
+    return view('inventory');
 });
 
 Route::get('/order', function(){
-    return view('layouts/master');
+    return view('order');
 });

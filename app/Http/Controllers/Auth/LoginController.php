@@ -14,9 +14,6 @@ use Illuminate\Auth\UserInterface;
 
 class LoginController extends Controller
 {
-
-    use AuthenticatesUsers;
-
     public function index(){
         if(Auth::check()){
             return redirect ('/');
