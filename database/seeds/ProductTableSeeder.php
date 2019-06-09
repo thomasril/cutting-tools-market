@@ -12,7 +12,8 @@ class ProductTableSeeder extends Seeder
             'type_id'       => 1,
             'name'          => '2 mm Carbide End Mill',
             'price'         => 91000,
-            'stock'         => 10,
+            'stock'         => 14,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -23,7 +24,8 @@ class ProductTableSeeder extends Seeder
             'type_id'       => 1,
             'name'          => '3 mm Carbide End Mill',
             'price'         => 91000,
-            'stock'         => 10,
+            'stock'         => 20,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -34,7 +36,8 @@ class ProductTableSeeder extends Seeder
             'type_id'       => 1,
             'name'          => '4 mm Carbide End Mill',
             'price'         => 91000,
-            'stock'         => 10,
+            'stock'         => 12,
+            'lot_size'      => 6,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -45,7 +48,8 @@ class ProductTableSeeder extends Seeder
             'type_id'       => 1,
             'name'          => '5 mm Carbide End Mill',
             'price'         => 127000,
-            'stock'         => 10,
+            'stock'         => 5,
+            'lot_size'      => 8,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -56,7 +60,8 @@ class ProductTableSeeder extends Seeder
             'type_id'       => 1,
             'name'          => '6 mm Carbide End Mill',
             'price'         => 127000,
-            'stock'         => 10,
+            'stock'         => 6,
+            'lot_size'      => 12,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -68,6 +73,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '8 mm Carbide End Mill',
             'price'         => 236000,
             'stock'         => 10,
+            'lot_size'      => 7,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -78,7 +84,8 @@ class ProductTableSeeder extends Seeder
             'type_id'       => 1,
             'name'          => '10 mm Carbide End Mill',
             'price'         => 358000,
-            'stock'         => 10,
+            'stock'         => 8,
+            'lot_size'      => 11,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -89,7 +96,8 @@ class ProductTableSeeder extends Seeder
             'type_id'       => 1,
             'name'          => '12 mm Carbide End Mill',
             'price'         => 471000,
-            'stock'         => 10,
+            'stock'         => 5,
+            'lot_size'      => 14,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -100,7 +108,8 @@ class ProductTableSeeder extends Seeder
             'type_id'       => 1,
             'name'          => '16 mm Carbide End Mill',
             'price'         => 1295000,
-            'stock'         => 10,
+            'stock'         => 5,
+            'lot_size'      => 12,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -111,7 +120,8 @@ class ProductTableSeeder extends Seeder
             'type_id'       => 1,
             'name'          => '20 mm Carbide End Mill',
             'price'         => 1555000,
-            'stock'         => 10,
+            'stock'         => 5,
+            'lot_size'      => 3,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -124,6 +134,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '4 X 100 mm Carbide End Mill',
             'price'         => 243000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -135,6 +146,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '6 X 100 mm Carbide End Mill',
             'price'         => 243000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -146,6 +158,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '8 X 100 mm Carbide End Mill',
             'price'         => 352000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -157,6 +170,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '10 X 100 mm Carbide End Mill',
             'price'         => 496000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -168,6 +182,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '12 X 100 mm Carbide End Mill',
             'price'         => 613000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -179,6 +194,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '6 X 150 mm Carbide End Mill',
             'price'         => 274000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -190,6 +206,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '8 X 150 mm Carbide End Mill',
             'price'         => 429600,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -201,6 +218,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '10 X 150 mm Carbide End Mill',
             'price'         => 516000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -212,6 +230,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '12 X 150 mm Carbide End Mill',
             'price'         => 636800,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -223,6 +242,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '16 X 150 mm Carbide End Mill',
             'price'         => 1540000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -235,6 +255,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '2 mm Carbide End Nose',
             'price'         => 142000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -246,6 +267,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '3 mm Carbide End Nose',
             'price'         => 142000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -257,17 +279,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '4 mm Carbide End Nose',
             'price'         => 142000,
             'stock'         => 10,
-            'created_at'    => '2019-05-12 07:50:00',
-            'updated_at'    => NULL
-        ]);
-
-        DB::table('products')->insert([
-            'product_id'    => '40204',
-            'category_id'   => 2,
-            'type_id'       => 3,
-            'name'          => '4 mm Carbide End Nose',
-            'price'         => 142000,
-            'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -279,6 +291,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '5 mm Carbide End Nose',
             'price'         => 284000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -290,6 +303,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '6 mm Carbide End Nose',
             'price'         => 284000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -301,6 +315,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '8 mm Carbide End Nose',
             'price'         => 309000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -312,6 +327,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '10 mm Carbide End Nose',
             'price'         => 517000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -323,6 +339,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '12 mm Carbide End Nose',
             'price'         => 662000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -334,6 +351,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '16 mm Carbide End Nose',
             'price'         => 1405000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -345,6 +363,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '20 mm Carbide End Nose',
             'price'         => 1739000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -357,6 +376,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '4 x 100 mm Carbide End Nose',
             'price'         => 259000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -368,6 +388,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '6 x 100 mm Carbide End Nose',
             'price'         => 259000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -379,6 +400,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '8 x 100 mm Carbide End Nose',
             'price'         => 365000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -390,6 +412,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '10 x 100 mm Carbide End Nose',
             'price'         => 580000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -401,6 +424,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '12 x 100 mm Carbide End Nose',
             'price'         => 725000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -412,6 +436,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '6 x 150 mm Carbide End Nose',
             'price'         => 343000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -423,6 +448,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '8 x 150 mm Carbide End Nose',
             'price'         => 537000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -434,6 +460,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '10 x 150 mm Carbide End Nose',
             'price'         => 645000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -445,6 +472,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '12 x 150 mm Carbide End Nose',
             'price'         => 796000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -456,6 +484,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '16 x 150 mm Carbide End Nose',
             'price'         => 1726200,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -468,6 +497,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '1 mm Straight Shank Drill',
             'price'         => 80200,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -479,6 +509,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '2 mm Straight Shank Drill',
             'price'         => 80200,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -490,6 +521,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '3 mm Straight Shank Drill',
             'price'         => 80200,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -501,6 +533,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '4 mm Straight Shank Drill',
             'price'         => 105000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -512,6 +545,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '5 mm Straight Shank Drill',
             'price'         => 147000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -523,6 +557,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '6 mm Straight Shank Drill',
             'price'         => 191800,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -534,6 +569,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '7 mm Straight Shank Drill',
             'price'         => 238000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -545,6 +581,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '8 mm Straight Shank Drill',
             'price'         => 300700,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -556,6 +593,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '9 mm Straight Shank Drill',
             'price'         => 390500,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -567,6 +605,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '10 mm Straight Shank Drill',
             'price'         => 503500,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -578,6 +617,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '11 mm Straight Shank Drill',
             'price'         => 186000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -589,6 +629,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '12 mm Straight Shank Drill',
             'price'         => 225000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -600,6 +641,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '13 mm Straight Shank Drill',
             'price'         => 267000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -611,6 +653,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '14 mm Straight Shank Drill',
             'price'         => 405000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -622,6 +665,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '15 mm Straight Shank Drill',
             'price'         => 468000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -633,6 +677,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '16 mm Straight Shank Drill',
             'price'         => 525000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -644,6 +689,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '17 mm Straight Shank Drill',
             'price'         => 597000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -655,6 +701,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '18 mm Straight Shank Drill',
             'price'         => 777000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -666,6 +713,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '19 mm Straight Shank Drill',
             'price'         => 849000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -677,6 +725,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '20 mm Straight Shank Drill',
             'price'         => 1053000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -689,6 +738,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '12 mm Taper Shank Drill',
             'price'         => 394500,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -700,6 +750,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '13 mm Taper Shank Drill',
             'price'         => 246000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -711,6 +762,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '14 mm Taper Shank Drill',
             'price'         => 357000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -722,6 +774,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '15 mm Taper Shank Drill',
             'price'         => 422000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -733,6 +786,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '16 mm Taper Shank Drill',
             'price'         => 464000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -744,6 +798,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '17 mm Taper Shank Drill',
             'price'         => 393000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -755,6 +810,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '18 mm Taper Shank Drill',
             'price'         => 421000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -766,6 +822,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '19 mm Taper Shank Drill',
             'price'         => 463000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -777,6 +834,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '20 mm Taper Shank Drill',
             'price'         => 510000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -789,6 +847,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '10 mm Hand Reamer',
             'price'         => 360000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -800,6 +859,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '11 mm Hand Reamer',
             'price'         => 406500,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -811,6 +871,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '12 mm Hand Reamer',
             'price'         => 442000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -822,6 +883,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '13 mm Hand Reamer',
             'price'         => 534000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -833,6 +895,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '14 mm Hand Reamer',
             'price'         => 571500,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -844,6 +907,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '15 mm Hand Reamer',
             'price'         => 670500,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -855,6 +919,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '16 mm Hand Reamer',
             'price'         => 729000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -867,6 +932,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '10 mm Machine Reamer',
             'price'         => 277000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -878,6 +944,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '11 mm Machine Reamer',
             'price'         => 330600,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -889,6 +956,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '12 mm Machine Reamer',
             'price'         => 330600,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -900,6 +968,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '13 mm Machine Reamer',
             'price'         => 368000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -911,6 +980,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '14 mm Machine Reamer',
             'price'         => 375000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -922,6 +992,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '15 mm Machine Reamer',
             'price'         => 496000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -933,6 +1004,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '16 mm Machine Reamer',
             'price'         => 503000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -945,6 +1017,7 @@ class ProductTableSeeder extends Seeder
             'name'          => 'M4 x 0.7 mm Hand Tap',
             'price'         => 206000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -956,6 +1029,7 @@ class ProductTableSeeder extends Seeder
             'name'          => 'M5 x 0.8 mm Hand Tap',
             'price'         => 210000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -967,6 +1041,7 @@ class ProductTableSeeder extends Seeder
             'name'          => 'M6 x 1.0 mm Hand Tap',
             'price'         => 224000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -978,6 +1053,7 @@ class ProductTableSeeder extends Seeder
             'name'          => 'M8 x 1.25 mm Hand Tap',
             'price'         => 334000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -989,6 +1065,7 @@ class ProductTableSeeder extends Seeder
             'name'          => 'M12 x 1.75 mm Hand Tap',
             'price'         => 447000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -1001,17 +1078,7 @@ class ProductTableSeeder extends Seeder
             'name'          => 'M4 x 0.7 mm Machine Tap',
             'price'         => 97500,
             'stock'         => 10,
-            'created_at'    => '2019-05-12 07:50:00',
-            'updated_at'    => NULL
-        ]);
-
-        DB::table('products')->insert([
-            'product_id'    => '15540700',
-            'category_id'   => 5,
-            'type_id'       => 10,
-            'name'          => 'M4 x 0.7 mm Machine Tap',
-            'price'         => 97500,
-            'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -1023,6 +1090,7 @@ class ProductTableSeeder extends Seeder
             'name'          => 'M5 x 0.8 mm Machine Tap',
             'price'         => 102500,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -1034,6 +1102,7 @@ class ProductTableSeeder extends Seeder
             'name'          => 'M6 x 1.0 mm Machine Tap',
             'price'         => 110000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -1045,6 +1114,7 @@ class ProductTableSeeder extends Seeder
             'name'          => 'M8 x 1.25 mm Machine Tap',
             'price'         => 124000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -1056,6 +1126,7 @@ class ProductTableSeeder extends Seeder
             'name'          => 'M12 x 1.75 mm Machine Tap',
             'price'         => 222000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -1068,6 +1139,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '2 mm 2 flute HSS End Mill',
             'price'         => 128000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -1079,6 +1151,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '3 mm 2 flute HSS End Mill',
             'price'         => 94000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -1090,6 +1163,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '4 mm 2 flute HSS End Mill',
             'price'         => 94000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -1101,6 +1175,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '5 mm 2 flute HSS End Mill',
             'price'         => 94000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -1112,6 +1187,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '6 mm 2 flute HSS End Mill',
             'price'         => 94000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -1123,6 +1199,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '8 mm 2 flute HSS End Mill',
             'price'         => 120000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -1134,6 +1211,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '10 mm 2 flute HSS End Mill',
             'price'         => 132000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -1145,6 +1223,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '12 mm 2 flute HSS End Mill',
             'price'         => 174000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -1156,6 +1235,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '16 mm 2 flute HSS End Mill',
             'price'         => 236000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -1167,6 +1247,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '6 mm 2 flute HSS End Mill',
             'price'         => 331000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -1179,6 +1260,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '2 mm 4 flute HSS End Mill',
             'price'         => 142000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -1190,6 +1272,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '3 mm 4 flute HSS End Mill',
             'price'         => 142000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -1201,6 +1284,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '4 mm 4 flute HSS End Mill',
             'price'         => 142000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -1212,6 +1296,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '5 mm 4 flute HSS End Mill',
             'price'         => 192000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -1223,6 +1308,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '6 mm 4 flute HSS End Mill',
             'price'         => 192000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -1234,6 +1320,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '8 mm 4 flute HSS End Mill',
             'price'         => 222000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -1245,6 +1332,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '10 mm 4 flute HSS End Mill',
             'price'         => 246000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -1256,6 +1344,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '12 mm 4 flute HSS End Mill',
             'price'         => 332000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -1267,6 +1356,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '16 mm 4 flute HSS End Mill',
             'price'         => 458000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);
@@ -1278,6 +1368,7 @@ class ProductTableSeeder extends Seeder
             'name'          => '20 mm 4 flute HSS End Mill',
             'price'         => 668000,
             'stock'         => 10,
+            'lot_size'      => 4,
             'created_at'    => '2019-05-12 07:50:00',
             'updated_at'    => NULL
         ]);

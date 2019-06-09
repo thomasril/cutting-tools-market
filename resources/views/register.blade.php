@@ -2,28 +2,26 @@
 
 @section('main_content')
     <section id="services" class="section-bg">
+        <div class = "container">
 
-        <header class="section-header">
-            <h3 class="section-title">Register</h3>
-        </header>
+            <header class="section-header">
+                <h3 class="section-title">Create New Account!</h3>
+                <p>Lengkapi data perusahaan anda!</p>
+            </header>
 
-    <div class = "container">
         <div class = "row box">
             <div class = "col">
 
             @if($errors->any())
-
-                <div class="alert alert-danger alert-dismissible fade in">
-                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                    {{$errors->first()}}
-                </div>
+               <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                   {{$errors->first()}}
+                   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                       <span aria-hidden="true">&times;</span>
+                   </button>
+               </div>
             @endif
 
             <form method = "post" action="/confirmation">
-                <div class="control-group">
-                    <div class="controls"><h2>Create New Account!</h2></div>
-                    <div class="controls"><label>Lengkapi data perusahaan anda!</label></div>
-                </div>
                 {{csrf_field()}}
                 <div class="form-group">
                     <input type="text" class = "form-control" placeholder="Company Name" name = "name" required>
@@ -49,7 +47,7 @@
                 </div>
 
                 <div class="form-group text-center">
-                    <button type="submit" class="btn btn-primary">Sign Up</button>
+                    <button type="submit" class="btn btn-get-started">Sign Up</button>
                 </div>
 
             </form>

@@ -18,6 +18,7 @@ class LoginController extends Controller
         if(Auth::check()){
             return redirect ('/');
         }
+
         return view('login');
     }
 
@@ -44,12 +45,12 @@ class LoginController extends Controller
         }
 
         if(!$user) {
-            $err = 'user not found';
+            $err = 'User tidak ada';
             return redirect()->back()->withErrors(['err' => $err]);
         }
 
         if (!$user->name) {
-            $err = 'you must register first!';
+            $err = 'Anda harus melakukan registreasi terlebih dahulu!';
             return redirect()->back()->withErrors(['err' => $err]);
         }
 

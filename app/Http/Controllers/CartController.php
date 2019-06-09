@@ -5,8 +5,12 @@ namespace App\Http\Controllers;
 use App\Cart;
 use App\PaymentMethod;
 use App\Product;
+use App\Sales;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+
 
 class CartController extends Controller
 {
@@ -19,10 +23,13 @@ class CartController extends Controller
 
     public function store(Request $request)
     {
-
         foreach($request->qty as $index => $qty) {
             $product_id = $request->product_id[$index];
             if ($qty > 0) {
+                $product = Product::where('product_id', $product_id)->first();
+                $product->stock -= $qty;
+                $product->save();
+
                 $cart = new Cart();
                 $cart->user_id = Auth::user()->id;
                 $cart->product_id = $product_id;
@@ -34,31 +41,45 @@ class CartController extends Controller
         return redirect('/cart');
     }
 
-    public function show(Cart $cart)
+    public function destroy(Request $request)
     {
-        //
+        $deleted_cart = Cart::where('cart_id', $request->id)->first();
+
+        $product = Product::where('product_id', $deleted_cart->product_id)->first();
+        $product->stock += $deleted_cart->qty;
+        $product->save();
+
+        Cart::destroy($request->id);
+
+        return redirect()->back();
     }
 
-    public function edit(Cart $cart)
+    protected function validator(array $data)
     {
-        //
+        return Validator::make($data, [
+            'cart_id' => ['required', 'string'],
+            'subtotal' => ['required', 'integer', 'min:1'],
+        ]);
     }
 
-    public function update(Request $request, Cart $cart)
-    {
-        //
-    }
+    public function checkout (Request $request) {
 
-    public function destroy($id)
-    {
-        Cart::destroy($id);
+        $validator = $this->validator($request->all());
 
-        return response()->json();
-    }
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors('Anda harus centang salah satu cart!');
+        }
 
-    public function checkout () {
-        $methods = PaymentMethod::all();
+        $time = Carbon::now();
 
-        return view ('checkout')->with('methods', $methods);
+        $order = Sales::orderBy('id', 'DESC')->first();
+
+        $order_id = Auth::user()->initial . ($time->month < 10 ? '0'.$time->month : $time->month) .
+                    substr($time->year, 2,2) .
+                    (isset($order) && $order->id < 10 ? '0'.$order->id :
+                        (isset($order) && $order->id > 10 ? $order->id : '01'))
+                    . 'HAR';
+
+        return view ('checkout')->with('cart', $request)->with('order_id', $order_id);
     }
 }

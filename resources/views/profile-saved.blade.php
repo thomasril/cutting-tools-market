@@ -2,42 +2,46 @@
 
 @section('main_content')
 
-    <form class="form-horizontal" style = "margin: auto; width:500px; margin-top: 20px;" action="/">
-        <div class="control-group">
-            <div class="controls"><h2>My Profile</h2></div>
-            <div class="controls"><label>Selamat, akun Anda telah terverifikasi. Langsung buat pesanan pertama Anda!</label></div>
-        </div>
-        {{csrf_field()}}
-        <div class="control-group">
-            <div class="controls"> <label><strong>Company Name:</strong></label></div>
-            <div class="controls"> <label>{{$user->name}}</label></div>
-        </div>
+    <section id="services" class="section-bg">
+        <div class="container">
 
-        <div class="control-group">
-            <div class="controls"> <label><strong>Company Phone Number:</strong></label></div>
-            <div class="controls"> <label>{{$user->phone}}</label></div>
-        </div>
+            <header class="section-header">
+                <h3 class="section-title">My Profile</h3>
+                <p>Selamat, akun Anda telah terverifikasi. Langsung buat pesanan pertama Anda!</p>
+            </header>
 
-        <div class="control-group">
-            <div class="controls"> <label><strong>Company Address:</strong></label></div>
-            <div class="controls"> <label>{{$user->address}}</label></div>
-        </div>
-        <div class="control-group">
-            <div class="controls"> <label><strong>Company Email:</strong></label></div>
-            <div class="controls"> <label>{{$user->email}}</label></div>
-        </div>
+            <div class ="row box">
+                <div class = "col">
+                    <div class="form-group">
+                        <div> <strong>Company Name:</strong></div>
+                        <div> .$user->name}}</div>
+                    </div>
 
-        <div class="control-group">
-            <div class="controls"> <label><strong>Company Username:</strong></label></div>
-            <div class="controls"> <label>{{$user->username}}</label></div>
-        </div>
+                    <div class="form-group">
+                        <div> <strong>Company Phone Number:</strong></div>
+                        <div> .$user->phone}}</div>
+                    </div>
 
-        <div class="control-group">
-            <div class="controls">
-                <button type="submit" class="btn btn-primary">Home</button>
+                    <div class="form-group">
+                        <div> <strong>Company Address:</strong></div>
+                        <div> .$user->address}}</div>
+                    </div>
+                    <div class="form-group">
+                        <div> <strong>Company Email:</strong></div>
+                        <div> .$user->email}}</div>
+                    </div>
+
+                    <div class="form-group">
+                        <div> <strong>Company Username:</strong></div>
+                        <div> .$user->username}}</div>
+                    </div>
+
+                    <div class="form-group text-center">
+                         <a href = "/"><button type="button" class="btn btn-get-started">Home</button></a>
+                    </div>
             </div>
         </div>
-
-    </form>
+        </div>
+    </section>
 
 @stop

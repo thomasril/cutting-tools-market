@@ -9,11 +9,15 @@ class ProductType extends Model
     protected $primaryKey = 'type_id';
 
     protected $fillable = [
-        'name'
+        'name', 'full_name'
     ];
 
     public function product(){
         return $this->hasMany('App\Product', 'type_id', 'type_id');
+    }
+
+    public function category(){
+        return $this->belongsTo("App\ProductCategory", 'category_id', 'category_id');
     }
 
     public function picture (){

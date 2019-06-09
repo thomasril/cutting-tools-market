@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     protected $table = 'products';
-    protected $primaryKey = 'product_id';
+    protected $primaryKey = 'id';
 
     protected $fillable = [
-        'category_id', 'name', 'type_id', 'price', 'stock'
+        'product_id', 'category_id', 'name', 'type_id', 'price', 'stock', 'lot_size'
     ];
 
     public function productCategory(){

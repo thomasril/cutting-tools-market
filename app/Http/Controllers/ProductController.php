@@ -7,24 +7,18 @@ use App\ProductCategory;
 use App\ProductPicture;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class ProductController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index($id)
     {
         if (Auth::check()) {
             $products =Product::where('category_id', $id)->with('productCategory')->with('productType')->get();
             $types = $products->groupBy('type_id');
             $category= ProductCategory::where('category_id', $id)->first();
-
             $pictures=ProductPicture::All();
 
-//            dd($types);
             return view('product-detail')->with(['types' => $types, 'pictures' => $pictures, 'category' => $category]);
         }
 
@@ -35,27 +29,66 @@ class ProductController extends Controller
 
     public function store(Request $request) // insert
     {
-        //
+        $product = new Product();
+
+        $product->product_id = $request->id;
+        $product->name = $request->name;
+        $product->category_id = $request->category_id;
+        $product->type_id = $request->type_id;
+        $product->price = $request->price;
+        $product->stock = 0;
+        $product->lot_size = $request->lot;
+        $product->created_at = Carbon::now();
+
+        $product->save();
+
+        return redirect()->back();
     }
 
     public function show(Product $product) // show data
     {
-        //
+        if (Auth::check()) {
+            $products =Product::with('productCategory')->with('productType')->get();
+            $types = $products->groupBy('type_id');
+
+            return view('inventory')->with(['types' => $types]);
+        }
     }
 
-    public function edit(Product $product) // show update form
+    public function edit($id) // show update form
     {
-        //
+        if (Auth::check() && Auth::user()->role != 'Customer') {
+            $products =Product::where('category_id', $id)->with('productCategory')->with('productType')->get();
+            $types = $products->groupBy('type_id');
+            $category= ProductCategory::where('category_id', $id)->first();
+
+            $pictures=ProductPicture::All();
+
+            return view('product-manage')->with(['types' => $types, 'pictures' => $pictures, 'category' => $category]);
+        }
+
+        return redirect('/');
     }
 
-    public function update(Request $request, Product $product) // update
+    public function update(Request $request) // update
     {
-        //
+        $product = Product::where('product_id', $request->id)->first();
+
+        $product->name = $request->name;
+        $product->price = $request->price;
+        $product->updated_at = Carbon::now();
+
+        $product->save();
+
+        return redirect()->back();
     }
 
-    public function destroy(Product $product) // delete
+    public function destroy(Request $request) // delete
     {
-        //
+        $product = Product::where('product_id', $request->id)->first();
+
+        $product->delete();
+        return redirect()->back();
     }
 
 }

@@ -4,6 +4,13 @@
 
     <section id="services" class="section-bg">
         <div class="container">
+
+            <div class = "row">
+                <div class = "col ml-3 mt-3">
+                    <a href = "/" style = "color: black"> Catalogue </a> » <strong>{{$category->name}}</strong>
+                </div>
+            </div>
+
             <header class="section-header">
                 <h3 class="section-title">{{$category->name}}</h3>
             </header>
@@ -16,13 +23,9 @@
                     <div id="carosel-product-{{$type[0]->productType->type_id}}" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
 
-                            <div class="carousel-item active">
-                                <img class="d-block w-100" src="http://www.provoke-online.com/images/All_Articles/special/anjay/ter-anjay.jpg">
-                            </div>
-
-                        @foreach($pictures as $picture)
+                        @foreach($pictures as $index => $picture)
                                 @if ($picture->type_id == $type[0]->productType->type_id)
-                                    <div class="carousel-item">
+                                    <div class="carousel-item" id = "carousel-img-{{$index}}">
                                         <img class="d-block w-100" src="{{asset('assets/img/products/'.$picture->path)}}">
                                     </div>
                                 @endif
@@ -51,7 +54,7 @@
                             <tr>
                                 <input type="hidden" name = "product_id[]" value="{{$product->product_id}}">
                                 <td>{{$product->name}}</td>
-                                <td>{{$product->price}}</td>
+                                <td>Rp. {{number_format($product->price)}}</td>
                                 <td>
                                     <div class="input-group">
                                         <button type="button" class="button-minus btn-danger" > - </button>
@@ -137,6 +140,28 @@
 @stop
 
 @section('custom_js')
+    $(document).ready(function () {
+        function alignModal(){
+            var modalDialog = $(this).find(".modal-dialog")
+
+            modalDialog.css("margin-top", Math.max(0, ($(window).height() - modalDialog.height()) / 2))
+        }
+        $(".modal").on("shown.bs.modal", alignModal)
+
+        $(window).on("resize", function(){
+            $(".modal:visible").each(alignModal)
+        })
+
+        $('.carousel-inner').find('.carousel-item').first().addClass('active')
+        $('.carousel-inner').find('#carousel-img-3').addClass('active')
+        $('.carousel-inner').find('#carousel-img-9').addClass('active')
+        $('.carousel-inner').find('#carousel-img-15').addClass('active')
+        $('.carousel-inner').find('#carousel-img-21').addClass('active')
+        $('.carousel-inner').find('#carousel-img-27').addClass('active')
+        $('.carousel-inner').find('#carousel-img-33').addClass('active')
+    });
+
+
     function incrementValue(e) {
         e.preventDefault();
         var parent = $(e.target).closest('div');

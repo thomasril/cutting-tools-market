@@ -1,67 +1,87 @@
 @extends('layouts/master')
 
 @section('main_content')
-    @if($errors->any())
 
-        <div class="alert alert-danger alert-dismissible fade in">
-            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-            {{$errors->first()}}
-        </div>
-    @endif
+    <section id="services" class="section-bg">
+        <div class="container">
+            <header class="section-header">
+                <h3 class="section-title">Confirm your company profile</h3>
+                <p>Periksa kembali data perusahaan Anda. Pastikan Anda telah mengisinya dengan benar.</p>
+            </header>
 
-    <form class="form-horizontal" style = "margin: auto; width:500px; margin-top: 20px;" method = "post" action="/register">
-        <div class="control-group">
-            <div class="controls"><h2>Confirm your company profile</h2></div>
-            <div class="controls"><label>Periksa kembali data perusahaan Anda. Pastikan Anda telah mengisinya dengan benar.</label></div>
-        </div>
-        {{csrf_field()}}
-        <div class="control-group">
-            <div class="controls"> <input type="text" placeholder="Company Name" name = "name" required value = "{{$user->name}}"></div>
-        </div>
+            @if($errors->any())
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    {{$errors->first()}}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
+            <div class = "row box">
+                <div class = "col">
+                    <form method = "post" action="/register">
+                        {{csrf_field()}}
+                        <div class="form-group">
+                            <input type="text"  class = "form-control"  placeholder="Company Name" name = "name" required value = "{{$user->name}}">
+                        </div>
 
-        <div class="control-group">
-            <div class="controls"> <input type="text" placeholder="Company Phone Number" name = "phone" required value = "{{$user->phone}}"></div>
-        </div>
+                        <div class="form-group">
+                            <input type="text"  class = "form-control"  placeholder="Company Phone Number" name = "phone" required value = "{{$user->phone}}">
+                        </div>
 
-        <div class="control-group">
-            <div class="controls"> <textarea rows="4" cols="50" placeholder="Company Address" name="address">{{$user->address}}</textarea></div>
-        </div>
-        <div class="control-group">
-            <div class="controls"> <input type="email" placeholder="Company Email" name = "email" required value = "{{$user->email}}"></div>
-        </div>
+                        <div class="form-group">
+                            <textarea rows="4" cols="50"  class = "form-control"  placeholder="Company Address" name="address">{{$user->address}}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <input type="email"  class = "form-control"  placeholder="Company Email" name = "email" required value = "{{$user->email}}">
+                        </div>
 
-        <div class="control-group">
-            <div class="controls"> <input type="text" placeholder="Username" name = "username" value = "{{$user->username}}" readonly></div>
-        </div>
+                        <div class="form-group">
+                            <input type="text"  class = "form-control"  placeholder="Username" name = "username" value = "{{$user->username}}" readonly>
+                        </div>
 
-        <div class="control-group">
-            <div class="controls"> <input type="password" placeholder="Password" name = "password" value = "{{$user->password}}" readonly></div>
-        </div>
+                        <div class="form-group">
+                            <input type="password"  class = "form-control"  placeholder="Password" name = "password" value = "{{$user->password}}" readonly>
+                        </div>
 
-        <div class="control-group">
-            <div class="controls">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#messageModal">Ok</button>
-            </div>
-        </div>
+                        <div class="form-group text-center">
+                            <button type="button" class="btn btn-get-started" data-toggle="modal" data-target="#messageModal">Ok</button>
+                        </div>
 
-        <div class="modal fade" id="messageModal"  role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Confirm your email address</h5>
-                    </div>
-                    <div class="modal-body">
-                        Untuk mengaktifkan akun Anda, lakukan verifikasi pada alamat email {{$user->email}}
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Ok</button>
-                    </div>
+                        <div class="modal fade" id="messageModal"  role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Confirm your email address</h5>
+                                    </div>
+                                    <div class="modal-body">
+                                        Untuk mengaktifkan akun Anda, lakukan verifikasi pada alamat email {{$user->email}}
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary">Ok</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
-        </div>
+    </div>
+    </section>
+@stop
 
+@section('custom_js')
+    $(document).ready(function () {
+        function alignModal(){
+            var modalDialog = $(this).find(".modal-dialog")
+            modalDialog.css("margin-top", Math.max(0, ($(window).height() - modalDialog.height()) / 2))
+        }
+        $(".modal").on("shown.bs.modal", alignModal)
 
-    </form>
+        $(window).on("resize", function(){
+            $(".modal:visible").each(alignModal)
+        })
+    })
 
 @stop

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>NewBiz Bootstrap Template</title>
+    <title>PT. Dirgaraya Harsa</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -29,7 +29,6 @@
     <!-- Main Stylesheet File -->
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
 
-    {{$role = isset(Auth::user()->role) ? Auth::user()->role : 'Guest'}}
 </head>
 
 <body>
@@ -40,9 +39,13 @@ Header
 <header id="header" class="fixed-top">
     <div class="container">
 
+        <div class = "d-none">
+            {{$role = isset(Auth::user()->role) ? Auth::user()->role : 'Guest'}}
+
+            {{$m = isset($menu) ? $menu : 'none'}}
+        </div>
         <div class="logo float-left">
-             {{--<h1 class="text-light"><a href="#header"><span>PT. Dirgaraya Harsa</span></a></h1>--}}
-            <a href="/" class="scrollto"><img src="{{asset('img/logo.png')}}" alt="" class="img-fluid"></a>
+            <a href="/" class="scrollto"><img src="{{asset('assets/img/logo.png')}}" alt="" class="img-fluid"></a>
         </div>
 
         <nav class="main-nav float-right d-none d-lg-block">
@@ -53,11 +56,11 @@ Header
                         <form method = "" action="">
                             <div class = "form-row mt-2">
                                 <div class="form-group col-lg-9" >
-                                    <input type="text" name="name" class="form-control" style = "font-size: 12px; height: 30px; padding: 0px 10px;" id="category" placeholder="Search Category" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+                                    <input type="text" name="catalogue" class="form-control" style = "font-size: 12px; height: 30px; padding: 0px 10px;" id="category" placeholder="Search Category" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
                                 </div>
 
                                 <div class = "form-group col-lg-3">
-                                    <button class="btn btn-primary" type="submit" style = "height: 30px; width: 30px"><i class="fas fa-search"></i></button>
+                                    <button class="btn btn-get-started" type="submit" style = "height: 30px; width: 40px"><i class="fas fa-search"></i></button>
                                 </div>
                             </div>
                         </form>
@@ -66,13 +69,23 @@ Header
                     <li class="dropdown">
                         <a href="/cart"><i class="fas fa-shopping-cart"></i></a>
                     </li>
+
+                    <li class="{{ Request::is('/order') ? 'active' : '' }}">
+                        <a href="/order">Order</a>
+                    </li>
                 @endif
 
-                <li class="active">
+                <li class="{{ Request::is('/') ? 'active' : '' }}">
                     <a href="/">Catalogue</a>
                 </li>
 
-                @if($role == 'Guest')
+                @if($role == 'Guest' && strpos(Request::url(), 'login'))
+                    <li class="{{ Request::is('/signup') ? 'active' : '' }}">
+                         <a href="/signup">Sign Up</a>
+                    </li>
+                @endif
+
+                @if($role == 'Guest' && !strpos(Request::url(), 'login'))
                     <li class="dropdown">
                             <form method = "post" action="{{url('/login')}}">
                                 {{csrf_field()}}
@@ -84,19 +97,18 @@ Header
                                     <input type = "password" class = "form-control" style = "font-size: 12px; height: 30px; padding: 0px 10px;" placeholder="Password" name = "password">
                                 </div>
                                 <div class="form-group col-lg-3" >
-                                <button class="btn btn-primary" style = "font-size: 12px; height: 30px; width: 50px">Login</button>
+                                <button class="btn btn-get-started" style = "font-size: 12px; height: 30px; width: 70px">Login</button>
                                 </div>
                             </div>
                             </form>
                     </li>
                  @endif
 
-                @if ($role != 'Customer' && $role != 'Supplier' && $role != 'Guest')
+                @if ($role != 'Customer' && $role != 'Guest')
                     <li class="drop-down">
                         <a href="#">Order</a>
                         <ul>
-                            <li><a href="/order">Order (Sales)</a></li>
-                            <li><a href="/order">Order (Finance)</a></li>
+                            <li><a href="/order">Order ({{$role == 'Finance Manager' ? 'Finance' : 'Sales'}})</a></li>
                         </ul>
                     </li>
 
@@ -104,7 +116,7 @@ Header
                         <a href="#">Procurement</a>
                         <ul>
                             <li><a href="/reorder">Reorder Activity</a></li>
-                            <li><a href="/order/procure">Procure Order</a></li>
+                            <li><a href="/reorder/procure">Procure Order</a></li>
                         </ul>
                     </li>
 
