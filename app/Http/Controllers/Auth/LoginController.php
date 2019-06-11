@@ -45,12 +45,7 @@ class LoginController extends Controller
         }
 
         if(!$user) {
-            $err = 'User tidak ada';
-            return redirect()->back()->withErrors(['err' => $err]);
-        }
-
-        if (!$user->name) {
-            $err = 'Anda harus melakukan registreasi terlebih dahulu!';
+            $err = 'User Tidak Ada';
             return redirect()->back()->withErrors(['err' => $err]);
         }
 

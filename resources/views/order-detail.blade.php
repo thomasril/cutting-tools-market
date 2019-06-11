@@ -28,7 +28,7 @@
                         </div>
                     </div>
                 </div>
-                @if($header == 'Purchase Order' || $header == 'My Order')
+                @if($header == 'Purchase Order')
                     <div class = "col-lg-9 text-right">No</div>
                     <div class = "col-lg-3">
                         : {{$sales->order_id}}
@@ -106,7 +106,7 @@
 
                         <div class = "col-lg-4 mt-5">
                             <div class = "row">
-                                <div class = "col">Company Name</div>
+                                <div class = "col">{{$sales->buyer->name}}</div>
                             </div>
                             <div class = "row" style="margin-top: 150px">
                                 <div class = "col"> ({{$sales->buyer_name}}) </div>
@@ -115,7 +115,7 @@
 
                 @elseif ($header == 'Delivery Order')
                         <div class = "col-lg-8 text-right">Tanggal </div>
-                        <div class = "col-lg-4">: {{$sales->delivery_date}} </div>
+                        <div class = "col-lg-4">: {{$sales->order_date}} </div>
 
                         <div class = "col-lg-1">No. PO</div>
                         <div class = "col-lg-3">: {{$sales->order_id}}</div>

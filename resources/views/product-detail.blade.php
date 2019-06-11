@@ -14,6 +14,16 @@
             <header class="section-header">
                 <h3 class="section-title">{{$category->name}}</h3>
             </header>
+
+            @if($errors->any())
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    {{$errors->first()}}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
+
             <form method = "post" action = "/cart/add">
              {{csrf_field()}}
             @foreach($types as $type)
@@ -58,7 +68,7 @@
                                 <td>
                                     <div class="input-group">
                                         <button type="button" class="button-minus btn-danger" > - </button>
-                                        <input type="number" max="{{$product->stock}}" min = "0" name = "qty[]" value="0" class="quantity-field text-center">
+                                        <input type="number" max="{{$product->stock}}" min = "0" name = "qty[]" value="0" style = "width: 50px" class="quantity-field text-center">
                                         <button type="button" class="button-plus btn-light" > + </button>
                                     </div>
                                 </td>
@@ -80,15 +90,17 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="exampleModalLabel">Product Added</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
+
                                 </div>
                                 <div class="modal-body">
                                     Produk telah masuk ke Shopping Cart
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="submit" class="btn btn-primary">Ok</button>
+                                    <div class = "row">
+                                        <div class ="col">
+                                            <button type="submit" class="btn btn-primary">Ok</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -53,20 +53,13 @@ Header
 
                 @if($role == 'Customer')
                     <li class="dropdown">
-                        <form method = "" action="">
+                        <form method = "post" action="/search">
+                            {{csrf_field()}}
                             <div class = "form-row mt-2">
-                                {{--<div class="form-group col-lg-9" >--}}
-                                    {{--<input type="text" name="catalogue" class="form-control" style = "font-size: 12px; height: 30px; padding: 0px 10px;" id="category" placeholder="Search Category" data-rule="minlen:4" data-msg="Please enter at least 4 chars">--}}
-                                {{--</div>--}}
-
-                                {{--<div class = "form-group col-lg-3">--}}
-                                    {{--<button class="btn btn-get-started" type="submit" style = "height: 30px; width: 40px"><i class="fas fa-search"></i></button>--}}
-                                {{--</div>--}}
-
                                 <div class="input-group" style = "height: 30px; margin-top: -5px">
-                                    <input type="text" class="form-control" placeholder="Search Category"  style = "font-size: 14px; padding: 0px 10px;">
+                                    <input type="text" class="form-control" placeholder="Search Category" name = "data"  style = "font-size: 14px; padding: 0px 10px;">
                                     <div class="input-group-append">
-                                        <button class="btn btn-outline-secondary" style=" width: 40px" type="button"><i class="fas fa-search"></i></button>
+                                        <button class="btn btn-outline-secondary" style=" width: 40px" type="submit"><i class="fas fa-search"></i></button>
                                     </div>
                                 </div>
                             </div>

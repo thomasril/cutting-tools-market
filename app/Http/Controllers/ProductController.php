@@ -29,6 +29,23 @@ class ProductController extends Controller
         return redirect('/');
     }
 
+    public function search (Request $request) {
+//        $product = Product::where('name', 'LIKE', '%'.$request->data.'%')->get();
+//        dd($product);
+//        if ($product != null) {
+//            $category = ProductCategory::where('category_id', $product->category_id)->get();
+//            dd($category);
+//        }
+
+        $category = ProductCategory::where('name', 'LIKE', '%'.$request->data.'%')->first();
+
+        if ($category != null) {
+            return redirect('/category/'.$category->category_id.'/catalogue');
+        }
+
+        return redirect('/');
+    }
+
     protected function validator(array $data)
     {
         return Validator::make($data, [

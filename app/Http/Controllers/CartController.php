@@ -23,6 +23,8 @@ class CartController extends Controller
 
     public function store(Request $request)
     {
+        $total = 0;
+
         foreach($request->qty as $index => $qty) {
             if ($qty > 0) {
                 $product_id = $request->product_id[$index];
@@ -35,7 +37,12 @@ class CartController extends Controller
                 $cart->product_id = $product_id;
                 $cart->qty = $qty;
                 $cart->save();
+                $total += $qty;
             }
+        }
+
+            if ($total == 0) {
+            return redirect()->back()->withErrors(['err' => 'Anda belum memasukkan jumlah yang diinginkan!']);
         }
 
         return redirect('/cart');

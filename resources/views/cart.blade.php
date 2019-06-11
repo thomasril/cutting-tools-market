@@ -5,7 +5,7 @@
     <div class="container">
 
         <header class="section-header">
-            <h3 class="section-title">Cart</h3>
+            <h3 class="section-title">Shopping Cart</h3>
         </header>
 
         @if($errors->any())
@@ -33,7 +33,7 @@
 
                         @foreach($carts as $c)
                             <tr class = "cart-{{$c->cart_id}}">
-                                <td><input type = "checkbox" class = "check-products" value = "{{($c->qty * $c->product->price)}}" data-id = {{$c->cart_id}}></td>
+                                <td><input type = "checkbox" style="width: 20px; height: 20px;" class = "check-products" value = "{{($c->qty * $c->product->price)}}" data-id = {{$c->cart_id}}></td>
                                 <td>{{$c->product->name}}</td>
                                 <td>Rp. {{number_format($c->product->price)}}</td>
                                 <td>{{$c->qty}}</td>
@@ -47,10 +47,8 @@
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" >Delete Cart</h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
+                                                    <h5 class="modal-title" >Remove Item</h5>
+
                                                 </div>
                                                     <div class="modal-body">
                                                         <input type="hidden" name= "id" id = "cart-id">
@@ -79,7 +77,7 @@
 
             <div class = "row box">
                 <div class = "col-lg-2">
-                    <input type = "checkbox" id = "check-all"> Select All
+                    <input type = "checkbox" id = "check-all" style="width: 20px; height: 20px;"> Select All
                 </div>
 
                 <div class = "col-lg-4">

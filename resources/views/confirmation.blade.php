@@ -22,7 +22,7 @@
                     <form method = "post" action="/register">
                         {{csrf_field()}}
                         <div class="form-group">
-                            <input type="text"  class = "form-control"  placeholder="Company Name" name = "name" required value = "{{$user->name}}">
+                            <input type="text"  class = "form-control input-name"  placeholder="Company Name" name = "name" required value = "{{$user->name}}">
                         </div>
 
                         <div class="form-group">
@@ -30,7 +30,7 @@
                         </div>
 
                         <div class="form-group">
-                            <textarea rows="4" cols="50"  class = "form-control"  placeholder="Company Address" name="address">{{$user->address}}</textarea>
+                            <textarea rows="4" cols="50"  class = "form-control" required  placeholder="Company Address" name="address">{{$user->address}}</textarea>
                         </div>
                         <div class="form-group">
                             <input type="email"  class = "form-control"  placeholder="Company Email" name = "email" required value = "{{$user->email}}">
@@ -45,10 +45,27 @@
                         </div>
 
                         <div class="form-group text-center">
-                            <button type="button" class="btn btn-get-started" data-toggle="modal" data-target="#messageModal">Ok</button>
+                            <button type="button" class="btn btn-get-started btn-ok" data-toggle="modal" data-target = "#modal-confirm">Ok</button>
                         </div>
 
-                        <div class="modal fade" id="messageModal"  role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+                        <div class="modal fade" id="modal-incomplete"  role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Incomplete Information</h5>
+                                    </div>
+                                    <div class="modal-body">
+                                        Anda belum mengisi dengan lengkap informasi di halaman ini.
+                                        Silakan lengkapi terlebih dahulu.
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal fade" id="modal-confirm"  role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -58,7 +75,6 @@
                                         Untuk mengaktifkan akun Anda, lakukan verifikasi pada alamat email {{$user->email}}
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                         <button type="submit" class="btn btn-primary">Ok</button>
                                     </div>
                                 </div>
@@ -82,6 +98,17 @@
         $(window).on("resize", function(){
             $(".modal:visible").each(alignModal)
         })
+    })
+
+    $('.btn-ok').click(function() {
+        var name = $('.input-name').val();
+        alert(name)
+
+        if (name == '') {
+            $('.btn-ok').attr('data-target', '#modal-incomplete')
+        } else {
+            $('.btn-ok').attr('data-target', '#modal-confirm')
+
     })
 
 @stop

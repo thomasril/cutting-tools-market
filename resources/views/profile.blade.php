@@ -3,16 +3,16 @@
 @section('main_content')
     <section id="services" class="section-bg">
         <div class="container">
-
+            <div style="display: none;">{{$value = ($user->role == 'Customer' ? 'Company' : 'Manager')}}</div>
             <header class="section-header">
                 <h3 class="section-title">My Profile</h3>
             </header>
 
             <div class="row box">
                 <div class = "col">
-                    <div class = "row">
+                    <div class = "row mb-5">
                         <div class="col-lg-3 col-md-3 col-sm-3">
-                            <label>Company Name</label>
+                            <label>{{$value}} Name</label>
                         </div>
                         <div class="col-lg-1 col-md-1 col-sm-1">
                             <label>:</label>
@@ -22,9 +22,9 @@
                         </div>
                     </div>
 
-                    <div class = "row">
+                    <div class = "row mt-5 mb-5">
                         <div class="col-lg-3 col-md-3 col-sm-3">
-                            <label>Phone Number</label>
+                            <label>{{$value}} Phone Number</label>
                         </div>
                         <div class="col-lg-1 col-md-1 col-sm-1">
                             <label>:</label>
@@ -34,9 +34,9 @@
                         </div>
                     </div>
 
-                    <div class = "row">
+                    <div class = "row mt-5 mb-5">
                         <div class="col-lg-3 col-md-3 col-sm-3">
-                            <label>Company Address</label>
+                            <label>{{$value}} Address</label>
                         </div>
                         <div class="col-lg-1 col-md-1 col-sm-1">
                             <label>:</label>
@@ -46,9 +46,9 @@
                         </div>
                     </div>
 
-                    <div class = "row">
+                    <div class = "row mt-5 mb-5">
                         <div class="col-lg-3 col-md-3 col-sm-3">
-                            <label>Company Email</label>
+                            <label>{{$value}} Email</label>
                         </div>
                         <div class="col-lg-1 col-md-1 col-sm-1">
                             <label>:</label>
@@ -58,9 +58,9 @@
                         </div>
                     </div>
 
-                    <div class = "row">
+                    <div class = "row mt-5 mb-5">
                         <div class="col-lg-3 col-md-3 col-sm-3">
-                            <label>Company Username</label>
+                            <label>{{$value}} Username</label>
                         </div>
                         <div class="col-lg-1 col-md-1 col-sm-1">
                             <label>:</label>
@@ -69,6 +69,19 @@
                             <label>{{$user->username}}</label>
                         </div>
                     </div>
+                    @if ($value != 'Customer')
+                        <div class = "row mt-5">
+                            <div class="col-lg-3 col-md-3 col-sm-3">
+                                <label>Manager Title</label>
+                            </div>
+                            <div class="col-lg-1 col-md-1 col-sm-1">
+                                <label>:</label>
+                            </div>
+                            <div class="col-lg-8 col-md-8 col-sm-8">
+                                <label>{{$user->role}}</label>
+                            </div>
+                        </div>
+                    @endif
                 </div>
 
         </div>

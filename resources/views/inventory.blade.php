@@ -26,7 +26,7 @@
                                         <td>{{$product->product_id}}</td>
                                         <td>{{$product->name}}</td>
                                         <td>{{$product->stock}}</td>
-                                        <td>{{floor(($product->stock * $product->lot_size) / 22 * 100 ) / 100}}</td>
+                                        <td>{{floor($product->stock / $product->lot_size * 22 )}}</td>
                                         <td>{{$product->lot_size}}</td>
                                     </tr>
                                 @endforeach

@@ -38,30 +38,32 @@ class RegisterController extends Controller
         $validator = $this->validator($request->all());
 
         if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator);
+            return redirect()->back();
         }
 
         $user = User::where('username', $request->username)->where('password', $request->password)->first();
-        if(!$user) {
-            $err = "User not found! 
-            Maaf, username / password yang Anda masukkan tidak sesuai.
-             Pastikan Anda telah terdaftar sebagai konsumen PT. Dirgaraya Harsa.";
+
+        if($user == null) {
+            $err = "User tidak ada!";
             return redirect()->back()->withErrors(['err' => $err]);
         }
 
         if ($user->name != null){
-            $err = "You have already registered! 
-            Anda telah terdaftar sebelumnya dengan username ".$user->username.". 
+            $err = "Anda telah terdaftar sebelumnya dengan username ".$user->username.". 
              Silakan lakukan Login.";
             return redirect()->back()->withErrors(['err' => $err]);
         }
 
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->phone = $request->phone;
-        $user->address = $request->address;
+        if ($user != null) {
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->phone = $request->phone;
+            $user->address = $request->address;
 
-        return view('confirmation')->with('user', $user);
+            return view('confirmation')->with('user', $user);
+        }
+
+        return redirect('/register');
     }
 
     public function register (Request $request) {

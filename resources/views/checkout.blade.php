@@ -27,7 +27,7 @@
 
                                 <div class = "form-row">
                                     <div class = "form-group col-lg-6">Buyer Name: </div>
-                                    <div class = "form-group col-lg-6"> <input type="text" class = "form-control shipping-form" name = "buyer_name" placeholder="Buyer name"> </div>
+                                    <div class = "form-group col-lg-6"> <input type="text" class = "form-control shipping-form" name = "buyer_name" id = "input-name" placeholder="Buyer name"> </div>
                                 </div>
 
                                 <div class = "form-row">
@@ -47,6 +47,23 @@
 
                                 <div class = "form-group text-center">
                                     <button type="button" class="btn btn-primary btn-save" value = "Save">Save</button>
+                                </div>
+
+                                <div class="modal" id="modal-incomplete" tabindex="-1" role="dialog" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" >Shopping Detail Empty</h5>
+
+                                            </div>
+                                            <div class="modal-body">
+                                                Anda belum menginput Shipping Detail
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -123,6 +140,18 @@
 @stop
 
 @section ('custom_js')
+    $(document).ready(function () {
+        function alignModal(){
+        var modalDialog = $(this).find(".modal-dialog")
+        modalDialog.css("margin-top", Math.max(0, ($(window).height() - modalDialog.height()) / 2))
+        }
+        $(".modal").on("shown.bs.modal", alignModal)
+
+        $(window).on("resize", function(){
+        $(".modal:visible").each(alignModal)
+        })
+    });
+
     $('.btn-save').click(function() {
 
         if ($(this).val() == 'Change') {
@@ -130,6 +159,13 @@
             $(this).html('Save')
             $(this).val('Save')
         } else if ($(this).val() == 'Save') {
+            var name = $('.input-name').val()
+
+            alert(name)
+
+            if (name == null)
+                $('#modal-incomplete').modal('show')
+
             $('.shipping-form').prop('readonly', true)
             $(this).html('Change')
             $(this).val('Change')

@@ -39,7 +39,7 @@
                 </div>
 
                 <div class="form-group">
-                    <input type="text" class = "form-control"  placeholder="Username" name = "username" required>
+                    <input type="text" class = "form-control"  placeholder="Username" name = "username"required>
                 </div>
 
                 <div class="form-group">

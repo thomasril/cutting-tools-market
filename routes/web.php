@@ -14,7 +14,7 @@ Route::post('/login', 'Auth\LoginController@validateLogin');
 
 Route::get('/', 'ProductCategoryController@index');
 
-Route::get('/search', 'ProductCategoryController@search');
+Route::post('/search', 'ProductController@search');
 
 // Product Detail
 Route::get('/category/{id}/catalogue', 'ProductController@index');
@@ -69,7 +69,7 @@ Route::post('/reorder/insert', 'ProcurementController@store');
 Route::get('/reorder/procure', 'ProcurementController@show');
 
 // Notification
-Route::get('/notification/outgoing', 'SalesController@show');
+Route::get('/notification/outgoing', 'SalesController@showNotification');
 
 Route::get('/notification/incoming', 'ProcurementController@showNotification');
 

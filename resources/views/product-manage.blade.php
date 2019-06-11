@@ -7,7 +7,7 @@
 
             <div class = "row">
                 <div class = "col ml-3 mt-3">
-                    <a href = "/" style = "color: black"> Catalogue </a> » {{$category->name}} » <strong>Manage</strong>
+                    <a href = "/" style = "color: black"> Catalogue </a> » {{$category->name}} » <strong>Update</strong>
                 </div>
             </div>
 
@@ -73,8 +73,8 @@
                                             <input type = "number" name = "lot" class = "form-control" placeholder="Product Lot Size" min = "0">
                                         </div>
                                         <div class = "form-group">
-                                            <button type = "submit" class = "btn btn-primary">Add</button>
                                             <button type = "reset" class = "btn btn-light">Clear</button>
+                                            <button type = "submit" class = "btn btn-primary">Add</button>
                                         </div>
                                     </form>
                                 </div>
@@ -101,10 +101,7 @@
                                                 <div class="modal-dialog" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h5 class="modal-title" >Update Product</h5>
-                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span>
-                                                            </button>
+                                                            <h5 class="modal-title" >Update Item</h5>
                                                         </div>
                                                         <form method = "post" action="/catalogue/update">
                                                             {{csrf_field()}}
@@ -132,10 +129,7 @@
                                                 <div class="modal-dialog" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h5 class="modal-title" >Remove Product</h5>
-                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span>
-                                                            </button>
+                                                            <h5 class="modal-title" >Remove Item</h5>
                                                         </div>
                                                         <form method = "post" action="/catalogue/delete">
                                                             {{csrf_field()}}
@@ -203,9 +197,7 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" >Update Category</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
+
                                 </div>
                                 <form method = "post" action="/category/update">
                                     {{csrf_field()}}

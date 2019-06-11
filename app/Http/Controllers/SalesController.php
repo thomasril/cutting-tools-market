@@ -96,7 +96,7 @@ class SalesController extends Controller
             '/'.self::getRomanNumber($now->month).
             '/'. substr($now->year, 2,2).
             '/'.Auth::user()->initial;
-        $sales->delivery_date = $now;
+        $sales->delivery_date = '';
         $sales->invoice_id = ($now->month < 10 ? '0'.$now->month : $now->month) . '001' . '/' . substr($now->year, 2,2);
         $sales->invoice_date = $now;
         $sales->status = 'Order Placed';
@@ -128,7 +128,7 @@ class SalesController extends Controller
             $header = "";
 
             if ($currentPath == 'order/{id}/purchase')
-                $header = Auth::user()->role == 'Customer' ? 'My Order' : 'Purchase Order';
+                $header = 'Purchase Order';
             else if ($currentPath == 'order/{id}/delivery')
                 $header = 'Delivery Order';
             else if ($currentPath == 'order/{id}/invoice')
@@ -143,6 +143,13 @@ class SalesController extends Controller
 
         return redirect('/order');
 
+    }
+
+    public function showNotification() {
+        $sales = Sales::all();
+        $salesDetail = SalesDetail::all();
+
+        return view('product-outgoing')->with('sales', $sales)->with('salesDetail', $salesDetail);
     }
 
     function pdf($id)
@@ -251,7 +258,7 @@ class SalesController extends Controller
                         
                          <div style="margin-top: 20px">
                              <div style="width: 50%; display: inline-block"></div>
-                             <div style="width: 50%; display: inline-block">Tanggal: '.$sales->delivery_date.'</div>
+                             <div style="width: 50%; display: inline-block">Tanggal: '.$sales->order_date.'</div>
                         </div>
                         <div>
                              <div style="width: 50%; display: inline-block">No. PO: '.$sales->order_id.'</div>
@@ -402,7 +409,7 @@ class SalesController extends Controller
     {
         $sales = Sales::where('id', $request->id)->first();
 
-        $sales->status = ($request->ststus == 'dispatched' ? 'Order Dispatched' : 'Order Finished');
+        $sales->status = ($request->status == 'dispatched' ? 'Order Dispatched' : 'Order Completed');
         $sales->delivery_date = $request->date;
         $sales->save();
 

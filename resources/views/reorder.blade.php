@@ -36,6 +36,7 @@
                         <div class="form-group">
                             <label class="col-form-label">Product Type:</label>
                             <select class = "form-control" id = "combo-type">
+                                    <option value = ""
                                 @foreach($types as $type)
                                     <option value = "{{$type->type_id}}">{{$type->full_name}}</option>
                                 @endforeach

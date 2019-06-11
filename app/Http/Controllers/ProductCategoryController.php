@@ -15,30 +15,6 @@ class ProductCategoryController extends Controller
         return view('home')->with('categories', $categories);
     }
 
-    public function create()
-    {
-        //
-    }
-
-    public function store(Request $request)
-    {
-        //
-    }
-
-    public function search (Request $request) {
-
-    }
-
-    public function show(ProductCategory $productCategory)
-    {
-        //
-    }
-
-    public function edit(ProductCategory $productCategory)
-    {
-        //
-    }
-
     public function update(Request $request)
     {
         $category = ProductCategory::find($request->id);
@@ -52,7 +28,6 @@ class ProductCategoryController extends Controller
 
         return redirect()->back();
     }
-
 
     public function destroy(ProductCategory $productCategory)
     {

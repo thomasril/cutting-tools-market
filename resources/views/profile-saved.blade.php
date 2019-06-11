@@ -14,26 +14,26 @@
                 <div class = "col">
                     <div class="form-group">
                         <div> <strong>Company Name:</strong></div>
-                        <div> .$user->name}}</div>
+                        <div> {{$user->name}}</div>
                     </div>
 
                     <div class="form-group">
                         <div> <strong>Company Phone Number:</strong></div>
-                        <div> .$user->phone}}</div>
+                        <div> {{$user->phone}}</div>
                     </div>
 
                     <div class="form-group">
                         <div> <strong>Company Address:</strong></div>
-                        <div> .$user->address}}</div>
+                        <div> {{$user->address}}</div>
                     </div>
                     <div class="form-group">
                         <div> <strong>Company Email:</strong></div>
-                        <div> .$user->email}}</div>
+                        <div> {{$user->email}}</div>
                     </div>
 
                     <div class="form-group">
                         <div> <strong>Company Username:</strong></div>
-                        <div> .$user->username}}</div>
+                        <div> {{$user->username}}</div>
                     </div>
 
                     <div class="form-group text-center">

@@ -48,7 +48,7 @@ class ProcurementController extends Controller
         $validator = $this->validator($request->all());
 
         if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator);
+            return redirect()->back()->withErrors(['err' => 'Anda belum memilih supplier']);
         }
 
         $temp = explode("-", $request->reorder_date);
@@ -60,7 +60,7 @@ class ProcurementController extends Controller
         $procurement->qty = $request->qty;
         $procurement->delivery_date = $request->delivery_date;
         $procurement->supplier = ($request->supplier == "LV") ? "Lasting Victory" : "M&V";
-        $procurement->status = 'Order will be arrived';
+        $procurement->status = 'Order Dispatched';
         $procurement->reorder_date = $request->reorder_date;
         $procurement->created_at = Carbon::now();
         $procurement->save();

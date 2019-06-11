@@ -14,7 +14,7 @@
                         </div>
 
                         <div class = "col-lg-2" id = "notif-status-{{$p->id}}">
-                            Not Confirmed
+                            Waiting
                         </div>
 
                         <div class = "col-lg-12 text-right mt-3">
@@ -62,10 +62,6 @@
                         </div>
                     @endforelse
                 </div>
-
-
-
-
         </div>
     </section>
 @stop

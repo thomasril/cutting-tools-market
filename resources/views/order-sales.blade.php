@@ -33,7 +33,7 @@
                                 <a href="/order/{{$s->id}}/purchase"><button type="button" class="btn btn-get-started btn-show"><strong>View PO</strong></button></a>
                             @elseif (strpos(Auth::user()->role, 'Manager'))
                                 @if (Auth::user()->role == 'Sales Manager')
-                                    <a href="/order/{{$s->id}}/purchase"><button type="button" class="btn btn-get-started"><strong>View Purchase Order</strong></button></a>
+                                    <a href="/order/{{$s->id}}/purchase"><button type="button" class="btn btn-get-started"><strong>View PO</strong></button></a>
                                     <a href="/order/{{$s->id}}/delivery"><button type="button" class="btn btn-get-started"><strong>View Delivery Order</strong></button></a>
                                 @endif
                                 <a href="/order/{{$s->id}}/invoice"><button type="button" class="btn btn-get-started"><strong>View Invoice</strong></button></a>
@@ -46,9 +46,7 @@
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title" >Cancel Order</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
+
                                         </div>
                                         <div class="modal-body">
                                             <input type="hidden" name= "id" id = "order-id">
@@ -90,15 +88,18 @@
                         <div class = "col-lg-12 detail-data" id = "detail-{{$s->id}}" style="display: none;">
                             <div class = "row mt-3" >
                                 <div class = "col-lg-8">
-                                    Company Name : <strong>{{$s->buyer->name}}</strong>
+                                    Company Name : <br/><strong>{{$s->buyer->name}}</strong>
                                 </div>
 
                                 <div class = "col-lg-4 ">
-                                    Order Status: <strong id = "order-status-{{$s->id}}">{{$s->status}}</strong>
+                                    Order Status: <br/><strong id = "order-status-{{$s->id}}">{{$s->status}}</strong>
 
                                     <select name = "new-status" id = "combo-status-{{$s->id}}" class = "form-control mb-2" style="display: none">
-                                        <option value = "dispatched">Order Dispatched</option>
-                                        <option value = "finished">Order Finished</option>
+                                        @if (Auth::user()->role == 'Sales Manager')
+                                            <option value = "dispatched">Order Dispatched</option>
+                                        @elseif (Auth::user()->role == 'Finance Manager')
+                                            <option value = "completed">Order Completed</option>
+                                        @endif
                                     </select>
 
                                     @if ($s->status != 'Order Cancelled' && $s->status != 'Order Finished' && strpos(Auth::user()->role, 'Manager'))
@@ -108,27 +109,32 @@
                                     <button class = "btn btn-success ml-1 btn-accept" data-toggle="modal" data-target="#modal-update" style = "height: 35px; display: none" data-id="{{$s->id}}"><i class="fas fa-check" ></i></button>
                                 </div>
 
-                                <div class = "col-lg-8">
-                                    Company Address: <strong>{{$s->buyer->address}}</strong>
+                                <div class = "col-lg-6 mt-3">
+                                    Company Address: <br/><strong>{{$s->buyer->address}}</strong>
                                 </div>
 
-                                <div class = "col-lg-4">
-                                    @if (Auth::user()->role == 'Finance Manager')
-                                        No. Invoice: <strong>{{$s->invoice_id}}</strong>
-                                    @else
-                                        Order Id: <strong>{{$s->order_id}}</strong>
-                                    @endif
-                                </div>
+                                <div class = "col-lg-2 mt-3"></div>
 
-                                <div class = "col-lg-8 pb-2">
-                                    Recepient Name: <strong>{{$s->recipient_name}}</strong>
-                                </div>
                                 @if(strpos(Auth::user()->role, 'Manager'))
-                                    <div class = "col-lg-4 pb-2">
-                                        Delivery Date: <strong id = "delivery-date-{{$s->id}}">{{$s->delivery_date}}</strong>
+                                    <div class = "col-lg-4 pb-2 mt-3">
+                                        Delivery Date:<br/> <strong id = "delivery-date-{{$s->id}}">{{date ('d-m-Y',strtotime($s->delivery_date))}}</strong>
                                         <input type="date" name="delivery_date" id = "input-date-{{$s->id}}" class = "form-control" style="display: none">
                                     </div>
                                 @endif
+
+
+
+                                <div class = "col-lg-8 pb-2 mt-3">
+                                    Recepient Name: <br/><strong>{{$s->recipient_name}}</strong>
+                                </div>
+
+                                <div class = "col-lg-4 mt-3">
+                                    @if (Auth::user()->role == 'Finance Manager')
+                                        No. Invoice:<br/> <strong>{{$s->invoice_id}}</strong>
+                                    @else
+                                        Order Id: <br/><strong>{{$s->order_id}}</strong>
+                                    @endif
+                                </div>
 
                                 <div class = "col-lg-12 border-bottom"></div>
 
@@ -171,9 +177,7 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" >Update Order Status</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
+
                             </div>
                             <div class="modal-body">
                                 <input type="hidden" name= "id" id = "order-id">
