@@ -45,6 +45,16 @@
                             <div class = "row mt-5">
                                 <div class = "col">
                                     <h4>Add New Product</h4>
+
+                                    @if($errors->any())
+                                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                            {{$errors->first()}}
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                    @endif
+
                                     <form method = "post" action="/catalogue/insert" id = "form-insert">
                                         {{csrf_field()}}
                                         <div class = "form-group">

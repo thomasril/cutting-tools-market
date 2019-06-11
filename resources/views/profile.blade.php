@@ -4,12 +4,6 @@
     <section id="services" class="section-bg">
         <div class="container">
 
-            <div class = "row">
-                <div class = "col ml-3 mt-3">
-                    <strong> Profile </strong>
-                </div>
-            </div>
-
             <header class="section-header">
                 <h3 class="section-title">My Profile</h3>
             </header>

@@ -55,19 +55,26 @@ Header
                     <li class="dropdown">
                         <form method = "" action="">
                             <div class = "form-row mt-2">
-                                <div class="form-group col-lg-9" >
-                                    <input type="text" name="catalogue" class="form-control" style = "font-size: 12px; height: 30px; padding: 0px 10px;" id="category" placeholder="Search Category" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-                                </div>
+                                {{--<div class="form-group col-lg-9" >--}}
+                                    {{--<input type="text" name="catalogue" class="form-control" style = "font-size: 12px; height: 30px; padding: 0px 10px;" id="category" placeholder="Search Category" data-rule="minlen:4" data-msg="Please enter at least 4 chars">--}}
+                                {{--</div>--}}
 
-                                <div class = "form-group col-lg-3">
-                                    <button class="btn btn-get-started" type="submit" style = "height: 30px; width: 40px"><i class="fas fa-search"></i></button>
+                                {{--<div class = "form-group col-lg-3">--}}
+                                    {{--<button class="btn btn-get-started" type="submit" style = "height: 30px; width: 40px"><i class="fas fa-search"></i></button>--}}
+                                {{--</div>--}}
+
+                                <div class="input-group" style = "height: 30px; margin-top: -5px">
+                                    <input type="text" class="form-control" placeholder="Search Category"  style = "font-size: 14px; padding: 0px 10px;">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary" style=" width: 40px" type="button"><i class="fas fa-search"></i></button>
+                                    </div>
                                 </div>
                             </div>
                         </form>
                     </li>
 
                     <li class="dropdown">
-                        <a href="/cart"><i class="fas fa-shopping-cart"></i></a>
+                        <a href="/cart"><i class="fas fa-shopping-cart fa-lg"></i></a>
                     </li>
 
                     <li class="{{ Request::is('/order') ? 'active' : '' }}">
@@ -89,12 +96,12 @@ Header
                     <li class="dropdown">
                             <form method = "post" action="{{url('/login')}}">
                                 {{csrf_field()}}
-                            <div class = "form-row mt-2">
+                            <div class = "form-row mt-1">
                                 <div class="form-group col-lg-4" >
-                                    <input type = "text" class = "form-control" style = "font-size: 12px; height: 30px; padding: 0px 10px;" placeholder="Username" name = "username">
+                                    <input type = "text" class = "form-control" style = "font-size: 14px; height: 30px; padding: 0px 10px;" placeholder="Username" name = "username">
                                 </div>
                                 <div class="form-group col-lg-4" >
-                                    <input type = "password" class = "form-control" style = "font-size: 12px; height: 30px; padding: 0px 10px;" placeholder="Password" name = "password">
+                                    <input type = "password" class = "form-control" style = "font-size: 14px; height: 30px; padding: 0px 10px;" placeholder="Password" name = "password">
                                 </div>
                                 <div class="form-group col-lg-3" >
                                 <button class="btn btn-get-started" style = "font-size: 12px; height: 30px; width: 70px">Login</button>
@@ -123,8 +130,8 @@ Header
                     <li class="drop-down">
                         <a href="#">Notification</a>
                         <ul>
-                            <li><a href="/catalogue/outgoing">Outgoing Product</a></li>
-                            <li><a href="/catalogue/incoming">Incoming Product</a></li>
+                            <li><a href="/notification/outgoing">Outgoing Product</a></li>
+                            <li><a href="/notification/incoming">Incoming Product</a></li>
                         </ul>
                     </li>
                     <li>

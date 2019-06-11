@@ -24,8 +24,8 @@ class CartController extends Controller
     public function store(Request $request)
     {
         foreach($request->qty as $index => $qty) {
-            $product_id = $request->product_id[$index];
             if ($qty > 0) {
+                $product_id = $request->product_id[$index];
                 $product = Product::where('product_id', $product_id)->first();
                 $product->stock -= $qty;
                 $product->save();

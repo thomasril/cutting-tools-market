@@ -10,7 +10,7 @@ class CreateSalesTable extends Migration
     {
         Schema::create('sales', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('order_id');
+            $table->string('order_id', 25);
             $table->integer('buyer_id');
             $table->string('buyer_name', 50);
             $table->string('recipient_name', 100);

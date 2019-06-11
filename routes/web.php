@@ -71,7 +71,7 @@ Route::get('/reorder/procure', 'ProcurementController@show');
 // Notification
 Route::get('/notification/outgoing', 'SalesController@show');
 
-Route::get('/notification/incoming', 'ProcurementController@show');
+Route::get('/notification/incoming', 'ProcurementController@showNotification');
 
 // Inventory
 Route::get('/inventory', 'ProductController@show');

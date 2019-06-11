@@ -10,13 +10,10 @@ class CreateSalesDetailsTable extends Migration
     {
         Schema::create('sales_details', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('order_id');
+            $table->string('order_id', 25);
             $table->string('product_id');
             $table->integer('qty');
             $table->timestamps();
-
-            $table->foreign('order_id')->references('order_id')->on('sales')
-                    ->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

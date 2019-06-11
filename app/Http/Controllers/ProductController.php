@@ -8,6 +8,8 @@ use App\ProductPicture;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Validator;
+
 
 class ProductController extends Controller
 {
@@ -27,10 +29,25 @@ class ProductController extends Controller
         return redirect('/');
     }
 
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'id' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'max:255'],
+            'price' => ['required'],
+            'lot' => ['required'],
+        ]);
+    }
+
     public function store(Request $request) // insert
     {
-        $product = new Product();
+        $validator = $this->validator($request->all());
 
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator);
+        }
+
+        $product = new Product();
         $product->product_id = $request->id;
         $product->name = $request->name;
         $product->category_id = $request->category_id;

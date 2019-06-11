@@ -15,7 +15,7 @@ class ProcurementController extends Controller
 {
     public function index()
     {
-        if (Auth::check() && Auth::user()->role == 'Procurement manager') {
+        if (Auth::check() && Auth::user()->role == 'Procurement Manager') {
             $types = ProductType::all();
             $product =Product::with('productCategory')->with('productType')->get();
             $products = $product->groupBy('type_id');
@@ -81,14 +81,11 @@ class ProcurementController extends Controller
         return view('order-procurement')->with('procurements', $procurements);
     }
 
-    public function edit(Procurement $procurement)
+    public function showNotification(Procurement $procurement) // Incoming Product
     {
-        //
-    }
+        $procurements = Procurement::all();
 
-    public function update(Request $request, Procurement $procurement)
-    {
-        //
+        return view('product-incoming')->with('procurements', $procurements);
     }
 
     public function destroy(Procurement $procurement)

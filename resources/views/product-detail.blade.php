@@ -58,7 +58,7 @@
                                 <td>
                                     <div class="input-group">
                                         <button type="button" class="button-minus btn-danger" > - </button>
-                                        <input type="number" max="{{$product->stock}}" min = "0" name = "qty[]" value="0" class="quantity-field">
+                                        <input type="number" max="{{$product->stock}}" min = "0" name = "qty[]" value="0" class="quantity-field text-center">
                                         <button type="button" class="button-plus btn-light" > + </button>
                                     </div>
                                 </td>

@@ -20,7 +20,7 @@ class UserTableSeeder extends Seeder
             'username'  => 'admin',
             'password'  => 'admin123',
             'initial'   => NULL,
-            'role'      => 'Finance manager',
+            'role'      => 'Admin',
             'created_at'=> '2019-05-12 07:50:00',
             'updated_at'=> NULL
         ]);
@@ -34,7 +34,7 @@ class UserTableSeeder extends Seeder
             'username'  => 'boen16',
             'password'  => 'bh0111',
             'initial'   => NULL,
-            'role'      => 'Finance manager',
+            'role'      => 'Finance Manager',
             'created_at'=> '2019-05-12 07:50:00',
             'updated_at'=> NULL
         ]);
@@ -48,7 +48,7 @@ class UserTableSeeder extends Seeder
             'username'  => 'rian23',
             'password'  => 'ri0206',
             'initial'   => NULL,
-            'role'      => 'Procurement manager',
+            'role'      => 'Procurement Manager',
             'created_at'=> '2019-05-12 07:50:00',
             'updated_at'=> NULL
         ]);
@@ -62,7 +62,7 @@ class UserTableSeeder extends Seeder
             'username'  => 'lili06',
             'password'  => 'lh0301',
             'initial'   => NULL,
-            'role'      => 'Logistic manager',
+            'role'      => 'Logistic Manager',
             'created_at'=> '2019-05-12 07:50:00',
             'updated_at'=> NULL
         ]);
@@ -76,7 +76,7 @@ class UserTableSeeder extends Seeder
             'username'  => 'moch09',
             'password'  => 'mk0410',
             'initial'   => NULL,
-            'role'      => 'Sales manager',
+            'role'      => 'Sales Manager',
             'created_at'=> '2019-05-12 07:50:00',
             'updated_at'=> NULL
         ]);

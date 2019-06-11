@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Validator;
 
 class SalesController extends Controller
 {
@@ -18,15 +19,12 @@ class SalesController extends Controller
         if (Auth::check()) {
             if (Auth::user()->role == 'Customer') {
                 $sales = Sales::where('buyer_id', Auth::user()->id)->paginate(5);
-
                 return view('order-sales')->with('sales', $sales)->with('header', 'My Order');
             } else if (Auth::user()->role == 'Sales Manager') {
                 $sales = Sales::paginate(5);
-
                 return view('order-sales')->with('sales', $sales)->with('header', 'Customer Order');
             } else if (Auth::user()->role == 'Finance Manager') {
                 $sales = Sales::paginate(5);
-
                 return view('order-sales')->with('sales', $sales)->with('header', 'Customer Order');
             }
         }
@@ -62,8 +60,25 @@ class SalesController extends Controller
         return $res;
     }
 
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'buyer_name' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'max:255'],
+            'title' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'phone' => ['required', 'string', 'max:255'],
+            'payment_method' => ['required', 'string'],
+        ]);
+    }
+
     public function store(Request $request)
     {
+//        $validator = $this->validator($request->all());
+//
+//        if ($validator->fails()) {
+//            return redirect()->back()->withErrors($validator);
+//        }
+
         $now = Carbon::now();
 
         $sales = new Sales();
@@ -99,6 +114,8 @@ class SalesController extends Controller
             $sales_detail->qty = $selected_cart->qty;
             $sales_detail->created_at = $now;
             $sales_detail->save();
+
+            $selected_cart->delete();
         }
 
         return redirect('/order');
@@ -401,7 +418,7 @@ class SalesController extends Controller
         $details = SalesDetail::where('order_id', $sales->order_id)->get();
 
         foreach ($details as $d) {
-            $product = Product::where('product_id', $d->product_id)-first();
+            $product = Product::where('product_id', $d->product_id)->first();
 
             $product->stock += $d->qty;
             $product->save();
