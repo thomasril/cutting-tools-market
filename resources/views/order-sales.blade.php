@@ -28,15 +28,15 @@
                         <div class = "col-lg-8 mt-3">
                             @if (Auth::user()->role == 'Customer')
                                 @if ($s->status != 'Order Cancelled')
-                                    <button type="button" class="btn btn-get-started btn-cancel" data-toggle="modal" data-target="#modal-delete" data-id="{{$s->id}}"><strong>Cancel Order</strong></button>
+                                    <button type="button" class="btn btn-circle-primary btn-cancel" data-toggle="modal" data-target="#modal-delete" data-id="{{$s->id}}"><strong>Cancel Order</strong></button>
                                 @endif
-                                <a href="/order/{{$s->id}}/purchase"><button type="button" class="btn btn-get-started btn-show"><strong>View PO</strong></button></a>
+                                <a href="/order/{{$s->id}}/purchase"><button type="button" class="btn btn-circle-primary btn-show"><strong>View PO</strong></button></a>
                             @elseif (strpos(Auth::user()->role, 'Manager'))
                                 @if (Auth::user()->role == 'Sales Manager')
-                                    <a href="/order/{{$s->id}}/purchase"><button type="button" class="btn btn-get-started"><strong>View PO</strong></button></a>
-                                    <a href="/order/{{$s->id}}/delivery"><button type="button" class="btn btn-get-started"><strong>View Delivery Order</strong></button></a>
+                                    <a href="/order/{{$s->id}}/purchase"><button type="button" class="btn btn-circle-primary"><strong>View PO</strong></button></a>
+                                    <a href="/order/{{$s->id}}/delivery"><button type="button" class="btn btn-circle-primary"><strong>View Delivery Order</strong></button></a>
                                 @endif
-                                <a href="/order/{{$s->id}}/invoice"><button type="button" class="btn btn-get-started"><strong>View Invoice</strong></button></a>
+                                <a href="/order/{{$s->id}}/invoice"><button type="button" class="btn btn-circle-primary"><strong>View Invoice</strong></button></a>
                             @endif
                         </div>
                         <form method = "post" action ="/order/delete">
@@ -62,7 +62,7 @@
                         </form>
 
                         <div class = "col-lg-4 mt-3">
-                            <button type="button" class="btn btn-get-started btn-show-detail" data-id = "{{$s->id}}"><strong>Show Detail</strong></button>
+                            <button type="button" class="btn btn-circle-primary btn-show-detail" data-id = "{{$s->id}}"><strong>Show Detail</strong></button>
                         </div>
 
                         <div class = "col-lg-12 border-bottom mb-2"></div>
@@ -117,7 +117,7 @@
 
                                 @if(strpos(Auth::user()->role, 'Manager'))
                                     <div class = "col-lg-4 pb-2 mt-3">
-                                        Delivery Date:<br/> <strong id = "delivery-date-{{$s->id}}">{{date ('d-m-Y',strtotime($s->delivery_date))}}</strong>
+                                        Delivery Date:<br/> <strong id = "delivery-date-{{$s->id}}">{{date ('d-mm-Y',strtotime($s->delivery_date))}}</strong>
                                         <input type="date" name="delivery_date" id = "input-date-{{$s->id}}" class = "form-control" style="display: none">
                                     </div>
                                 @endif

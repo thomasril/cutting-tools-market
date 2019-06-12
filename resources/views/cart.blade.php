@@ -28,7 +28,6 @@
                             <th>Sum</th>
                             <th>Action</th>
                         </tr>
-
                     <tbody>
 
                         @foreach($carts as $c)
@@ -48,21 +47,27 @@
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <h5 class="modal-title" >Remove Item</h5>
-
                                                 </div>
                                                     <div class="modal-body">
                                                         <input type="hidden" name= "id" id = "cart-id">
                                                         Apakah anda yakin untuk menghapus ?
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                                                        <button type="submit" class="btn btn-primary" >Yes</button>
+                                                        <div class="container-fluid">
+                                                            <div class="row justify-content-md-center">
+                                                                <div class="col-md-3">
+                                                                    <button type="button" class="btn btn-circle-secondary" data-dismiss="modal">No</button>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <button type="submit" class="btn btn-circle-primary" >Yes</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                             </div>
                                         </div>
                                     </div>
                                 </form>
-
                             </tr>
                         @endforeach
                     </tbody>

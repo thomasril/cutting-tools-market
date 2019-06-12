@@ -22,7 +22,7 @@
                     </div>
 
                     <div class = "col-lg-12 text-right mt-3">
-                        <button type="button" class="btn btn-get-started" data-id = "{{$s->id}}" data-toggle = "modal" data-target = '#modal-confirm-{{$s->id}}'><strong>Show Detail</strong></button>
+                        <button type="button" class="btn btn-circle-primary" data-id = "{{$s->id}}" data-toggle = "modal" data-target = '#modal-confirm-{{$s->id}}'><strong>Show Detail</strong></button>
                     </div>
 
                     <div class="modal" id = "modal-confirm-{{$s->id}}" tabindex="-1" role="dialog">
@@ -56,7 +56,7 @@
                                 <div class="modal-footer">
                                     <div class = "row">
                                         <div class = "col text-center">
-                                            <button type = "button" class = "btn-get-started btn-confirm" data-id = {{$s->id}}>Confirm</button>
+                                            <button type = "button" class = "btn-circle-primary btn-confirm" data-id = {{$s->id}}>Confirm</button>
                                         </div>
                                     </div>
                                 </div>

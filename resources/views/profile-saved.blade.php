@@ -37,7 +37,7 @@
                     </div>
 
                     <div class="form-group text-center">
-                         <a href = "/"><button type="button" class="btn btn-get-started">Home</button></a>
+                         <a href = "/"><button type="button" class="btn btn-circle-primary">Home</button></a>
                     </div>
             </div>
         </div>

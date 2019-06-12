@@ -21,7 +21,7 @@
                         </div>
 
                         <div class = "col-lg-12 text-right mt-3">
-                            <button type="button" class="btn btn-get-started btn-show" data-id = "{{$p->id}}"><strong>Show Detail</strong></button>
+                            <button type="button" class="btn btn-circle-primary btn-show" data-id = "{{$p->id}}"><strong>Show Detail</strong></button>
                         </div>
                     @empty
                         <div class = "col text-center">

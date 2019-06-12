@@ -178,8 +178,8 @@ h6 {
   margin-top: 60px;
 }
 
-.btn-get-started,
-.btn-services {
+.btn-circle-primary,
+.btn-circle-secondary {
   font-family: "Montserrat", sans-serif;
   font-size: 14px;
   font-weight: 600;
@@ -192,18 +192,27 @@ h6 {
   color: #fff;
 }
 
-.btn-get-started {
-  cursor: pointer;
+.btn-circle-primary {
   background: #EC4438;
   border: 2px solid #EC4438;
-  color: #fff;
 }
 
-.btn-get-started:hover {
+.btn-circle-secondary {
+    background: #6c757d;
+    border: 2px solid #6c757d;
+}
+
+.btn-circle-primary:hover {
   background: none;
   border-color: #af001e;
   color: #af001e;
-    cursor: pointer;
+  cursor: pointer;
+}
+
+.btn-circle-secondary:hover {
+    background: none;
+    border: 2px solid #6c757d;
+    color: #6c757d;
 }
 
 /*--------------------------------------------------------------

@@ -45,7 +45,7 @@
                         </div>
 
                         <div class="form-group text-center">
-                            <button type="button" class="btn btn-get-started btn-ok" data-toggle="modal" data-target = "#modal-confirm">Ok</button>
+                            <button type="button" class="btn btn-circle-primary btn-ok" data-toggle="modal" data-target = "#modal-confirm">Ok</button>
                         </div>
 
                         <div class="modal fade" id="modal-incomplete"  role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >

@@ -45,7 +45,7 @@ class LoginController extends Controller
         }
 
         if(!$user) {
-            $err = 'User Tidak Ada';
+            $err = 'User Tidak Ada ';
             return redirect()->back()->withErrors(['err' => $err]);
         }
 

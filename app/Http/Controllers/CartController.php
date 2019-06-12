@@ -79,13 +79,12 @@ class CartController extends Controller
 
         $time = Carbon::now();
 
-        $order = Sales::orderBy('id', 'DESC')->first();
+        $order = Sales::whereMonth('created_at', '=', $time->month)->count() + 1;
+
+        $temp_id = ($order == 1 ? '01' : (($order > 1 || $order < 11) ? '0'.$order : $order));
 
         $order_id = Auth::user()->initial . ($time->month < 10 ? '0'.$time->month : $time->month) .
-                    substr($time->year, 2,2) .
-                    (isset($order) && $order->id < 10 ? '0'.$order->id :
-                        (isset($order) && $order->id > 10 ? $order->id : '01'))
-                    . 'HAR';
+                    substr($time->year, 2,2) . $temp_id. 'HAR';
 
         return view ('checkout')->with('cart', $request)->with('order_id', $order_id);
     }

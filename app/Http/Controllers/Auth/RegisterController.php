@@ -6,6 +6,7 @@ use App\User;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
@@ -45,7 +46,7 @@ class RegisterController extends Controller
 
         if($user == null) {
             $err = "User tidak ada!";
-            return redirect()->back()->withErrors(['err' => $err]);
+            return redirect()->back()->withErrors(['err' => $err])->withInput(Input::all());
         }
 
         if ($user->name != null){

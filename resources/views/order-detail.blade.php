@@ -258,14 +258,14 @@
             <div class = "row">
                 <div class = "col text-center">
                     @if ($header == 'Purchase Order' || $header == 'My Order')
-                        <a href = "/order/{{$sales->id}}/purchase/pdf"><button type = "button" class = "btn-get-started">Save</button></a>
+                        <a href = "/order/{{$sales->id}}/purchase/pdf"><button type = "button" class = "btn-circle-primary">Save</button></a>
                     @elseif ($header == 'Delivery Order')
-                       <a href = "/order/{{$sales->id}}/delivery/pdf"><button type = "button" class = "btn-get-started">Save</button></a>
+                       <a href = "/order/{{$sales->id}}/delivery/pdf"><button type = "button" class = "btn-circle-primary">Save</button></a>
                     @elseif ($header == 'Invoice')
-                       <a href = "/order/{{$sales->id}}/invoice/pdf"><button type = "button" class = "btn-get-started">Save</button></a>
+                       <a href = "/order/{{$sales->id}}/invoice/pdf"><button type = "button" class = "btn-circle-primary">Save</button></a>
                     @endif
 
-                    <a href="/order"><button type = "button" class = "btn-get-started">Back to {{$header == 'Purchase Order' ? 'Customer Order' : 'My Order'}}</button></a>
+                    <a href="/order"><button type = "button" class = "btn-circle-primary">Back to {{$header == 'Purchase Order' ? 'Customer Order' : 'My Order'}}</button></a>
                 </div>
             </div>
         </div>

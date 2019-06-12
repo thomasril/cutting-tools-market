@@ -27,22 +27,22 @@
 
                                 <div class = "form-row">
                                     <div class = "form-group col-lg-6">Buyer Name: </div>
-                                    <div class = "form-group col-lg-6"> <input type="text" class = "form-control shipping-form" name = "buyer_name" id = "input-name" placeholder="Buyer name"> </div>
+                                    <div class = "form-group col-lg-6"> <input type="text" class = "form-control shipping-form" name = "buyer_name" id = "input-buyer" placeholder="Buyer name"> </div>
                                 </div>
 
                                 <div class = "form-row">
                                     <div class = "form-group col-lg-6">Recipient Name: </div>
-                                    <div class = "form-group col-lg-6"> <input type="text" class = "form-control shipping-form" name = "name" placeholder="Recipient Name"> </div>
+                                    <div class = "form-group col-lg-6"> <input type="text" class = "form-control shipping-form" name = "name" id = "input-recipient" placeholder="Recipient Name"> </div>
                                 </div>
 
                                 <div class = "form-row">
                                     <div class = "form-group col-lg-6">Recipient Title: </div>
-                                    <div class = "form-group col-lg-6"> <input type="text" class = "form-control shipping-form" name = "title" placeholder="Recipient Title"> </div>
+                                    <div class = "form-group col-lg-6"> <input type="text" class = "form-control shipping-form" name = "title" id = "input-title" placeholder="Recipient Title"> </div>
                                 </div>
 
                                 <div class = "form-row">
                                     <div class = "form-group col-lg-6">Recipient Mobile Number: </div>
-                                    <div class = "form-group col-lg-6"> <input type="text" class = "form-control shipping-form" name = "phone" placeholder="Recipient Mobile Number"> </div>
+                                    <div class = "form-group col-lg-6"> <input type="text" class = "form-control shipping-form" name = "phone" id = "input-phone" placeholder="Recipient Mobile Number"> </div>
                                 </div>
 
                                 <div class = "form-group text-center">
@@ -130,7 +130,7 @@
 
                 <div class = "row">
                     <div class = "col text-center">
-                        <button type = "submit" class = "btn-get-started">Create Order</button>
+                        <button type = "submit" class = "btn-circle-primary">Create Order</button>
                     </div>
                 </div>
             </form>
@@ -159,16 +159,18 @@
             $(this).html('Save')
             $(this).val('Save')
         } else if ($(this).val() == 'Save') {
-            var name = $('.input-name').val()
+            var buyer = $('#input-buyer').val()
+            var recipient = $('#input-recipient').val()
+            var title = $('#input-title').val()
+            var phone = $('#input-phone').val()
 
-            alert(name)
-
-            if (name == null)
+            if (buyer == '' || recipient == '' || title  == '' || phone == '')
                 $('#modal-incomplete').modal('show')
-
-            $('.shipping-form').prop('readonly', true)
-            $(this).html('Change')
-            $(this).val('Change')
+            else {
+                $('.shipping-form').prop('readonly', true)
+                $(this).html('Change')
+                $(this).val('Change')
+            }
         }
     });
 @stop

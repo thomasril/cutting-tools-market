@@ -29,7 +29,7 @@
                         </div>
 
                         <div class = "form-group">
-                            <button type="submit" class="btn btn-get-started">Login</button>
+                            <button type="submit" class="btn btn-circle-primary">Login</button>
                         </div>
                     </div>
                 </div>

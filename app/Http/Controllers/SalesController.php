@@ -96,7 +96,7 @@ class SalesController extends Controller
             '/'.self::getRomanNumber($now->month).
             '/'. substr($now->year, 2,2).
             '/'.Auth::user()->initial;
-        $sales->delivery_date = '';
+        $sales->delivery_date = null;
         $sales->invoice_id = ($now->month < 10 ? '0'.$now->month : $now->month) . '001' . '/' . substr($now->year, 2,2);
         $sales->invoice_date = $now;
         $sales->status = 'Order Placed';

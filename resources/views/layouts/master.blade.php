@@ -97,7 +97,7 @@ Header
                                     <input type = "password" class = "form-control" style = "font-size: 14px; height: 30px; padding: 0px 10px;" placeholder="Password" name = "password">
                                 </div>
                                 <div class="form-group col-lg-3" >
-                                <button class="btn btn-get-started" style = "font-size: 12px; height: 30px; width: 70px">Login</button>
+                                <button class="btn btn-circle-primary" style = "font-size: 12px; height: 30px; width: 70px">Login</button>
                                 </div>
                             </div>
                             </form>

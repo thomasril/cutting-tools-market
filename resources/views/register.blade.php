@@ -24,30 +24,30 @@
             <form method = "post" action="/confirmation">
                 {{csrf_field()}}
                 <div class="form-group">
-                    <input type="text" class = "form-control" placeholder="Company Name" name = "name" required>
+                    <input type="text" class = "form-control" placeholder="Company Name" name = "name" value = "{{ old('name') }}" required>
                 </div>
 
                 <div class="form-group">
-                    <input type="text" class = "form-control"  placeholder="Company Phone Number" name = "phone" required>
+                    <input type="text" class = "form-control"  placeholder="Company Phone Number" name = "phone" value = "{{ old('phone') }}" required>
                 </div>
 
                 <div class="form-group">
-                    <textarea rows="4" class = "form-control" cols="50" placeholder="Company Address" name="address"></textarea>
+                    <textarea rows="4" class = "form-control" cols="50" placeholder="Company Address" name="address">{{ old('address') }}</textarea>
                 </div>
                 <div class="form-group">
-                    <input type="email" class = "form-control" placeholder="Company Email" name = "email" required>
-                </div>
-
-                <div class="form-group">
-                    <input type="text" class = "form-control"  placeholder="Username" name = "username"required>
+                    <input type="email" class = "form-control" placeholder="Company Email" name = "email" value = "{{ old('email') }}" required>
                 </div>
 
                 <div class="form-group">
-                    <input type="password" class = "form-control"  placeholder="Password" name = "password" required>
+                    <input type="text" class = "form-control"  placeholder="Username" name = "username" value = "{{ old('username') }}" required>
+                </div>
+
+                <div class="form-group">
+                    <input type="password" class = "form-control"  placeholder="Password" name = "password" value = "{{ old('password') }}" required>
                 </div>
 
                 <div class="form-group text-center">
-                    <button type="submit" class="btn btn-get-started">Sign Up</button>
+                    <button type="submit" class="btn btn-circle-primary">Sign Up</button>
                 </div>
 
             </form>

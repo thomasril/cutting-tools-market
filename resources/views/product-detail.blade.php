@@ -68,7 +68,7 @@
                                 <td>
                                     <div class="input-group">
                                         <button type="button" class="button-minus btn-danger" > - </button>
-                                        <input type="number" max="{{$product->stock}}" min = "0" name = "qty[]" value="0" style = "width: 50px" class="quantity-field text-center">
+                                        <input type="number" max="{{$product->stock}}" min = "0" name = "qty[]" value="0" style = "width: 50px" class="quantity-field text-center" readonly>
                                         <button type="button" class="button-plus btn-light" > + </button>
                                     </div>
                                 </td>
@@ -81,30 +81,54 @@
             @endforeach
                 <div class = "row">
                     <div class = "col text-center">
-                        <button type = "button" class = "btn-get-started" data-toggle="modal" data-target="#modalSuccess">Add to Cart</button>
+                        <button type = "button" class = "btn-circle-primary btn-add">Add to Cart</button>
                     </div>
 
                     <!-- Modal -->
-                    <div class="modal fade" id="modalSuccess" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="modal-success" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="exampleModalLabel">Product Added</h5>
-
                                 </div>
                                 <div class="modal-body">
                                     Produk telah masuk ke Shopping Cart
                                 </div>
                                 <div class="modal-footer">
-                                    <div class = "row">
-                                        <div class ="col">
-                                            <button type="submit" class="btn btn-primary">Ok</button>
+                                    <div class="container-fluid">
+                                        <div class="row justify-content-md-center">
+                                            <div class="col-md-3">
+                                                <button type="submit" class="btn btn-circle-primary" >Yes</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                    <div class="modal fade" id="modal-incomplete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Incomplete Information</h5>
+                                </div>
+                                <div class="modal-body">
+                                    Anda belum memasukkan jumlah yang diinginkan.
+                                </div>
+                                <div class="modal-footer">
+                                    <div class="container-fluid">
+                                        <div class="row justify-content-md-center">
+                                            <div class="col-md-3">
+                                                <button type="submit" class="btn btn-circle-primary" data-dismiss = "modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
 
                 </div>
             </form>
@@ -173,36 +197,48 @@
         $('.carousel-inner').find('#carousel-img-33').addClass('active')
     });
 
+    var total = 0
 
     function incrementValue(e) {
         e.preventDefault();
         var parent = $(e.target).closest('div');
         var currentVal = parseInt(parent.find('.quantity-field').val(), 10);
 
-        if (!isNaN(currentVal))
-            parent.find('.quantity-field').val(currentVal + 1);
+        if (!isNaN(currentVal)) {
+            parent.find('.quantity-field').val(currentVal + 1)
+            total += 1
+        }
         else
-            parent.find('.quantity-field').val(0);
+            parent.find('.quantity-field').val(0)
 
+        console.log(total)
     }
+
+    $('.btn-add').click(function() {
+        if (total > 0)
+            $('#modal-success').modal('show')
+        else
+            $('#modal-incomplete').modal('show')
+    })
 
     function decrementValue(e) {
         e.preventDefault();
         var parent = $(e.target).closest('div');
-        var currentVal = parseInt(parent.find('.quantity-field').val(), 10);
+        var currentVal = parseInt(parent.find('.quantity-field').val(), 10)
 
-        if (!isNaN(currentVal) && currentVal > 0)
-            parent.find('.quantity-field').val(currentVal - 1);
+        if (!isNaN(currentVal) && currentVal > 0) {
+            parent.find('.quantity-field').val(currentVal - 1)
+            total -= 1
+        }
         else
-            parent.find('.quantity-field').val(0);
-
+            parent.find('.quantity-field').val(0)
     }
 
     $('.input-group').on('click', '.button-plus', function(e) {
-        incrementValue(e);
-    });
+        incrementValue(e)
+    })
 
     $('.input-group').on('click', '.button-minus', function(e) {
-        decrementValue(e);
-    });
+        decrementValue(e)
+    })
 @stop
