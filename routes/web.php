@@ -40,6 +40,10 @@ Route::post('/checkout', 'CartController@checkout');
 
 Route::get('/order', 'SalesController@index');
 
+Route::get('/order/sales', 'SalesController@index');
+
+Route::get('/order/finance', 'SalesController@index');
+
 Route::post('/order/insert', 'SalesController@store');
 
 Route::post('/order/update', 'SalesController@update');

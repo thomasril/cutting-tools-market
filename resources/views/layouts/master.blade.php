@@ -108,7 +108,14 @@ Header
                     <li class="drop-down">
                         <a href="#">Order</a>
                         <ul>
-                            <li><a href="/order">Order ({{$role == 'Finance Manager' ? 'Finance' : 'Sales'}})</a></li>
+                            @if ($role == 'Director')
+                                <li><a href="/order/finance">Order Finance</a></li>
+                                <li><a href="/order/sales">Order Sales</a></li>
+                            @else
+                                <li><a href="/order">Order ({{$role == 'Finance Manager' ? 'Finance' : 'Sales'}})</a></li>
+                            @endif
+
+
                         </ul>
                     </li>
 

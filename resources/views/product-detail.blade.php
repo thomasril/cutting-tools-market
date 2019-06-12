@@ -58,20 +58,24 @@
                         <tr>
                             <th>Product Name</th>
                             <th>Price</th>
-                            <th>Quantity</th>
+                            @if (Auth::user()->role == 'Customer')
+                                <th>Quantity</th>
+                            @endif
                         </tr>
                         @foreach($type as $product)
                             <tr>
                                 <input type="hidden" name = "product_id[]" value="{{$product->product_id}}">
                                 <td>{{$product->name}}</td>
                                 <td>Rp. {{number_format($product->price)}}</td>
-                                <td>
-                                    <div class="input-group">
-                                        <button type="button" class="button-minus btn-danger" > - </button>
-                                        <input type="number" max="{{$product->stock}}" min = "0" name = "qty[]" value="0" style = "width: 50px" class="quantity-field text-center" readonly>
-                                        <button type="button" class="button-plus btn-light" > + </button>
-                                    </div>
-                                </td>
+                                @if (Auth::user()->role == 'Customer')
+                                    <td>
+                                        <div class="input-group">
+                                            <button type="button" class="button-minus btn-danger" > - </button>
+                                            <input type="number" max="{{$product->stock}}" min = "0" name = "qty[]" value="0" style = "width: 50px" class="quantity-field text-center" readonly>
+                                            <button type="button" class="button-plus btn-light" > + </button>
+                                        </div>
+                                    </td>
+                                @endif
                             </tr>
                         @endforeach
                     </table>
@@ -80,9 +84,13 @@
             </div>
             @endforeach
                 <div class = "row">
-                    <div class = "col text-center">
-                        <button type = "button" class = "btn-circle-primary btn-add">Add to Cart</button>
-                    </div>
+
+
+                    @if (Auth::user()->role == 'Customer')
+                        <div class = "col text-center">
+                            <button type = "button" class = "btn-circle-primary btn-add">Add to Cart</button>
+                        </div>
+                    @endif
 
                     <!-- Modal -->
                     <div class="modal fade" id="modal-success" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

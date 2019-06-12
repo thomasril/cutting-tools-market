@@ -28,9 +28,4 @@ class ProductCategoryController extends Controller
 
         return redirect()->back();
     }
-
-    public function destroy(ProductCategory $productCategory)
-    {
-        //
-    }
 }

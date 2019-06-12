@@ -8,6 +8,7 @@ class ProductCategoryTableSeeder extends Seeder
     {
         DB::table('product_categories')->insert([
             'category_id'=> 1,
+            'supplier_id'=> 17,
             'name'      => 'Carbide End Mill',
             'material'  => 'Carbide',
             'flutes'    => '4-Flute',
@@ -20,6 +21,7 @@ class ProductCategoryTableSeeder extends Seeder
 
         DB::table('product_categories')->insert([
             'category_id'=> 2,
+            'supplier_id'=> 17,
             'name'      => 'Carbide Ball Nose',
             'material'  => 'Carbide',
             'flutes'    => '2-Flute',
@@ -32,6 +34,7 @@ class ProductCategoryTableSeeder extends Seeder
 
         DB::table('product_categories')->insert([
             'category_id' => 3,
+            'supplier_id'=> 18,
             'name'      => 'Drill',
             'material'  => 'High-Speed Steel (HSS)',
             'flutes'    => NULL,
@@ -44,6 +47,7 @@ class ProductCategoryTableSeeder extends Seeder
 
         DB::table('product_categories')->insert([
             'category_id' => 4,
+            'supplier_id'=> 18,
             'name'      => 'Reamer',
             'material'  => 'High-Speed Steel (HSS)',
             'flutes'    => 'Straight Flute',
@@ -56,6 +60,7 @@ class ProductCategoryTableSeeder extends Seeder
 
         DB::table('product_categories')->insert([
             'category_id' => 5,
+            'supplier_id'=> 18,
             'name'      => 'Tap',
             'material'  => 'High-Speed Steel (HSS)',
             'flutes'    => NULL,
@@ -68,6 +73,7 @@ class ProductCategoryTableSeeder extends Seeder
 
         DB::table('product_categories')->insert([
             'category_id' => 6,
+            'supplier_id'=> 18,
             'name'      => 'HSS End Mill',
             'material'  => 'Cobalt High-Speed Steel (HSS)',
             'flutes'    => '2-Flutes and 4 Flutes',

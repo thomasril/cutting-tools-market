@@ -12,7 +12,7 @@ class Sales extends Model
     protected $fillable = [
         'order_id' ,'buyer_id', 'buyer_name', 'recipient_name', 'recipient_title',
         'recipient_phone',  'payment_method', 'subtotal', 'total_price', 'order_date',
-        'delivery_id', 'delivery_date', 'invoice_id', 'invoice_date', 'status'
+        'delivery_id', 'delivery_date', 'invoice_id', 'invoice_date', 'status', 'notif_status'
     ];
 
     function salesDetails(){

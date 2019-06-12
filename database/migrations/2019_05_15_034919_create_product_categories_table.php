@@ -10,6 +10,7 @@ class CreateProductCategoriesTable extends Migration
     {
         Schema::create('product_categories', function (Blueprint $table) {
             $table->integerIncrements('category_id');
+            $table->integer('supplier_id');
             $table->string('name', 100);
             $table->string('material', 100)->nullable();
             $table->string('flutes', 100)->nullable();

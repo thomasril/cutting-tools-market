@@ -26,7 +26,16 @@
                                         <td>{{$product->product_id}}</td>
                                         <td>{{$product->name}}</td>
                                         <td>{{$product->stock}}</td>
-                                        <td>{{floor($product->stock / $product->lot_size * 22 )}}</td>
+                                        <td>
+                                            @if (($product->productCategory->supplier_id == 17 && floor($product->stock / $product->lot_size * 22) > 7) ||
+                                                ($product->productCategory->supplier_id == 18 && floor($product->stock / $product->lot_size * 22) > 12))
+                                                    {{ floor($product->stock / $product->lot_size * 22)}}
+                                            @else
+                                                <span style = "color: red">
+                                                    {{ floor($product->stock / $product->lot_size * 22)}}
+                                                </span>
+                                            @endif
+                                        </td>
                                         <td>{{$product->lot_size}}</td>
                                     </tr>
                                 @endforeach

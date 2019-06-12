@@ -26,6 +26,13 @@ class SalesController extends Controller
             } else if (Auth::user()->role == 'Finance Manager') {
                 $sales = Sales::paginate(5);
                 return view('order-sales')->with('sales', $sales)->with('header', 'Customer Order');
+            } else if (Auth::user()->role == 'Director') {
+                $currentPath= Route::getFacadeRoot()->current()->uri();
+
+                $tempStatus = ($currentPath == 'order/sales' ? 'sales' : 'finance');
+
+                $sales = Sales::paginate(5);
+                return view('order-sales')->with('sales', $sales)->with('header', 'Customer Order')->with('status', $tempStatus);
             }
         }
     }
@@ -100,6 +107,7 @@ class SalesController extends Controller
         $sales->invoice_id = ($now->month < 10 ? '0'.$now->month : $now->month) . '001' . '/' . substr($now->year, 2,2);
         $sales->invoice_date = $now;
         $sales->status = 'Order Placed';
+        $sales->notif_status = 'Waiting';
         $sales->created_at = $now;
         $sales->save();
 

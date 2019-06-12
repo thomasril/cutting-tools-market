@@ -19,7 +19,7 @@ class UserTableSeeder extends Seeder
             'address'   => '',
             'username'  => 'admin',
             'password'  => 'admin123',
-            'initial'   => NULL,
+            'initial'   => 'ADM',
             'role'      => 'Admin',
             'created_at'=> '2019-05-12 07:50:00',
             'updated_at'=> NULL

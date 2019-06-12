@@ -21,15 +21,15 @@
                     <div class="portfolio-wrap">
                         <img src="{{asset('assets/img/products/'.$c->picture)}}" class="img-fluid" alt="">
                         <div class="portfolio-info">
-                            @if (!isset(Auth::user()->role) || Auth::user()->role == 'Customer')
+                            @if (Auth::user()->role == 'Sales Manager'))
+                            <h4><a href="/category/{{$c->category_id}}/catalogue/update">{{$c->name}}</a></h4>
+                            <div>
+                                <a href="/category/{{$c->category_id}}/catalogue/update" class="link-details" title="More Details"><i class="fas fa-link fa-fw"></i> </a>
+                            </div>
+                            @else
                                 <h4><a href="/category/{{$c->category_id}}/catalogue">{{$c->name}}</a></h4>
                                 <div>
                                     <a href="/category/{{$c->category_id}}/catalogue" class="link-details" title="More Details"><i class="fas fa-link fa-fw"></i> </a>
-                                </div>
-                            @else
-                                <h4><a href="/category/{{$c->category_id}}/catalogue/update">{{$c->name}}</a></h4>
-                                <div>
-                                    <a href="/category/{{$c->category_id}}/catalogue/update" class="link-details" title="More Details"><i class="fas fa-link fa-fw"></i> </a>
                                 </div>
                             @endif
                         </div>

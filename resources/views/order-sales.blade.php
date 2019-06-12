@@ -8,9 +8,10 @@
             </header>
 
                 <div class="row box">
+
                     @forelse($sales as $s)
                         <div class = "col-lg-8">
-                            @if (Auth::user()->role == 'Finance Manager')
+                            @if (Auth::user()->role == 'Finance Manager' || (Auth::user()->role == 'Director' && $status == 'finance'))
                                 Invoice ID : <strong>{{$s->invoice_id}}</strong>
                             @else
                                 Order ID : <strong>{{$s->order_id}}</strong>
@@ -31,8 +32,8 @@
                                     <button type="button" class="btn btn-circle-primary btn-cancel" data-toggle="modal" data-target="#modal-delete" data-id="{{$s->id}}"><strong>Cancel Order</strong></button>
                                 @endif
                                 <a href="/order/{{$s->id}}/purchase"><button type="button" class="btn btn-circle-primary btn-show"><strong>View PO</strong></button></a>
-                            @elseif (strpos(Auth::user()->role, 'Manager'))
-                                @if (Auth::user()->role == 'Sales Manager')
+                            @elseif (strpos(Auth::user()->role, 'Manager') || Auth::user()->role == 'Director')
+                                @if (Auth::user()->role == 'Sales Manager' || $status == 'sales')
                                     <a href="/order/{{$s->id}}/purchase"><button type="button" class="btn btn-circle-primary"><strong>View PO</strong></button></a>
                                     <a href="/order/{{$s->id}}/delivery"><button type="button" class="btn btn-circle-primary"><strong>View Delivery Order</strong></button></a>
                                 @endif
@@ -115,9 +116,9 @@
 
                                 <div class = "col-lg-2 mt-3"></div>
 
-                                @if(strpos(Auth::user()->role, 'Manager'))
+                                @if(strpos(Auth::user()->role, 'Manager') || Auth::user()->role == 'Director')
                                     <div class = "col-lg-4 pb-2 mt-3">
-                                        Delivery Date:<br/> <strong id = "delivery-date-{{$s->id}}">{{date ('d-mm-Y',strtotime($s->delivery_date))}}</strong>
+                                        Delivery Date:<br/> <strong id = "delivery-date-{{$s->id}}">{{date ('d M Y',strtotime($s->delivery_date))}}</strong>
                                         <input type="date" name="delivery_date" id = "input-date-{{$s->id}}" class = "form-control" style="display: none">
                                     </div>
                                 @endif

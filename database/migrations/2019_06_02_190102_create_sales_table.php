@@ -25,6 +25,7 @@ class CreateSalesTable extends Migration
             $table->string('invoice_id', 20)->nullable();
             $table->date('invoice_date')->nullable();
             $table->string('status', 30);
+            $table->string('notif_status', 30);
             $table->timestamps();
         });
     }
