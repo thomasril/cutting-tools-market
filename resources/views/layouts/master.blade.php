@@ -75,8 +75,8 @@ Header
                     </li>
                 @endif
 
-                <li class="{{ Request::is('/') ? 'active' : '' }}">
-                    <a href="/">Catalogue</a>
+                <li class="{{ Request::is('/catalogue') ? 'active' : '' }}">
+                    <a href="/catalogue">Catalogue</a>
                 </li>
 
                 @if($role == 'Guest' && strpos(Request::url(), 'login'))
@@ -87,7 +87,7 @@ Header
 
                 @if($role == 'Guest' && !strpos(Request::url(), 'login'))
                     <li class="dropdown">
-                            <form method = "post" action="{{url('/login')}}">
+                            <form method = "post" action="/navbar/login">
                                 {{csrf_field()}}
                             <div class = "form-row mt-1">
                                 <div class="form-group col-lg-4" >
@@ -111,11 +111,11 @@ Header
                             @if ($role == 'Director')
                                 <li><a href="/order/finance">Order Finance</a></li>
                                 <li><a href="/order/sales">Order Sales</a></li>
-                            @else
+                            @elseif ($role == 'Finance Manager' || $role == 'Sales Manager')
                                 <li><a href="/order">Order ({{$role == 'Finance Manager' ? 'Finance' : 'Sales'}})</a></li>
+                            @else
+                                <li><a href="/">Order</a></li>
                             @endif
-
-
                         </ul>
                     </li>
 

@@ -28,10 +28,6 @@ class CartController extends Controller
         foreach($request->qty as $index => $qty) {
             if ($qty > 0) {
                 $product_id = $request->product_id[$index];
-                $product = Product::where('product_id', $product_id)->first();
-                $product->stock -= $qty;
-                $product->save();
-
                 $cart = new Cart();
                 $cart->user_id = Auth::user()->id;
                 $cart->product_id = $product_id;
@@ -50,12 +46,6 @@ class CartController extends Controller
 
     public function destroy(Request $request)
     {
-        $deleted_cart = Cart::where('cart_id', $request->id)->first();
-
-        $product = Product::where('product_id', $deleted_cart->product_id)->first();
-        $product->stock += $deleted_cart->qty;
-        $product->save();
-
         Cart::destroy($request->id);
 
         return redirect()->back();
@@ -79,7 +69,7 @@ class CartController extends Controller
 
         $time = Carbon::now();
 
-        $order = Sales::whereMonth('created_at', '=', $time->month)->count() + 1;
+        $order = Sales::whereMonth('created_at', '=', $time->month)->where('order_id', 'like', Auth::user()->initial.'%')->count() + 1;
 
         $temp_id = ($order == 1 ? '01' : (($order > 1 || $order < 11) ? '0'.$order : $order));
 

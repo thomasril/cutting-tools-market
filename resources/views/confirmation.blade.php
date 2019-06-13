@@ -26,14 +26,14 @@
                         </div>
 
                         <div class="form-group">
-                            <input type="text"  class = "form-control"  placeholder="Company Phone Number" name = "phone" required value = "{{$user->phone}}">
+                            <input type="text"  class = "form-control input-phone"  placeholder="Company Phone Number" name = "phone" required value = "{{$user->phone}}">
                         </div>
 
                         <div class="form-group">
-                            <textarea rows="4" cols="50"  class = "form-control" required  placeholder="Company Address" name="address">{{$user->address}}</textarea>
+                            <textarea rows="4" cols="50"  class = "form-control input-address" required  placeholder="Company Address" name="address">{{$user->address}}</textarea>
                         </div>
                         <div class="form-group">
-                            <input type="email"  class = "form-control"  placeholder="Company Email" name = "email" required value = "{{$user->email}}">
+                            <input type="email"  class = "form-control input-email"  placeholder="Company Email" name = "email" required value = "{{$user->email}}">
                         </div>
 
                         <div class="form-group">
@@ -45,7 +45,7 @@
                         </div>
 
                         <div class="form-group text-center">
-                            <button type="button" class="btn btn-circle-primary btn-ok" data-toggle="modal" data-target = "#modal-confirm">Ok</button>
+                            <button type="button" class="btn btn-circle-primary btn-ok">Ok</button>
                         </div>
 
                         <div class="modal fade" id="modal-incomplete"  role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
@@ -59,7 +59,13 @@
                                         Silakan lengkapi terlebih dahulu.
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                                        <div class="container-fluid">
+                                            <div class="row justify-content-md-center">
+                                                <div class="col-md-4">
+                                                    <button type="close" class="btn btn-circle-secondary" data-dismiss="modal">Close</button>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -75,7 +81,13 @@
                                         Untuk mengaktifkan akun Anda, lakukan verifikasi pada alamat email {{$user->email}}
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="submit" class="btn btn-primary">Ok</button>
+                                        <div class="container-fluid">
+                                            <div class="row justify-content-md-center">
+                                                <div class="col-md-4">
+                                                    <button type="submit" class="btn btn-circle-primary" >Ok</button>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -101,13 +113,16 @@
     })
 
     $('.btn-ok').click(function() {
-        var name = $('.input-name').val();
-        alert(name)
+        var name = $('.input-name').val()
+        var phone = $('.input-phone').val()
+        var address = $('.input-address').val()
+        var email = $('.input-email').val()
 
-        if (name == '') {
-            $('.btn-ok').attr('data-target', '#modal-incomplete')
+        if (name == '' || phone == '' || address == '' || email == '') {
+            $('#modal-incomplete').modal('show')
         } else {
-            $('.btn-ok').attr('data-target', '#modal-confirm')
+            $('#modal-confirm').modal('show')
+        }
 
     })
 

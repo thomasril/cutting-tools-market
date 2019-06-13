@@ -60,7 +60,57 @@
                                                 Anda belum menginput Shipping Detail
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
+                                                <div class="container-fluid">
+                                                    <div class="row justify-content-md-center">
+                                                        <div class="col-md-4">
+                                                            <button type="button" class="btn btn-circle-secondary" data-dismiss="modal">Close</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal" id="modal-payment" tabindex="-1" role="dialog" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" >Method Payment Empty</h5>
+                                            </div>
+                                            <div class="modal-body">
+                                                Anda belum memilih metode pembayatan
+                                            </div>
+                                            <div class="modal-footer">
+                                                <div class="container-fluid">
+                                                    <div class="row justify-content-md-center">
+                                                        <div class="col-md-4">
+                                                            <button type="button" class="btn btn-circle-secondary" data-dismiss="modal">Close</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal" id="modal-success" tabindex="-1" role="dialog" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">Checkout Success</h5>
+                                            </div>
+                                            <div class="modal-body">
+                                                Produk diorder!
+                                            </div>
+                                            <div class="modal-footer">
+                                                <div class="container-fluid">
+                                                    <div class="row justify-content-md-center">
+                                                        <div class="col-md-4">
+                                                            <button type="submit" class="btn btn-circle-primary" >Ok</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -101,8 +151,8 @@
                     <div class= "col text-center" >
                         <div class = "row"  style = "width: 50%; margin: auto">
                             <div class = "col-lg-5">Payment Method:</div>
-                            <div class="radio-inline mr-5"><input type="radio" class = "mr-2" name="payment_method" value = "Bank Transfer"/>Bank Transfer</div>
-                            <div class="radio-inline"><input type="radio" class = "mr-2" name="payment_method" value = "Giro"/>Giro</div>
+                            <div class="radio-inline mr-5"><input type="radio" class = "mr-2" id = "check-bank" name="payment_method" value = "Bank Transfer"/>Bank Transfer</div>
+                            <div class="radio-inline"><input type="radio" class = "mr-2" id = "check-giro" name="payment_method" value = "Giro"/>Giro</div>
                         </div>
                     </div>
                 </div>
@@ -130,7 +180,7 @@
 
                 <div class = "row">
                     <div class = "col text-center">
-                        <button type = "submit" class = "btn-circle-primary">Create Order</button>
+                        <button type = "button" class = "btn-circle-primary btn-create">Create Order</button>
                     </div>
                 </div>
             </form>
@@ -153,7 +203,6 @@
     });
 
     $('.btn-save').click(function() {
-
         if ($(this).val() == 'Change') {
             $('.shipping-form').prop('readonly', false)
             $(this).html('Save')
@@ -172,5 +221,20 @@
                 $(this).val('Change')
             }
         }
-    });
+    })
+
+    $('.btn-create').click(function() {
+        var save = $('.btn-save').val()
+
+        var bank = $('#check-bank').prop("checked")
+        var giro = $('#check-giro').prop("checked")
+
+        if (save == 'Save') {
+            $('#modal-incomplete').modal('show')
+        } else if (bank == false && giro == false) {
+            $('#modal-payment').modal('show')
+        } else {
+            $('#modal-success').modal('show')
+        }
+    })
 @stop

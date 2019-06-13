@@ -97,10 +97,10 @@ class UserTableSeeder extends Seeder
 
         DB::table('users')->insert([
             'id'        =>  7,
-            'name'      => 'PT. Presisi Cileungsi Makmur',
-            'phone'     => '(021) 5890-2001',
-            'address'   => 'Wisma Presisi, Lantai 8 Jl. Taman Aries Blok A1 No. 1 Meruya Utara, Kembangan, Jakarta Barat 11620',
-            'email'     => 'injection-pcl@presisigrup.com',
+            'name'      => '',
+            'phone'     => '',
+            'address'   => '',
+            'email'     => '',
             'username'  => 'presisi001',
             'password'  => 'pcm2001',
             'initial'   => 'PCM',
@@ -111,10 +111,10 @@ class UserTableSeeder extends Seeder
 
         DB::table('users')->insert([
             'id'        =>  8,
-            'name'      => 'PT. Inti Pantja Press Industri',
-            'email'     => 'maratur@isuzu.astra.co.id',
-            'phone'     => '(021) 887-9990',
-            'address'   => 'Jl. Kali Abang No. 1 Pondok Ungu, Bekasi, Jawa Barat Indonesia PO. BOX 323',
+            'name'      => '',
+            'email'     => '',
+            'phone'     => '',
+            'address'   => '',
             'username'  => 'intipan002',
             'password'  => 'ipp9990',
             'initial'   => 'IPPI',

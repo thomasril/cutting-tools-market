@@ -12,15 +12,15 @@
 
                 <div class="row box">
                     @forelse($procurements as $p)
-                        <div class = "col-lg-8">
-                            Procure ID : <strong>{{$p->procure_id}}</strong>
+                        <div class = "col-lg-9 mt-2">
+                            Procure ID : <br/> <strong>{{$p->procure_id}}</strong>
                         </div>
 
-                        <div class = "col-lg-4">
-                            Procure Status: <strong>{{$p->status}}</strong>
+                        <div class = "col-lg-3 mt-2">
+                            Procure Status: <br/> <strong>{{$p->status}}</strong>
                         </div>
 
-                        <div class = "col-lg-12 text-right mt-3">
+                        <div class = "col-lg-12 text-right mt-3 border-bottom">
                             <button type="button" class="btn btn-circle-primary btn-show" data-id = "{{$p->id}}"><strong>Show Detail</strong></button>
                         </div>
                     @empty
@@ -49,11 +49,11 @@
                                 </div>
 
                                 <div class = "col-lg-8">
-                                    Procure Date: <strong>{{$p->reorder_date}}</strong>
+                                    Procure Date: <strong>{{date('d M Y', strtotime($p->reorder_date))}}</strong>
                                 </div>
 
                                 <div class = "col-lg-4">
-                                    Delivery Date: <strong>{{$p->delivery_date}}</strong>
+                                    Delivery Date: <strong>{{date('d M Y', strtotime($p->delivery_date))}}</strong>
                                 </div>
 
                                 <div class = "col-lg-12 pl-5 mt-2 pt-2 border-top">

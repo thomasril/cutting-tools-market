@@ -88,6 +88,10 @@ class SalesController extends Controller
 
         $now = Carbon::now();
 
+        $invoice = Sales::whereYear('created_at', '=', $now->year)->count() + 1;
+
+        $temp_id = ($invoice == 1 ? '001' : (($invoice > 1 || $invoice < 11) ? '00'.$invoice : (($invoice > 10 || $invoice < 100) ? '0'.$invoice : $invoice)));
+
         $sales = new Sales();
         $sales->order_id = $request->order_id;
         $sales->buyer_id = Auth::user()->id;
@@ -103,8 +107,8 @@ class SalesController extends Controller
             '/'.self::getRomanNumber($now->month).
             '/'. substr($now->year, 2,2).
             '/'.Auth::user()->initial;
-        $sales->delivery_date = null;
-        $sales->invoice_id = ($now->month < 10 ? '0'.$now->month : $now->month) . '001' . '/' . substr($now->year, 2,2);
+        $sales->delivery_date = '1970-01-01 01:00:00.00000';
+        $sales->invoice_id = ($now->month < 10 ? '0'.$now->month : $now->month) . $temp_id . '/' . substr($now->year, 2,2);
         $sales->invoice_date = $now;
         $sales->status = 'Order Placed';
         $sales->notif_status = 'Waiting';
@@ -154,10 +158,13 @@ class SalesController extends Controller
     }
 
     public function showNotification() {
-        $sales = Sales::all();
-        $salesDetail = SalesDetail::all();
+        if (Auth::check() && Auth::user()->role == 'Logistic Manager') {
+            $sales = Sales::all();
+            $salesDetail = SalesDetail::all();
+            return view('product-outgoing')->with('sales', $sales)->with('salesDetail', $salesDetail);
+        }
 
-        return view('product-outgoing')->with('sales', $sales)->with('salesDetail', $salesDetail);
+        return redirect('/');
     }
 
     function pdf($id)
@@ -191,7 +198,7 @@ class SalesController extends Controller
                         </div>
                         
                         <div style = "text-align: right; margin-right: 80px; margin-top: 10px">No: '.$sales->order_id.'</div>
-                        <div style = "text-align: right; margin-right: 80px;">Tanggal PO: '.$sales->order_date.'</div>
+                        <div style = "text-align: right; margin-right: 80px;">Tanggal PO: '.date ('d M Y',strtotime($sales->order_date)).'</div>
         
                         <div style="text-align:center">
                            <h3>PURCHASE ORDER</h3>
@@ -266,7 +273,7 @@ class SalesController extends Controller
                         
                          <div style="margin-top: 20px">
                              <div style="width: 50%; display: inline-block"></div>
-                             <div style="width: 50%; display: inline-block">Tanggal: '.$sales->order_date.'</div>
+                             <div style="width: 50%; display: inline-block">Tanggal: '.date ('d M Y',strtotime($sales->order_date)).'</div>
                         </div>
                         <div>
                              <div style="width: 50%; display: inline-block">No. PO: '.$sales->order_id.'</div>
@@ -332,7 +339,7 @@ class SalesController extends Controller
                                <td width="15%">No. PO</td>
                                <td width="2%">:</td>
                                <td width="40%">'.$sales->order_id.'</td>
-                               <td width="30%">Jakarta, '.$sales->invoice_date.'</td>
+                               <td width="30%">Jakarta, '.date ('d M Y',strtotime($sales->invoice_date)).'</td>
                             </tr>
                             
                             <tr>
@@ -424,29 +431,32 @@ class SalesController extends Controller
         return redirect()->back();
     }
 
+    public function changeStatus (Request $request) {
+        $sales = Sales::find($request->id);
+
+        $sales->notif_status = 'Confirmed';
+
+
+        $salesDetail = SalesDetail::where('order_id', $sales->order_id)->get();
+
+        foreach ($salesDetail as $sd) {
+            $product = Product::where('product_id', $sd->product_id)->first();
+
+            $product->stock -= $sd->qty;
+            $product->save();
+        }
+
+        $sales->save();
+
+        return redirect()->back();
+    }
+
     public function destroy(Request $request)
     {
         $sales = Sales::where('id', $request->id)->first();
         $sales->status = 'Order Cancelled';
         $sales->save();
 
-        $details = SalesDetail::where('order_id', $sales->order_id)->get();
-
-        foreach ($details as $d) {
-            $product = Product::where('product_id', $d->product_id)->first();
-
-            $product->stock += $d->qty;
-            $product->save();
-        }
-
-//        Sales::destroy($sales->id);
-//
-//        $details = SalesDetail::where('order_id', $sales->order_id)->get();
-//
-//
-//        foreach ($details as $d) {
-//            SalesDetail::destroy($d->id);
-//        }
         return redirect()->back();
     }
 }

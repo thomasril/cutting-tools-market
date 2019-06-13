@@ -3,14 +3,13 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\User;
-use Illuminate\Support\Facades\Cookie;
 use Validator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Auth\UserInterface;
+use Illuminate\Support\Facades\Route;
 
 class LoginController extends Controller
 {
@@ -24,33 +23,36 @@ class LoginController extends Controller
 
     public function logout(){
         Auth::logout();
-        return redirect('/login');
+        return redirect('/signup');
     }
 
-    private function validator(array $data){
-        return Validator::make($data, [
-            'username' => 'required',
-            'password' => 'required|min:5',
-        ]);
-    }
+    protected function validateLogin(Request $request){
 
-    protected function validateLogin(Request $request)
-    {
+        $path = Route::getFacadeRoot()->current()->uri();
         $user = User::where('username', $request->username)->where('password', $request->password)->first();
 
-        $validator = $this->validator($request->all());
-
-        if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator);
+        if ($path == 'navbar/login') {
+            if ($user == null)
+                return redirect('/login');
+            else if ($user != null && $user->name != '') {
+                Auth::login($user);
+                return redirect('/');
+            }
+        }
+        else {
+            if ($user == null) {
+                $err = 'User Tidak Ada';
+                return redirect()->back()->withErrors(['err' => $err]);
+            } else if ($user != null && $user->name == '') {
+                $err = 'Maaf, username / password yang Anda masukkan tidak sesuai. Pastikan Anda telah terdaftar sebagai konsumen PT. Dirgaraya Harsa.';
+                return redirect()->back()->withErrors(['err' => $err]);
+            } else if ($user != null && $user->name != '') {
+                Auth::login($user);
+                return redirect('/');
+            }
         }
 
-        if(!$user) {
-            $err = 'User Tidak Ada ';
-            return redirect()->back()->withErrors(['err' => $err]);
-        }
 
-        Auth::login($user);
-
-        return redirect('/');
+        return redirect('/signup');
     }
 }

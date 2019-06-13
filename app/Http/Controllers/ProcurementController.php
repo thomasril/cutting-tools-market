@@ -28,11 +28,6 @@ class ProcurementController extends Controller
         return redirect('/');
     }
 
-    public function create()
-    {
-        //
-    }
-
     protected function validator(array $data)
     {
         return Validator::make($data, [
@@ -53,43 +48,61 @@ class ProcurementController extends Controller
 
         $temp = explode("-", $request->reorder_date);
 
+        $time = Carbon::now();
+
+        $procure = Procurement::whereMonth('created_at', '=', $time->month)->count() + 1;
+
+        $temp_id = ($procure == 1 ? '01' : (($procure > 1 || $procure < 11) ? '0'.$procure : $procure));
+
         $procurement = new Procurement();
-        $procurement->procure_id = strval($temp[1]).strval(substr($temp[0], 2,2))."01".$request->supplier;
+        $procurement->procure_id = strval($temp[1]).strval(substr($temp[0], 2,2)).$temp_id.$request->supplier;
         $procurement->reorder_date = $request->reorder_date;
         $procurement->product_id = $request->product_id;
         $procurement->qty = $request->qty;
         $procurement->delivery_date = $request->delivery_date;
         $procurement->supplier = ($request->supplier == "LV") ? "Lasting Victory" : "M&V";
         $procurement->status = 'Order Dispatched';
+        $procurement->notif_status = 'Waiting';
         $procurement->reorder_date = $request->reorder_date;
         $procurement->created_at = Carbon::now();
         $procurement->save();
-
-        $product = Product::where('product_id', $request->product_id)->first();
-
-        $product->stock = $product->stock + $request->qty;
-        $procurement->updated_at = Carbon::now();
-        $product->save();
+        $procurement->updated_at = NULL;
 
         return redirect('/reorder/procure');
     }
 
     public function show(Procurement $procurement) // Procure Order
     {
-        $procurements = Procurement::all();
+        if (Auth::check()) {
+            $procurements = Procurement::all();
+            return view('order-procurement')->with('procurements', $procurements);
+        }
 
-        return view('order-procurement')->with('procurements', $procurements);
+        return redirect('/');
     }
 
     public function showNotification(Procurement $procurement) // Incoming Product
     {
-        $procurements = Procurement::all();
+        if (Auth::check() && Auth::user()->role == 'Logistic Manager') {
+            $procurements = Procurement::all();
+            return view('product-incoming')->with('procurements', $procurements);
+        }
 
-        return view('product-incoming')->with('procurements', $procurements);
+        return redirect('/');
     }
 
-    public function destroy(Procurement $procurement)
-    {
-        //
+    public function changeStatus (Request $request) {
+        $procure = Procurement::find($request->id);
+
+        $procure->status = 'Order Completed';
+        $procure->notif_status = 'Confirmed';
+
+        $product = Product::where('product_id', $procure->product_id)->first();
+        $product->stock += $procure->qty;
+        $product->save();
+
+        $procure->save();
+
+        return redirect()->back();
     }
 }

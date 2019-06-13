@@ -17,6 +17,7 @@ class CreateProcurementsTable extends Migration
             $table->date('delivery_date');
             $table->string('supplier');
             $table->string('status');
+            $table->string('notif_status');
             $table->timestamps();
         });
     }

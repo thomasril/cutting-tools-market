@@ -18,6 +18,7 @@
         @endif
 
             <div class="row box">
+
                 <div class="col">
                 <table class="table">
                         <tr>
@@ -30,7 +31,7 @@
                         </tr>
                     <tbody>
 
-                        @foreach($carts as $c)
+                        @forelse($carts as $c)
                             <tr class = "cart-{{$c->cart_id}}">
                                 <td><input type = "checkbox" style="width: 20px; height: 20px;" class = "check-products" value = "{{($c->qty * $c->product->price)}}" data-id = {{$c->cart_id}}></td>
                                 <td>{{$c->product->name}}</td>
@@ -69,7 +70,13 @@
                                     </div>
                                 </form>
                             </tr>
-                        @endforeach
+                        @empty
+                            <tr>
+                               <td colspan="6" align="center">
+                                   <strong>Tidak ada item</strong>
+                               </td>
+                            </tr>
+                        @endforelse
                     </tbody>
                 </table>
 

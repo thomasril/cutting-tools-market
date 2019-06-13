@@ -11,7 +11,7 @@
 
                     @forelse($sales as $s)
                         <div class = "col-lg-8">
-                            @if (Auth::user()->role == 'Finance Manager' || (Auth::user()->role == 'Director' && $status == 'finance'))
+                            @if (Auth::user()->role == 'Finance Manager' || (Auth::user()->role == 'Director' && isset($status) && $status == 'finance'))
                                 Invoice ID : <strong>{{$s->invoice_id}}</strong>
                             @else
                                 Order ID : <strong>{{$s->order_id}}</strong>
@@ -33,7 +33,7 @@
                                 @endif
                                 <a href="/order/{{$s->id}}/purchase"><button type="button" class="btn btn-circle-primary btn-show"><strong>View PO</strong></button></a>
                             @elseif (strpos(Auth::user()->role, 'Manager') || Auth::user()->role == 'Director')
-                                @if (Auth::user()->role == 'Sales Manager' || $status == 'sales')
+                                @if (Auth::user()->role == 'Sales Manager' || (isset($status) && $status == 'sales'))
                                     <a href="/order/{{$s->id}}/purchase"><button type="button" class="btn btn-circle-primary"><strong>View PO</strong></button></a>
                                     <a href="/order/{{$s->id}}/delivery"><button type="button" class="btn btn-circle-primary"><strong>View Delivery Order</strong></button></a>
                                 @endif
@@ -104,7 +104,10 @@
                                     </select>
 
                                     @if ($s->status != 'Order Cancelled' && $s->status != 'Order Finished' && strpos(Auth::user()->role, 'Manager'))
-                                       <button class = "btn btn-info ml-1 btn-change" style = "height: 35px" data-id="{{$s->id}}"><i class="fas fa-edit" ></i></button>
+                                        @if ((Auth::user()->role == 'Finance Manager' && $s->status == 'Order Dispatched') ||
+                                             (Auth::user()->role == 'Sales Manager' && $s->status == 'Order Placed'))
+                                            <button class = "btn btn-info ml-1 btn-change" style = "height: 35px" data-id="{{$s->id}}"><i class="fas fa-edit" ></i></button>
+                                        @endif
                                     @endif
 
                                     <button class = "btn btn-success ml-1 btn-accept" data-toggle="modal" data-target="#modal-update" style = "height: 35px; display: none" data-id="{{$s->id}}"><i class="fas fa-check" ></i></button>
@@ -118,7 +121,7 @@
 
                                 @if(strpos(Auth::user()->role, 'Manager') || Auth::user()->role == 'Director')
                                     <div class = "col-lg-4 pb-2 mt-3">
-                                        Delivery Date:<br/> <strong id = "delivery-date-{{$s->id}}">{{date ('d M Y',strtotime($s->delivery_date))}}</strong>
+                                        Delivery Date:<br/> <strong id = "delivery-date-{{$s->id}}">{{($s->delivery_date == '0000-00-00') ? '' : date ('d M Y',strtotime($s->delivery_date))}}</strong>
                                         <input type="date" name="delivery_date" id = "input-date-{{$s->id}}" class = "form-control" style="display: none">
                                     </div>
                                 @endif
@@ -187,8 +190,18 @@
                                 Anda benar - benar ingin mengganti status dan tanggal pengiriman?
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                                <button type="submit" class="btn btn-primary" >Yes</button>
+                                <div class="container-fluid">
+                                    <div class="row justify-content-md-center">
+                                        <div class="col-md-3">
+                                            <button type="button" class="btn btn-circle-secondary" data-dismiss="modal">No</button>
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <button type="submit" class="btn btn-circle-primary" >Yes</button>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>

@@ -10,7 +10,7 @@ class Procurement extends Model
     protected  $primaryKey = 'id';
 
     protected $fillable = [
-        'procure_id' ,'reorder_date', 'product_id', 'qty', 'delivery_date', 'supplier',  'status'
+        'procure_id' ,'reorder_date', 'product_id', 'qty', 'delivery_date', 'supplier',  'status', 'notif_status'
     ];
 
     public function product(){

@@ -5,15 +5,25 @@ namespace App\Http\Controllers;
 use App\ProductCategory;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class ProductCategoryController extends Controller
 {
     public function index()
     {
-        $categories = ProductCategory::All();
+        if (Auth::check()) {
+            return redirect('/catalogue');
+        }
 
+        return redirect('/signup');
+    }
+
+    public function show(){
+        $categories = ProductCategory::All();
         return view('home')->with('categories', $categories);
     }
+
+
 
     public function update(Request $request)
     {

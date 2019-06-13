@@ -14,7 +14,7 @@
                         </div>
 
                         <div class = "col-lg-2" id = "notif-status-{{$p->id}}">
-                            Waiting
+                            {{$p->notif_status}}
                         </div>
 
                         <div class = "col-lg-12 text-right mt-3">
@@ -32,7 +32,7 @@
                                     </div>
                                     <div class="modal-body">
                                         <p>
-                                            Reorder dilakukan tanggal {{$p->reorder_date}}<br/>
+                                            Reorder dilakukan tanggal {{date('d M Y', strtotime($p->reorder_date))}}<br/>
                                             Dengan detail reorder sebagai berikut:
                                         </p>
 
@@ -46,13 +46,23 @@
                                             <div class = "col-lg-6 text-center">{{$p->qty}}</div>
                                         </div>
                                     </div>
-                                    <div class="modal-footer">
-                                        <div class = "row">
-                                            <div class = "col text-center">
-                                                <button type = "button" class = "btn-circle-primary btn-confirm" data-id = {{$p->id}}>Confirm</button>
+                                    <form method = "post" action="/notification/incoming">
+                                        {{csrf_field()}}
+                                        <div class="modal-footer">
+                                            <div class="container-fluid">
+                                                <div class="row justify-content-md-center">
+                                                    <input type = "hidden"  name = "id" value = "{{$p->id}}">
+                                                    <div class="col-md-4">
+                                                        @if ($p->notif_status != 'Confirmed')
+                                                            <button type = "submit" class = "btn-circle-primary btn-confirm">Confirm</button>
+                                                        @else
+                                                            <button type = "button" class = "btn-circle-secondary" data-dismiss = "modal">Close</button>
+                                                        @endif
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -67,9 +77,5 @@
 @stop
 
 @section('custom_js')
-    $('.btn-confirm').click(function () {
-        var id = $(this).data('id')
-        alert(id);
-        $('#notif-status-'+id).html('Confirmed')
-    })
+
 @stop

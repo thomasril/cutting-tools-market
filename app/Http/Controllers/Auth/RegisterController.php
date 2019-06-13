@@ -21,27 +21,9 @@ class RegisterController extends Controller
         return view('register');
     }
 
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'phone' => ['required', 'string', 'max:255'],
-            'address' => ['required', 'string'],
-            'username' => ['required', 'string', 'max:255'],
-            'password' => ['required', 'string', 'min:5 '],
-        ]);
-    }
-
 
     public function checkRegisterData(Request $request)
     {
-        $validator = $this->validator($request->all());
-
-        if ($validator->fails()) {
-            return redirect()->back();
-        }
-
         $user = User::where('username', $request->username)->where('password', $request->password)->first();
 
         if($user == null) {
@@ -49,7 +31,7 @@ class RegisterController extends Controller
             return redirect()->back()->withErrors(['err' => $err])->withInput(Input::all());
         }
 
-        if ($user->name != null){
+        if ($user->name != null || $user->email != null){
             $err = "Anda telah terdaftar sebelumnya dengan username ".$user->username.". 
              Silakan lakukan Login.";
             return redirect()->back()->withErrors(['err' => $err]);

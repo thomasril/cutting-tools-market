@@ -35,7 +35,7 @@
                     </div>
                     <div class = "col-lg-9 text-right">Tanggal PO</div>
                     <div class = "col-lg-3">
-                        : {{$sales->order_date}}
+                        : {{date ('d M Y',strtotime($sales->order_date))}}
                     </div>
 
                     <div class = "col-lg-12 mt-5">
@@ -115,7 +115,7 @@
 
                 @elseif ($header == 'Delivery Order')
                         <div class = "col-lg-8 text-right">Tanggal </div>
-                        <div class = "col-lg-4">: {{$sales->order_date}} </div>
+                        <div class = "col-lg-4">: {{date ('d M Y',strtotime($sales->order_date))}}</div>
 
                         <div class = "col-lg-1">No. PO</div>
                         <div class = "col-lg-3">: {{$sales->order_id}}</div>
@@ -170,7 +170,7 @@
                     @elseif ($header == 'Invoice')
                         <div class = "col-lg-2">No. PO</div>
                         <div class = "col-lg-6"> : {{$sales->order_id}}</div>
-                        <div class = "col-lg-4">Jakarta, {{$sales->invoice_date}}</div>
+                        <div class = "col-lg-4">Jakarta, {{date ('d M Y',strtotime($sales->invoice_date))}}</div>
 
                         <div class = "col-lg-2">No. Surat Jalan</div>
                         <div class = "col-lg-6"> : {{$sales->delivery_id}}</div>

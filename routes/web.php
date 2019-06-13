@@ -12,7 +12,11 @@ Route::post('/register', 'Auth\RegisterController@register');
 
 Route::post('/login', 'Auth\LoginController@validateLogin');
 
+Route::post('/navbar/login', 'Auth\LoginController@validateLogin');
+
 Route::get('/', 'ProductCategoryController@index');
+
+Route::get('/catalogue', 'ProductCategoryController@show');
 
 Route::post('/search', 'ProductController@search');
 
@@ -75,7 +79,12 @@ Route::get('/reorder/procure', 'ProcurementController@show');
 // Notification
 Route::get('/notification/outgoing', 'SalesController@showNotification');
 
+Route::post('/notification/outgoing', 'SalesController@changeStatus');
+
 Route::get('/notification/incoming', 'ProcurementController@showNotification');
+
+Route::post('/notification/incoming', 'ProcurementController@changeStatus');
+
 
 // Inventory
 Route::get('/inventory', 'ProductController@show');

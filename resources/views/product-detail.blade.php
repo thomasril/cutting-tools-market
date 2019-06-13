@@ -4,7 +4,6 @@
 
     <section id="services" class="section-bg">
         <div class="container">
-
             <div class = "row">
                 <div class = "col ml-3 mt-3">
                     <a href = "/" style = "color: black"> Catalogue </a> » <strong>{{$category->name}}</strong>
@@ -105,8 +104,8 @@
                                 <div class="modal-footer">
                                     <div class="container-fluid">
                                         <div class="row justify-content-md-center">
-                                            <div class="col-md-3">
-                                                <button type="submit" class="btn btn-circle-primary" >Yes</button>
+                                            <div class="col-md-4">
+                                                <button type="submit" class="btn btn-circle-primary" >Ok</button>
                                             </div>
                                         </div>
                                     </div>
@@ -127,8 +126,8 @@
                                 <div class="modal-footer">
                                     <div class="container-fluid">
                                         <div class="row justify-content-md-center">
-                                            <div class="col-md-3">
-                                                <button type="submit" class="btn btn-circle-primary" data-dismiss = "modal">Close</button>
+                                            <div class="col-md-4">
+                                                <button type="submit" class="btn btn-circle-secondary" data-dismiss = "modal">Close</button>
                                             </div>
                                         </div>
                                     </div>

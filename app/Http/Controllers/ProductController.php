@@ -81,12 +81,14 @@ class ProductController extends Controller
 
     public function show(Product $product) // show data
     {
-        if (Auth::check()) {
+        if (Auth::check() && Auth::user()->role != 'Customer') {
             $products =Product::with('productCategory')->with('productType')->get();
             $types = $products->groupBy('type_id');
 
             return view('inventory')->with(['types' => $types]);
         }
+
+        return redirect('/');
     }
 
     public function edit($id) // show update form
