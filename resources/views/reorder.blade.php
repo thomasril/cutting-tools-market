@@ -36,8 +36,8 @@
                         <div class="form-group">
                             <label class="col-form-label">Product Type:</label>
                             <select class = "form-control" id = "combo-type">
-                                    <option value = ""
-                                @foreach($types as $type)
+                                    <option value = "select">--Select Supplier--</option>
+                            @foreach($types as $type)
                                     <option value = "{{$type->type_id}}">{{$type->full_name}}</option>
                                 @endforeach
                             </select>
@@ -67,7 +67,7 @@
                         <div class="form-group">
                             <label class="col-form-label">Supplier:</label>
                             <select class = "form-control" name = "supplier">
-                                <option>Select Supplier</option>
+                                <option>--Select Supplier--</option>
                                 @foreach($suppliers as $s)
                                     <option value = "{{$s->initial}}">{{$s->name}}</option>
                                 @endforeach

@@ -27,6 +27,8 @@ class ProductCategoryController extends Controller
 
     public function update(Request $request)
     {
+        dd($request);
+
         $category = ProductCategory::find($request->id);
 
         $category->material = $request->material;
