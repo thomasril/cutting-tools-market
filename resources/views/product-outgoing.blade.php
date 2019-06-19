@@ -34,8 +34,8 @@
                                 </div>
                                 <div class="modal-body">
                                     <p>
-                                        Reorder dilakukan tanggal {{date('d M Y', strtotime($s->order_date))}}<br/>
-                                        Dengan detail reorder sebagai berikut:
+                                        Order dilakukan tanggal {{date('d M Y', strtotime($s->order_date))}}<br/>
+                                        Dengan detail order sebagai berikut:
                                     </p>
 
                                     <div class = "row border-bottom">
@@ -56,7 +56,7 @@
                                             <div class="row justify-content-md-center">
                                                 <input type = "hidden"  name = "id" value = "{{$s->id}}">
                                                 <div class="col-md-4">
-                                                    @if ($s->notif_status != 'Confirmed')
+                                                    @if ($s->notif_status == 'Waiting')
                                                         <button type = "submit" class = "btn-circle-primary btn-confirm">Confirm</button>
                                                     @else
                                                         <button type = "button" class = "btn-circle-secondary" data-dismiss = "modal">Close</button>
@@ -74,6 +74,10 @@
                         <strong>Tidak ada notifikasi</strong>
                     </div>
                 @endforelse
+            </div>
+
+            <div class = "row justify-content-md-center">
+                <div class = "col-md-auto">{{$sales->links()}}</div>
             </div>
         </div>
     </section>

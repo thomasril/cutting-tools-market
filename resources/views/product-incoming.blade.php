@@ -17,7 +17,7 @@
                             {{$p->notif_status}}
                         </div>
 
-                        <div class = "col-lg-12 text-right mt-3">
+                        <div class = "col-lg-12 text-right mt-3 border-bottom mb-2">
                             <button type="button" class="btn btn-circle-primary" data-id = "{{$p->id}}" data-toggle = "modal" data-target = '#modal-confirm-{{$p->id}}'><strong>Show Detail</strong></button>
                         </div>
 
@@ -71,6 +71,10 @@
                             <strong>Tidak ada notifikasi</strong>
                         </div>
                     @endforelse
+                </div>
+
+                <div class = "row justify-content-md-center">
+                    <div class = "col-md-auto">{{$procurements->links()}}</div>
                 </div>
         </div>
     </section>

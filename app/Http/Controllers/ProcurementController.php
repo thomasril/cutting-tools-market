@@ -73,8 +73,8 @@ class ProcurementController extends Controller
 
     public function show(Procurement $procurement) // Procure Order
     {
-        if (Auth::check()) {
-            $procurements = Procurement::all();
+        if (Auth::check() && Auth::user()->role != 'Customer' && Auth::user()->role != 'Finance Manager') {
+            $procurements = Procurement::paginate(5);
             return view('order-procurement')->with('procurements', $procurements);
         }
 
@@ -84,7 +84,7 @@ class ProcurementController extends Controller
     public function showNotification(Procurement $procurement) // Incoming Product
     {
         if (Auth::check() && Auth::user()->role == 'Logistic Manager') {
-            $procurements = Procurement::all();
+            $procurements = Procurement::paginate(5);
             return view('product-incoming')->with('procurements', $procurements);
         }
 

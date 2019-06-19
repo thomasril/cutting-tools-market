@@ -18,8 +18,6 @@ Route::get('/', 'ProductCategoryController@index');
 
 Route::get('/catalogue', 'ProductCategoryController@show');
 
-Route::post('/search', 'ProductController@search');
-
 // Product Detail
 Route::get('/category/{id}/catalogue', 'ProductController@index');
 
@@ -43,8 +41,6 @@ Route::post('/cart/delete', 'CartController@destroy');
 Route::post('/checkout', 'CartController@checkout');
 
 Route::get('/order', 'SalesController@index');
-
-Route::get('/order/sales', 'SalesController@index');
 
 Route::get('/order/finance', 'SalesController@index');
 

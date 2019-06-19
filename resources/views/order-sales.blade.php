@@ -11,7 +11,7 @@
 
                     @forelse($sales as $s)
                         <div class = "col-lg-8">
-                            @if (Auth::user()->role == 'Finance Manager' || (Auth::user()->role == 'Director' && isset($status) && $status == 'finance'))
+                            @if (Auth::user()->role == 'Finance Manager' || Auth::user()->role == 'Director')
                                 Invoice ID : <strong>{{$s->invoice_id}}</strong>
                             @else
                                 Order ID : <strong>{{$s->order_id}}</strong>
@@ -33,7 +33,7 @@
                                 @endif
                                 <a href="/order/{{$s->id}}/purchase"><button type="button" class="btn btn-circle-primary btn-show"><strong>View PO</strong></button></a>
                             @elseif (strpos(Auth::user()->role, 'Manager') || Auth::user()->role == 'Director')
-                                @if (Auth::user()->role == 'Sales Manager' || (isset($status) && $status == 'sales'))
+                                @if (Auth::user()->role == 'Sales Manager')
                                     <a href="/order/{{$s->id}}/purchase"><button type="button" class="btn btn-circle-primary"><strong>View PO</strong></button></a>
                                     <a href="/order/{{$s->id}}/delivery"><button type="button" class="btn btn-circle-primary"><strong>View Delivery Order</strong></button></a>
                                 @endif
@@ -119,14 +119,12 @@
 
                                 <div class = "col-lg-2 mt-3"></div>
 
-                                @if(strpos(Auth::user()->role, 'Manager') || Auth::user()->role == 'Director')
                                     <div class = "col-lg-4 pb-2 mt-3">
-                                        Delivery Date:<br/> <strong id = "delivery-date-{{$s->id}}">{{($s->delivery_date == '0000-00-00') ? '' : date ('d M Y',strtotime($s->delivery_date))}}</strong>
-                                        <input type="date" name="delivery_date" id = "input-date-{{$s->id}}" class = "form-control" style="display: none">
+                                        Delivery Date:<br/> <strong id = "delivery-date-{{$s->id}}">{{($s->delivery_date == '1970-01-01') ? '' : date ('d M Y',strtotime($s->delivery_date))}}</strong>
+                                        @if (Auth::user()->role == 'Sales Manager')
+                                            <input type="date" name="delivery_date" id = "input-date-{{$s->id}}" class = "form-control" style="display: none">
+                                        @endif
                                     </div>
-                                @endif
-
-
 
                                 <div class = "col-lg-8 pb-2 mt-3">
                                     Recepient Name: <br/><strong>{{$s->recipient_name}}</strong>

@@ -27,12 +27,8 @@ class SalesController extends Controller
                 $sales = Sales::paginate(5);
                 return view('order-sales')->with('sales', $sales)->with('header', 'Customer Order');
             } else if (Auth::user()->role == 'Director') {
-                $currentPath= Route::getFacadeRoot()->current()->uri();
-
-                $tempStatus = ($currentPath == 'order/sales' ? 'sales' : 'finance');
-
                 $sales = Sales::paginate(5);
-                return view('order-sales')->with('sales', $sales)->with('header', 'Customer Order')->with('status', $tempStatus);
+                return view('order-sales')->with('sales', $sales)->with('header', 'Customer Order');
             }
         }
     }
@@ -159,7 +155,7 @@ class SalesController extends Controller
 
     public function showNotification() {
         if (Auth::check() && Auth::user()->role == 'Logistic Manager') {
-            $sales = Sales::all();
+            $sales = Sales::paginate(5);
             $salesDetail = SalesDetail::all();
             return view('product-outgoing')->with('sales', $sales)->with('salesDetail', $salesDetail);
         }
@@ -247,7 +243,7 @@ class SalesController extends Controller
                             <table style="text-align:center" align="center">
                                 <tr>
                                     <td width = "200" align="left">Disetujui</td>
-                                    <td width = "200" align="right">Company Name</td>
+                                    <td width = "200" align="right">('.$sales->buyer->name.')</td>
                                 </tr>
                                 <tr>
                                     <td height="150" align="left" valign="bottom">(Liliana Harsono)</td>
@@ -436,7 +432,6 @@ class SalesController extends Controller
 
         $sales->notif_status = 'Confirmed';
 
-
         $salesDetail = SalesDetail::where('order_id', $sales->order_id)->get();
 
         foreach ($salesDetail as $sd) {
@@ -455,6 +450,7 @@ class SalesController extends Controller
     {
         $sales = Sales::where('id', $request->id)->first();
         $sales->status = 'Order Cancelled';
+        $sales->notif_status = 'Cancelled';
         $sales->save();
 
         return redirect()->back();

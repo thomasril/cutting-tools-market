@@ -30,6 +30,10 @@
                     @endforelse
                 </div>
 
+                <div class = "row justify-content-md-center">
+                    <div class = "col-md-auto">{{$procurements->links()}}</div>
+                </div>
+
                 <div class = "row box detail-procure" style="display:none;">
                     <div class = "col-lg-12">
                         <button type="button" class="close">

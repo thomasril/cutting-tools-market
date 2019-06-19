@@ -24,25 +24,6 @@ class ProductController extends Controller
             return view('product-detail')->with(['types' => $types, 'pictures' => $pictures, 'category' => $category]);
         }
 
-//      $products = DB::table('products')->where('category_id', $id)->join('product_types', 'product_types.type_id', '=', 'products.type_id')->get();
-
-        return redirect('/');
-    }
-
-    public function search (Request $request) {
-//        $product = Product::where('name', 'LIKE', '%'.$request->data.'%')->get();
-//        dd($product);
-//        if ($product != null) {
-//            $category = ProductCategory::where('category_id', $product->category_id)->get();
-//            dd($category);
-//        }
-
-        $category = ProductCategory::where('name', 'LIKE', '%'.$request->data.'%')->first();
-
-        if ($category != null) {
-            return redirect('/category/'.$category->category_id.'/catalogue');
-        }
-
         return redirect('/');
     }
 

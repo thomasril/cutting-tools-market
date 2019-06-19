@@ -89,7 +89,7 @@ class ProductTypeTableSeeder extends Seeder
         DB::table('product_types')->insert([
             'type_id'   => 11,
             'name'      => '2-Flutes',
-            'full_name' => 'Flutes (2-Flutes)',
+            'full_name' => 'HSS End Mill (2-Flutes)',
             'created_at'=> '2019-05-12 07:50:00',
             'updated_at'=> NULL
         ]);
@@ -97,7 +97,7 @@ class ProductTypeTableSeeder extends Seeder
         DB::table('product_types')->insert([
             'type_id'   => 12,
             'name'      => '4-Flutes',
-            'full_name' => 'Flutes (4-Flutes)',
+            'full_name' => 'HSS End Mill (4-Flutes)',
             'created_at'=> '2019-05-12 07:50:00',
             'updated_at'=> NULL
         ]);

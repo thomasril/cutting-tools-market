@@ -53,20 +53,6 @@ Header
 
                 @if($role == 'Customer')
                     <li class="dropdown">
-                        <form method = "post" action="/search">
-                            {{csrf_field()}}
-                            <div class = "form-row mt-2">
-                                <div class="input-group" style = "height: 30px; margin-top: -5px">
-                                    <input type="text" class="form-control" placeholder="Search Category" name = "data"  style = "font-size: 14px; padding: 0px 10px;">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-outline-secondary" style=" width: 40px" type="submit"><i class="fas fa-search"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </li>
-
-                    <li class="dropdown">
                         <a href="/cart"><i class="fas fa-shopping-cart fa-lg"></i></a>
                     </li>
 
@@ -110,7 +96,6 @@ Header
                         <ul>
                             @if ($role == 'Director')
                                 <li><a href="/order/finance">Order Finance</a></li>
-                                <li><a href="/order/sales">Order Sales</a></li>
                             @elseif ($role == 'Finance Manager' || $role == 'Sales Manager')
                                 <li><a href="/order">Order ({{$role == 'Finance Manager' ? 'Finance' : 'Sales'}})</a></li>
                             @else
