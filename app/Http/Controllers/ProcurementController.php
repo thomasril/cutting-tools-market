@@ -42,9 +42,11 @@ class ProcurementController extends Controller
     {
         $validator = $this->validator($request->all());
 
-        if ($validator->fails()) {
+        if ($request->product_id == '0')
+            return redirect()->back()->withErrors(['err' => 'Anda belum memilih produk']);
+
+        if ($validator->fails())
             return redirect()->back()->withErrors(['err' => 'Anda belum memilih supplier']);
-        }
 
         $temp = explode("-", $request->reorder_date);
 

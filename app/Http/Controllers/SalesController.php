@@ -420,7 +420,7 @@ class SalesController extends Controller
     {
         $sales = Sales::where('id', $request->id)->first();
 
-        $sales->status = ($request->status == 'dispatched' ? 'Order Dispatched' : 'Order Completed');
+        $sales->status = ($request->status == 'dispatched' ? 'Order Dispatched' : 'Order Paid');
         $sales->delivery_date = $request->date;
         $sales->save();
 
