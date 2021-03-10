@@ -205,19 +205,19 @@
                                         <input type="hidden" name= "id" id = "category-id">
                                         <div class="form-group">
                                             <label class="col-form-label">Material:</label>
-                                            <input type="text" class="form-control" id="material" name="material">
+                                            <input type="text" class="form-control" id="material" name="material" required>
                                         </div>
-                                        <div class="form-group" id="flutes" style="display:none">
+                                        <div class="form-group" id="flutes">
                                             <label for="message-text" class="col-form-label">Flutes:</label>
-                                            <input type="text" class="form-control" name = "flutes">
+                                            <input type="text" class="form-control" name = "flutes" required>
                                         </div>
-                                        <div class="form-group" id="coating" style="display:none">
+                                        <div class="form-group" id="coating">
                                             <label for="message-text" class="col-form-label">Coating:</label>
-                                            <input type="text" class="form-control"  name = "coating">
+                                            <input type="text" class="form-control"  name = "coating" required>
                                         </div>
-                                        <div class="form-group" id="hardness" style="display:none">
+                                        <div class="form-group" id="hardness">
                                             <label for="message-text" class="col-form-label">Hardness:</label>
-                                            <input type="text" class="form-control"  name = "hardness">
+                                            <input type="text" class="form-control"  name = "hardness" required>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
@@ -294,18 +294,15 @@
         modal.find('.modal-title').text('Update Product for ' + name)
         modal.find('.modal-body #category-id').val(id)
         modal.find('.modal-body #material').val(material)
-
-        if (flutes != ''){
-            modal.find('.modal-body #flutes').show()
-            modal.find('.modal-body #flutes input').val(flutes)
-        }
-        if (coating != ''){
-            modal.find('.modal-body #coating').show().val(coating)
+        modal.find('.modal-body #flutes input').val(flutes)
         modal.find('.modal-body #coating input').val(coating)
-        }
-        if (hardness != ''){
-            modal.find('.modal-body #hardness').show().val(hardness)
-            modal.find('.modal-body #hardness input').val(hardness)
-        }
+        modal.find('.modal-body #hardness input').val(hardness)
+
+        if (flutes == '')
+            modal.find('.modal-body #flutes').remove()
+        if (coating == '')
+            modal.find('.modal-body #coating').remove()
+        if (hardness == '')
+            modal.find('.modal-body #hardness').remove()
     })
 @stop

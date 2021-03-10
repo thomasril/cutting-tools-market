@@ -99,7 +99,7 @@
                                         @if (Auth::user()->role == 'Sales Manager')
                                             <option value = "dispatched">Order Dispatched</option>
                                         @elseif (Auth::user()->role == 'Finance Manager')
-                                            <option value = "completed">Order Completed</option>
+                                            <option value = "completed">Order Paid</option>
                                         @endif
                                     </select>
 

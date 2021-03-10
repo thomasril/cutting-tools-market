@@ -36,7 +36,7 @@
                         <div class="form-group">
                             <label class="col-form-label">Product Type:</label>
                             <select class = "form-control" id = "combo-type">
-                                    <option value = ""
+                                    <option value = "0">--Select Product Type--</option>
                                 @foreach($types as $type)
                                     <option value = "{{$type->type_id}}">{{$type->full_name}}</option>
                                 @endforeach
@@ -45,6 +45,9 @@
 
                         <div class="form-group">
                             <label class="col-form-label">Product Name:</label>
+                                <select class = "form-control" id  = "combo-product-0">
+                                    <option value = "initial">--Select Product Name--</option>
+                                </select>
                             @foreach($products as $product)
                                 <select class = "form-control combo-products" id = "combo-product-{{$product[0]->productType->type_id}}" style="display: none;">
                                     @foreach($product as $p)
@@ -52,7 +55,7 @@
                                     @endforeach
                                 </select>
                             @endforeach
-                            <input type="hidden" name = "product_id" id ="product_id_hidden" value="100410">
+                            <input type="hidden" name = "product_id" id ="product_id_hidden" value="0">
                         </div>
                         <div class="form-group">
                             <label class="col-form-label">Reorder Quantity:</label>
@@ -67,7 +70,7 @@
                         <div class="form-group">
                             <label class="col-form-label">Supplier:</label>
                             <select class = "form-control" name = "supplier">
-                                <option>Select Supplier</option>
+                                <option>--Select Supplier--</option>
                                 @foreach($suppliers as $s)
                                     <option value = "{{$s->initial}}">{{$s->name}}</option>
                                 @endforeach
@@ -86,11 +89,8 @@
 @stop
 
 @section('custom_js')
-    $('#combo-product-1').show();
-
     $('#combo-type').on('change', function() {
         var type_id = this.value
-
         $('#combo-product-' + type_id).show().siblings("select").hide();
     });
 

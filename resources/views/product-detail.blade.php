@@ -142,7 +142,6 @@
 
                 <div class = "row box">
                     <div class = "col">
-
                         <div class = "row">
                             <h4>Product Description</h4>
                         </div>
@@ -153,7 +152,7 @@
                             <div class = "col-lg-10">{{$category->material}}</div>
                         </div>
 
-                        @if(isset($category->hardness))
+                        @if(isset($category->flutes))
                         <div class = "row">
                             <div class = "col-lg-1">Flutes</div>
                             <div class = "col-lg-1">:</div>
@@ -161,7 +160,7 @@
                         </div>
                         @endif
 
-                        @if(isset($category->hardness))
+                        @if(isset($category->coating))
                         <div class = "row">
                             <div class = "col-lg-1">Coating</div>
                             <div class = "col-lg-1">:</div>
